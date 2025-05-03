@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Monitor, Code2, Cpu, Settings2, Terminal, Laptop } from "lucide-react";
+import { Link } from "react-scroll";
 
 export const HeroSection = () => {
   return (
-    <section className="pt-24 min-h-screen flex items-center relative overflow-hidden">
+    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-background z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_1200px_at_100%_200px,var(--primary),transparent)]"></div>
@@ -43,22 +44,30 @@ export const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 py-2 shadow-lg"
-              >
-                Ver Projetos
-              </motion.a>
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input/20 bg-background/50 hover:bg-accent hover:text-accent-foreground h-11 px-6 py-2 backdrop-blur-sm"
-              >
-                Vamos Conversar
-              </motion.a>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="projects"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 py-2 shadow-lg cursor-pointer"
+                >
+                  Ver Projetos
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="contact"
+                  spy={true}
+                  smooth={true}
+                  offset={-80}
+                  duration={500}
+                  className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input/20 bg-background/50 hover:bg-accent hover:text-accent-foreground h-11 px-6 py-2 backdrop-blur-sm cursor-pointer"
+                >
+                  Vamos Conversar
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
 
