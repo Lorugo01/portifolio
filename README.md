@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfólio Profissional
 
 ![Portfólio Preview](public/preview.png)
@@ -119,3 +120,6 @@ Luis Rodrigo Lima
 - [Framer Motion](https://www.framer.com/motion/)
 - [EmailJS](https://www.emailjs.com/)
 - [Vite](https://vitejs.dev/)
+=======
+# portifolio
+>>>>>>> 2938571c0f8c2131ced0bd481eea6b3457ba120c
