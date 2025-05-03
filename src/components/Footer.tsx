@@ -26,8 +26,8 @@ const Footer = () => {
           {/* Logo and description */}
           <div>
             <div className="text-2xl font-bold mb-4">
-              <span className="text-primary">Port</span>
-              <span>fólio</span>
+              <span className="text-primary">Luis </span>
+              <span>Rodrigo</span>
             </div>
             <p className="text-muted-foreground mb-6">
               Transformando ideias em experiências digitais através de design e desenvolvimento de qualidade.
@@ -121,7 +121,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Portfólio. Todos os direitos reservados.
+            © {currentYear} Luis Rodrigo. Todos os direitos reservados.
           </p>
           <p className="text-muted-foreground text-sm mt-2 sm:mt-0">
             Design e Desenvolvimento por <span className="text-primary">Luis Rodrigo</span>
