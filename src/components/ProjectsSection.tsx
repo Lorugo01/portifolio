@@ -4,37 +4,37 @@ const projects = [
   {
     title: "UniverTeca",
     description: "Sistema de gerenciamento de biblioteca universitária com recursos avançados de catalogação e empréstimo.",
-    image: "/projects/UniverTeca.png",
+    image: "/images/UniverTeca.png",
     tags: ["React", "Node.js", "MongoDB", "TypeScript"]
   },
   {
     title: "ByClass",
     description: "Rede social educacional que conecta professores e alunos, permitindo compartilhamento de conteúdo, discussões e gerenciamento de atividades acadêmicas.",
-    image: "/projects/icone.png",
+    image: "/images/icone.png",
     tags: ["Flutter", "Firebase", "Node.js", "MongoDB"]
   },
   {
     title: "ByQuímica",
     description: "Plataforma educacional para ensino de química com experimentos virtuais e exercícios interativos.",
-    image: "/projects/Icone Byquimica.PNG",
+    image: "/images/Icone Byquimica.PNG",
     tags: ["Flutter", "Firebase", "Dart"]
   },
   {
     title: "Alexandria",
     description: "Biblioteca digital com sistema de recomendação baseado em machine learning.",
-    image: "/projects/Alexandria Icone.png",
+    image: "/images/Alexandria Icone.png",
     tags: ["Python", "TensorFlow", "Flask", "PostgreSQL"]
   },
   {
     title: "Global Game Maker",
     description: "Engine para criação de jogos 2D com interface intuitiva e recursos avançados.",
-    image: "/projects/Global-Game-Maker-LOGO.png",
+    image: "/images/Global-Game-Maker-LOGO.png",
     tags: ["C++", "OpenGL", "Python", "Qt"]
   },
   {
     title: "Galileu",
     description: "Sistema de gestão escolar com módulos de notas, frequência e comunicação.",
-    image: "/projects/Galileu Logo.png",
+    image: "/images/Galileu Logo.png",
     tags: ["React", "Node.js", "PostgreSQL", "TypeScript"]
   }
 ];

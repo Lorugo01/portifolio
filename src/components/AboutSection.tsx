@@ -35,9 +35,9 @@ export const AboutSection = () => {
             <div className="glass-card p-6 space-y-4">
               <div className="flex items-center gap-6 mb-6">
                 <img
-                  src="/1730123583060.jpeg"
-                  alt="Luis Rodrigo Lima Rodrigues"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20"
+                  src="/images/1730123583060.jpeg"
+                  alt="Luis Rodrigo Lima"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg hover:border-primary/40 transition-colors"
                 />
                 <div>
                   <h3 className="text-2xl font-semibold text-primary mb-2">Luis Rodrigo Lima Rodrigues</h3>
