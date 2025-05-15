@@ -5,7 +5,6 @@ const services = [
   {
     title: "Desenvolvimento Mobile",
     description: "Criação de aplicativos móveis modernos e responsivos utilizando Flutter/Dart, com foco em experiência do usuário e performance.",
-    icon: "📱",
     features: [
       "Apps multiplataforma com Flutter",
       "Interfaces interativas e animadas",
@@ -16,7 +15,6 @@ const services = [
   {
     title: "Sistemas Educacionais",
     description: "Desenvolvimento de soluções tecnológicas para educação, combinando software e hardware para criar experiências de aprendizado inovadoras.",
-    icon: "🎓",
     features: [
       "Plataformas de gestão educacional",
       "Sistemas de biblioteca digital",
@@ -27,7 +25,6 @@ const services = [
   {
     title: "IoT e Sistemas Embarcados",
     description: "Implementação de soluções IoT e sistemas embarcados, integrando hardware e software para automação e coleta de dados.",
-    icon: "🔧",
     features: [
       "Programação de microcontroladores",
       "Sensores e atuadores",
@@ -38,7 +35,6 @@ const services = [
   {
     title: "Desenvolvimento Web",
     description: "Criação de aplicações web modernas e responsivas, utilizando as mais recentes tecnologias e frameworks do mercado.",
-    icon: "🌐",
     features: [
       "Frontend com React e Vue.js",
       "Backend com Node.js e Python",
@@ -49,7 +45,6 @@ const services = [
   {
     title: "Automação e Sistemas Internos",
     description: "Desenvolvimento de soluções automatizadas e sistemas internos para otimização de processos e melhoria da eficiência operacional.",
-    icon: "⚡",
     features: [
       "Automação de processos",
       "Sistemas de gestão interna",
@@ -60,7 +55,6 @@ const services = [
   {
     title: "Suporte Técnico Especializado",
     description: "Serviços de suporte técnico, manutenção e diagnóstico para hardware e software, garantindo o funcionamento adequado dos sistemas.",
-    icon: "🛠️",
     features: [
       "Manutenção de hardware",
       "Diagnóstico de sistemas",
@@ -103,9 +97,6 @@ export const ServicesSection = () => {
               <Card className="glass-card h-full">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-2xl">
-                      {service.icon}
-                    </span>
                     <h3 className="text-xl font-semibold text-primary">{service.title}</h3>
                   </div>
                   <p className="text-muted-foreground">{service.description}</p>

@@ -70,50 +70,47 @@ export const AboutSection = () => {
             <Card className="glass-card">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-6 text-primary flex items-center gap-2">
-                  <span className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    💡
-                  </span>
                   Habilidades Técnicas
                 </h3>
                 <div className="space-y-4">
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">📱</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Desenvolvimento Mobile</h4>
                     </div>
                     <p className="text-muted-foreground">Flutter/Dart para criação de apps intuitivos e funcionais</p>
                   </div>
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">🔧</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Sistemas Embarcados</h4>
                     </div>
                     <p className="text-muted-foreground">Projetos com microcontroladores, sensores e automação</p>
                   </div>
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">🌐</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Web Development</h4>
                     </div>
                     <p className="text-muted-foreground">HTML, CSS, JavaScript e frameworks modernos</p>
                   </div>
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">🔄</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Integração de Sistemas</h4>
                     </div>
                     <p className="text-muted-foreground">Soluções com IoT e plataformas educacionais</p>
                   </div>
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">🔍</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Depuração e Testes</h4>
                     </div>
                     <p className="text-muted-foreground">Identificação e correção de bugs em software e hardware</p>
                   </div>
                   <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl">🛠️</span>
+                      <span className="text-xl"></span>
                       <h4 className="font-medium text-primary">Manutenção de Hardware</h4>
                     </div>
                     <p className="text-muted-foreground">Montagem e diagnóstico de componentes</p>
