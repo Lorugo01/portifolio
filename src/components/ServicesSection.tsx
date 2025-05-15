@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { ChevronDown } from "lucide-react";
 
 const services = [
   {
@@ -95,19 +97,27 @@ export const ServicesSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="glass-card h-full">
-                <CardContent className="p-6 space-y-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h3 className="text-xl font-semibold text-primary">{service.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-foreground/80">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                <CardContent className="p-6">
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value={`item-${index}`} className="border-none">
+                      <AccordionTrigger className="hover:no-underline">
+                        <h3 className="text-xl font-semibold text-primary text-left">{service.title}</h3>
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="space-y-4">
+                          <p className="text-muted-foreground">{service.description}</p>
+                          <ul className="space-y-2">
+                            {service.features.map((feature, featureIndex) => (
+                              <li key={featureIndex} className="flex items-center gap-2 text-foreground/80">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                {feature}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </CardContent>
               </Card>
             </motion.div>
