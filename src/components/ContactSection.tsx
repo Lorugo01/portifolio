@@ -1,6 +1,105 @@
 import { FormEvent, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+
+// Variants para animações
+const formVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const inputVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.3
+    }
+  },
+  hover: {
+    scale: 1.02,
+    transition: {
+      duration: 0.2
+    }
+  },
+  focus: {
+    scale: 1.02,
+    boxShadow: "0 0 0 2px var(--primary)",
+    transition: {
+      duration: 0.2
+    }
+  }
+};
+
+const contactInfoVariants = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const contactItemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.3
+    }
+  },
+  hover: {
+    scale: 1.03,
+    x: 5,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }
+  }
+};
+
+const socialIconVariants = {
+  hover: {
+    scale: 1.2,
+    rotate: 5,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10
+    }
+  },
+  tap: {
+    scale: 0.95
+  }
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10
+    }
+  },
+  tap: {
+    scale: 0.95
+  }
+};
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -129,24 +228,36 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container-section">
-        <h2 className="section-title text-center mx-auto mb-16 after:left-1/2 after:-translate-x-1/2">
+        <motion.h2 
+          className="section-title text-center mx-auto mb-16 after:left-1/2 after:-translate-x-1/2"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           Contato
-        </h2>
+        </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            variants={formVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="bg-card rounded-lg p-8 shadow-md"
+            className="bg-card rounded-lg p-8 shadow-md backdrop-blur-sm"
           >
-            <h3 className="text-xl font-semibold mb-6">Envie uma mensagem</h3>
+            <motion.h3 
+              className="text-xl font-semibold mb-6 text-primary"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              Envie uma mensagem
+            </motion.h3>
             
-            <form onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <motion.div variants={inputVariants}>
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary/80">
                   Nome
                 </label>
                 <input
@@ -155,13 +266,13 @@ const ContactSection = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
                   placeholder="Seu nome"
                 />
-              </div>
+              </motion.div>
               
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+              <motion.div variants={inputVariants}>
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary/80">
                   Email
                 </label>
                 <input
@@ -170,13 +281,13 @@ const ContactSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
                   placeholder="Seu email"
                 />
-              </div>
+              </motion.div>
               
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <motion.div variants={inputVariants}>
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary/80">
                   Mensagem
                 </label>
                 <textarea
@@ -184,91 +295,160 @@ const ContactSection = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background min-h-[120px]"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 min-h-[120px] focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
                   placeholder="Como posso ajudar?"
-                ></textarea>
-              </div>
+                />
+              </motion.div>
               
-              {formStatus.submitted && (
-                <div className={`mb-4 p-3 rounded-md ${formStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                  {formStatus.message}
-                </div>
-              )}
+              <AnimatePresence>
+                {formStatus.submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`p-3 rounded-md ${
+                      formStatus.success 
+                        ? 'bg-green-100/80 text-green-800 backdrop-blur-sm' 
+                        : 'bg-red-100/80 text-red-800 backdrop-blur-sm'
+                    }`}
+                  >
+                    {formStatus.message}
+                  </motion.div>
+                )}
+              </AnimatePresence>
               
-              <button 
+              <motion.button 
                 type="submit" 
-                className="btn-primary w-full" 
+                className="btn-primary w-full relative overflow-hidden group"
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
                 disabled={formStatus.loading}
               >
-                {formStatus.loading ? 'Enviando...' : 'Enviar mensagem'}
-              </button>
+                <motion.span
+                  className="absolute inset-0 bg-primary/20"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.5 }}
+                />
+                <span className="relative z-10">
+                  {formStatus.loading ? 'Enviando...' : 'Enviar mensagem'}
+                </span>
+              </motion.button>
             </form>
           </motion.div>
           
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            variants={contactInfoVariants}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-semibold mb-6">Informações de contato</h3>
+            <motion.h3 
+              className="text-xl font-semibold mb-6 text-primary"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              Informações de contato
+            </motion.h3>
             
             <div className="space-y-6 mb-8">
               {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-lg">
+                <motion.div
+                  key={index}
+                  variants={contactItemVariants}
+                  whileHover="hover"
+                  className="flex items-start space-x-4 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-colors"
+                >
+                  <motion.div 
+                    className="bg-primary/10 p-3 rounded-lg"
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: 5,
+                      backgroundColor: "var(--primary)",
+                      color: "white"
+                    }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
                     {item.icon}
-                  </div>
+                  </motion.div>
                   <div>
-                    <h4 className="font-medium">{item.title}</h4>
+                    <h4 className="font-medium text-primary/90">{item.title}</h4>
                     <p className="text-muted-foreground">{item.info}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
             
             <div>
-              <h4 className="font-medium mb-4">Me siga nas redes sociais</h4>
+              <motion.h4 
+                className="font-medium mb-4 text-primary/90"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                Me siga nas redes sociais
+              </motion.h4>
               <div className="flex space-x-4">
-                <a
-                  href="https://www.linkedin.com/in/luisrodrigolima/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 hover:bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect width="4" height="12" x="2" y="9"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/Lorugo01"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 hover:bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-                  aria-label="GitHub"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3.5 1.5a13.25 13.25 0 0 0-7 0C5 2 4 2 4 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 3 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                    <path d="M9 18c-4.5 2-5-2-7-2"></path>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.instagram.com/lorugolabs/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-primary/10 hover:bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-                  aria-label="Instagram"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                  </svg>
-                </a>
+                {[
+                  {
+                    href: "https://www.linkedin.com/in/luisrodrigolima/",
+                    label: "LinkedIn",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect width="4" height="12" x="2" y="9"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                    )
+                  },
+                  {
+                    href: "https://github.com/Lorugo01",
+                    label: "GitHub",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3.5 1.5a13.25 13.25 0 0 0-7 0C5 2 4 2 4 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 3 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                        <path d="M9 18c-4.5 2-5-2-7-2"></path>
+                      </svg>
+                    )
+                  },
+                  {
+                    href: "https://www.instagram.com/lorugolabs/",
+                    label: "Instagram",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                      </svg>
+                    )
+                  }
+                ].map((social, index) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary/10 hover:bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center transition-colors relative overflow-hidden group"
+                    aria-label={social.label}
+                    variants={socialIconVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-primary/20"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.5 }}
+                    />
+                    <span className="relative z-10">{social.icon}</span>
+                  </motion.a>
+                ))}
               </div>
             </div>
           </motion.div>

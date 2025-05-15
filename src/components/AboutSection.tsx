@@ -3,26 +3,146 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Download } from "lucide-react";
 
+const skillCardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }),
+  hover: {
+    scale: 1.02,
+    backgroundColor: "rgba(var(--primary), 0.1)",
+    transition: {
+      duration: 0.2
+    }
+  }
+};
+
+const imageVariants = {
+  hover: {
+    scale: 1.05,
+    rotate: 5,
+    borderColor: "rgba(var(--primary), 0.4)",
+    transition: {
+      duration: 0.3
+    }
+  }
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    transition: {
+      duration: 0.2,
+      type: "spring",
+      stiffness: 300
+    }
+  },
+  tap: {
+    scale: 0.95
+  }
+};
+
+const textHoverVariants = {
+  hover: {
+    color: "var(--primary)",
+    x: 5,
+    transition: {
+      duration: 0.2,
+      ease: "easeInOut"
+    }
+  }
+};
+
+const paragraphHoverVariants = {
+  initial: {
+    backgroundSize: "0% 2px",
+    backgroundPosition: "0 100%",
+    backgroundRepeat: "no-repeat",
+    backgroundImage: "linear-gradient(to right, var(--primary), var(--primary))",
+  },
+  hover: {
+    backgroundSize: "100% 2px",
+    transition: {
+      duration: 0.3
+    }
+  }
+};
+
+const descriptionHoverVariants = {
+  hover: {
+    color: "var(--foreground)",
+    scale: 1.01,
+    transition: {
+      duration: 0.2
+    }
+  }
+};
+
 export const AboutSection = () => {
   return (
     <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background Elements com animação */}
       <div className="absolute inset-0 bg-background/50">
-        <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_500px_at_50%_200px,var(--primary),transparent)]"></div>
-        <div className="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,var(--primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--primary)_1px,transparent_1px)]" style={{ backgroundSize: '24px 24px' }}></div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.3 }}
+          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,var(--primary),transparent)]"
+        />
+        <motion.div
+          initial={{ opacity: 0, backgroundPosition: "0px 0px" }}
+          animate={{ opacity: 0.2, backgroundPosition: "24px 24px" }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 bg-[linear-gradient(to_right,var(--primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--primary)_1px,transparent_1px)]"
+          style={{ backgroundSize: '24px 24px' }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="section-title">Sobre Mim</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <motion.h2 
+            className="section-title cursor-pointer"
+            whileInView={{
+              backgroundSize: ["100% 0%", "100% 100%"],
+              transition: { duration: 1, ease: "easeOut" }
+            }}
+            whileHover={{
+              scale: 1.02,
+              color: "var(--primary)",
+              transition: { duration: 0.2 }
+            }}
+            style={{
+              backgroundImage: "linear-gradient(transparent 60%, var(--primary-foreground) 40%)",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "0 0",
+            }}
+          >
+            Sobre Mim
+          </motion.h2>
+          <motion.p 
+            className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{
+              scale: 1.01,
+              color: "var(--primary)",
+              transition: { duration: 0.2 }
+            }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
             Desenvolvedor apaixonado por transformar ideias em experiências digitais eficazes
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -32,34 +152,90 @@ export const AboutSection = () => {
             transition={{ duration: 0.5 }}
             className="space-y-6"
           >
-            <div className="glass-card p-6 space-y-4">
+            <motion.div 
+              className="glass-card p-6 space-y-4"
+              whileHover={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.2)" }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="flex items-center gap-6 mb-6">
-                <img
+                <motion.img
                   src="/images/1730123583060.jpeg"
                   alt="Luis Rodrigo Lima"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg hover:border-primary/40 transition-colors"
+                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg"
+                  variants={imageVariants}
+                  whileHover="hover"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
                 />
-                <div>
-                  <h3 className="text-2xl font-semibold text-primary mb-2">Luis Rodrigo Lima Rodrigues</h3>
-                  <p className="text-muted-foreground">Desenvolvedor Júnior</p>
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
+                  <motion.h3 
+                    className="text-2xl font-semibold text-primary mb-2 cursor-pointer"
+                    whileHover={{
+                      scale: 1.02,
+                      x: 5,
+                      transition: { duration: 0.2 }
+                    }}
+                  >
+                    Luis Rodrigo Lima Rodrigues
+                  </motion.h3>
+                  <motion.p 
+                    className="text-muted-foreground cursor-pointer"
+                    variants={textHoverVariants}
+                    whileHover="hover"
+                  >
+                    Desenvolvedor Júnior
+                  </motion.p>
+                </motion.div>
               </div>
-              <p className="text-foreground/90 leading-relaxed">
-                Sou Luis Rodrigo Lima Rodrigues, programador com experiência prática no desenvolvimento de soluções tecnológicas voltadas para a educação e o bem-estar. Atualmente atuo na Globaltec Educacional, onde colaboro em projetos inovadores que integram software, hardware educacional e tecnologias interativas.
-              </p>
-              <p className="text-foreground/90 leading-relaxed">
-                Iniciei minha trajetória profissional como estagiário de programação em uma clínica médica, desenvolvendo sistemas internos e ferramentas de melhoria da experiência dos pacientes. Além disso, tive uma passagem significativa como assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.
-              </p>
-              <p className="text-foreground/90 leading-relaxed">
-                Sou graduando em Engenharia de Software pela UNDB, com sólida base em linguagens como Dart (Flutter), Python e C++, e conhecimentos em HTML, CSS e JavaScript. Tenho também vivência no desenvolvimento de sistemas com foco em automação, integração de dispositivos IoT, e construção de interfaces interativas.
-              </p>
-              <div className="pt-4">
-                <Button className="btn-primary flex items-center gap-2" onClick={() => window.open('/Luis Rodrigo Lima Rodrigues.pdf', '_blank')}>
-                  <Download size={20} />
-                  Baixar Currículo
-                </Button>
-              </div>
-            </div>
+              {/* Parágrafos com fade in sequencial e efeito hover */}
+              {[
+                "Sou Luis Rodrigo Lima Rodrigues, programador com experiência prática no desenvolvimento de soluções tecnológicas voltadas para a educação e o bem-estar. Atualmente atuo na Globaltec Educacional, onde colaboro em projetos inovadores que integram software, hardware educacional e tecnologias interativas.",
+                "Iniciei minha trajetória profissional como estagiário de programação em uma clínica médica, desenvolvendo sistemas internos e ferramentas de melhoria da experiência dos pacientes. Além disso, tive uma passagem significativa como assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.",
+                "Sou graduando em Engenharia de Software pela UNDB, com sólida base em linguagens como Dart (Flutter), Python e C++, e conhecimentos em HTML, CSS e JavaScript. Tenho também vivência no desenvolvimento de sistemas com foco em automação, integração de dispositivos IoT, e construção de interfaces interativas."
+              ].map((text, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 10, ...paragraphHoverVariants.initial }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover="hover"
+                  variants={paragraphHoverVariants}
+                  transition={{ delay: index * 0.2, duration: 0.5 }}
+                  className="text-foreground/90 leading-relaxed cursor-pointer"
+                >
+                  {text}
+                </motion.p>
+              ))}
+              <motion.div 
+                className="pt-4"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8, duration: 0.5 }}
+              >
+                <motion.div
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                >
+                  <Button 
+                    className="btn-primary flex items-center gap-2" 
+                    onClick={() => window.open('/Luis Rodrigo Lima Rodrigues.pdf', '_blank')}
+                  >
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Download size={20} />
+                    </motion.div>
+                    Baixar Currículo
+                  </Button>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -69,52 +245,77 @@ export const AboutSection = () => {
           >
             <Card className="glass-card">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6 text-primary flex items-center gap-2">
+                <motion.h3 
+                  className="text-xl font-semibold mb-6 text-primary flex items-center gap-2 cursor-pointer"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  whileHover={{
+                    scale: 1.05,
+                    x: 5,
+                    transition: { duration: 0.2 }
+                  }}
+                  transition={{ duration: 0.5 }}
+                >
                   Habilidades Técnicas
-                </h3>
+                </motion.h3>
                 <div className="space-y-4">
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Desenvolvimento Mobile</h4>
-                    </div>
-                    <p className="text-muted-foreground">Flutter/Dart para criação de apps intuitivos e funcionais</p>
-                  </div>
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Sistemas Embarcados</h4>
-                    </div>
-                    <p className="text-muted-foreground">Projetos com microcontroladores, sensores e automação</p>
-                  </div>
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Web Development</h4>
-                    </div>
-                    <p className="text-muted-foreground">HTML, CSS, JavaScript e frameworks modernos</p>
-                  </div>
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Integração de Sistemas</h4>
-                    </div>
-                    <p className="text-muted-foreground">Soluções com IoT e plataformas educacionais</p>
-                  </div>
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Depuração e Testes</h4>
-                    </div>
-                    <p className="text-muted-foreground">Identificação e correção de bugs em software e hardware</p>
-                  </div>
-                  <div className="glass-card p-4 hover:bg-primary/5 transition-colors">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xl"></span>
-                      <h4 className="font-medium text-primary">Manutenção de Hardware</h4>
-                    </div>
-                    <p className="text-muted-foreground">Montagem e diagnóstico de componentes</p>
-                  </div>
+                  {[
+                    {
+                      title: "Desenvolvimento Mobile",
+                      description: "Flutter/Dart para criação de apps intuitivos e funcionais"
+                    },
+                    {
+                      title: "Sistemas Embarcados",
+                      description: "Projetos com microcontroladores, sensores e automação"
+                    },
+                    {
+                      title: "Web Development",
+                      description: "HTML, CSS, JavaScript e frameworks modernos"
+                    },
+                    {
+                      title: "Integração de Sistemas",
+                      description: "Soluções com IoT e plataformas educacionais"
+                    },
+                    {
+                      title: "Depuração e Testes",
+                      description: "Identificação e correção de bugs em software e hardware"
+                    },
+                    {
+                      title: "Manutenção de Hardware",
+                      description: "Montagem e diagnóstico de componentes"
+                    }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={index}
+                      className="glass-card p-4 cursor-pointer"
+                      variants={skillCardVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      whileHover="hover"
+                      custom={index}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <motion.span 
+                          className="w-2 h-2 rounded-full bg-primary"
+                          whileHover={{ scale: 1.5 }}
+                        />
+                        <motion.h4 
+                          className="font-medium text-primary"
+                          variants={textHoverVariants}
+                          whileHover="hover"
+                        >
+                          {skill.title}
+                        </motion.h4>
+                      </div>
+                      <motion.p 
+                        className="text-muted-foreground"
+                        variants={descriptionHoverVariants}
+                        whileHover="hover"
+                      >
+                        {skill.description}
+                      </motion.p>
+                    </motion.div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
