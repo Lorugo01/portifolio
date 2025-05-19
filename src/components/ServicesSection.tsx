@@ -266,8 +266,8 @@ export const ServicesSection = () => {
                           >
                             {service.description}
                           </motion.p>
-                          <ul className="space-y-2">
-                            {service.features.map((feature, featureIndex) => (
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
                               <motion.li
                                 key={featureIndex}
                                 variants={textVariants}
@@ -286,11 +286,11 @@ export const ServicesSection = () => {
                                   variants={textVariants}
                                   whileHover="hover"
                                 >
-                                  {feature}
+                        {feature}
                                 </motion.span>
                               </motion.li>
-                            ))}
-                          </ul>
+                    ))}
+                  </ul>
                         </motion.div>
                       </AccordionContent>
                     </AccordionItem>

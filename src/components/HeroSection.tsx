@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { Monitor, Code2, Cpu, Settings2, Terminal, Laptop } from "lucide-react";
 import { Link } from "react-scroll";
+import Typewriter from "typewriter-effect";
+import { useRef, useEffect } from "react";
 
 export const HeroSection = () => {
+  const locationRef = useRef<any>(null);
+  const institutionRef = useRef<any>(null);
+  const descriptionRef = useRef<any>(null);
+
   return (
     <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
       {/* Background Elements */}
@@ -22,25 +28,82 @@ export const HeroSection = () => {
           >
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Luis Rodrigo Lima{" "}
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5, duration: 0.3 }}
-                  className="inline-block text-primary"
-                >
-                  ✓
-                </motion.span>
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString('Luis Rodrigo Lima')
+                      .callFunction(() => {
+                        // Inicia a digitação da localização após o nome
+                        if (locationRef.current) {
+                          locationRef.current.start();
+                        }
+                      })
+                      .start();
+                  }}
+                  options={{
+                    delay: 75,
+                    cursor: '|',
+                    wrapperClassName: 'text-primary'
+                  }}
+                />
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground/90">
-                Desenvolvedor de Software | Dart, JavaScript, Python, Java,
-                C++, HTML, CSS
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString('Desenvolvedor de Software | Dart, JavaScript, Python, Java, C++, HTML, CSS')
+                      .callFunction(() => {
+                        // Inicia a digitação da descrição após a localização
+                        if (descriptionRef.current) {
+                          descriptionRef.current.start();
+                        }
+                      })
+                      .start();
+                  }}
+                  options={{
+                    delay: 40,
+                    cursor: '|',
+                    wrapperClassName: 'text-muted-foreground/90'
+                  }}
+                />
               </p>
             </div>
             
             <div className="space-y-2 text-muted-foreground/80">
-              <p>São Luís, Maranhão, Brasil</p>
-              <p>GlobalTec Educacional | UNDB - Unidade de Ensino Superior Dom Bosco</p>
+              <Typewriter
+                onInit={(typewriter) => {
+                  locationRef.current = typewriter;
+                  typewriter
+                    .typeString('São Luís, Maranhão, Brasil')
+                    .callFunction(() => {
+                      // Inicia a digitação da instituição após a localização
+                      if (institutionRef.current) {
+                        institutionRef.current.start();
+                      }
+                    })
+                    .pauseFor(1000);
+                }}
+                options={{
+                  delay: 30,
+                  cursor: '|',
+                  wrapperClassName: 'text-muted-foreground/80',
+                  autoStart: false
+                }}
+              />
+              <Typewriter
+                onInit={(typewriter) => {
+                  institutionRef.current = typewriter;
+                  typewriter
+                    .typeString('GlobalTec Educacional | UNDB - Unidade de Ensino Superior Dom Bosco')
+                    .pauseFor(1000);
+                }}
+                options={{
+                  delay: 30,
+                  cursor: '|',
+                  wrapperClassName: 'text-muted-foreground/80',
+                  autoStart: false
+                }}
+              />
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">

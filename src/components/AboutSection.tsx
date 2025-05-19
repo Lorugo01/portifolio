@@ -229,10 +229,10 @@ export const AboutSection = () => {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     >
-                      <Download size={20} />
+                  <Download size={20} />
                     </motion.div>
-                    Baixar Currículo
-                  </Button>
+                  Baixar Currículo
+                </Button>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -294,7 +294,7 @@ export const AboutSection = () => {
                       whileHover="hover"
                       custom={index}
                     >
-                      <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-2">
                         <motion.span 
                           className="w-2 h-2 rounded-full bg-primary"
                           whileHover={{ scale: 1.5 }}
@@ -306,7 +306,7 @@ export const AboutSection = () => {
                         >
                           {skill.title}
                         </motion.h4>
-                      </div>
+                    </div>
                       <motion.p 
                         className="text-muted-foreground"
                         variants={descriptionHoverVariants}
