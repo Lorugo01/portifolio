@@ -4,7 +4,6 @@ import { Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
 import { useRef } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
-import { LanguageToggle } from "./LanguageToggle";
 
 export const HeroSection = () => {
   const descriptionRef = useRef<any>(null);
@@ -12,8 +11,6 @@ export const HeroSection = () => {
 
   return (
     <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
-      <LanguageToggle />
-      
       {/* Background Elements */}
       <div className="absolute inset-0 bg-background z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_1200px_at_100%_200px,var(--primary),transparent)]"></div>
