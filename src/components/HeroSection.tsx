@@ -2,15 +2,20 @@ import { motion } from "framer-motion";
 import { Monitor, Code2, Cpu, Settings2, Terminal, Laptop } from "lucide-react";
 import { Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { LanguageToggle } from "./LanguageToggle";
 
 export const HeroSection = () => {
   const locationRef = useRef<any>(null);
   const institutionRef = useRef<any>(null);
   const descriptionRef = useRef<any>(null);
+  const { t } = useLanguage();
 
   return (
     <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
+      <LanguageToggle />
+      
       {/* Background Elements */}
       <div className="absolute inset-0 bg-background z-0">
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_1200px_at_100%_200px,var(--primary),transparent)]"></div>
@@ -31,9 +36,8 @@ export const HeroSection = () => {
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
-                      .typeString('Luis Rodrigo Lima')
+                      .typeString(t('hero.name'))
                       .callFunction(() => {
-                        // Inicia a digitação da localização após o nome
                         if (locationRef.current) {
                           locationRef.current.start();
                         }
@@ -51,9 +55,8 @@ export const HeroSection = () => {
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
-                      .typeString('Desenvolvedor de Software | Dart, JavaScript, Python, Java, C++, HTML, CSS')
+                      .typeString(t('hero.title'))
                       .callFunction(() => {
-                        // Inicia a digitação da descrição após a localização
                         if (descriptionRef.current) {
                           descriptionRef.current.start();
                         }
@@ -74,9 +77,8 @@ export const HeroSection = () => {
                 onInit={(typewriter) => {
                   locationRef.current = typewriter;
                   typewriter
-                    .typeString('São Luís, Maranhão, Brasil')
+                    .typeString(t('hero.location'))
                     .callFunction(() => {
-                      // Inicia a digitação da instituição após a localização
                       if (institutionRef.current) {
                         institutionRef.current.start();
                       }
@@ -94,7 +96,7 @@ export const HeroSection = () => {
                 onInit={(typewriter) => {
                   institutionRef.current = typewriter;
                   typewriter
-                    .typeString('GlobalTec Educacional | UNDB - Unidade de Ensino Superior Dom Bosco')
+                    .typeString(t('hero.institution'))
                     .pauseFor(1000);
                 }}
                 options={{
@@ -116,7 +118,7 @@ export const HeroSection = () => {
                   duration={500}
                   className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 py-2 shadow-lg cursor-pointer"
                 >
-                  Ver Projetos
+                  {t('hero.projects')}
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -128,7 +130,7 @@ export const HeroSection = () => {
                   duration={500}
                   className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input/20 bg-background/50 hover:bg-accent hover:text-accent-foreground h-11 px-6 py-2 backdrop-blur-sm cursor-pointer"
                 >
-                  Vamos Conversar
+                  {t('hero.contact')}
                 </Link>
               </motion.div>
             </div>
@@ -245,7 +247,7 @@ export const HeroSection = () => {
         transition={{ delay: 1, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/60 flex flex-col items-center gap-2 z-20"
       >
-        <span className="text-sm">Scroll</span>
+        <span className="text-sm">{t('hero.scroll')}</span>
         <motion.div
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

@@ -26,27 +26,27 @@ interface ProjectModalProps {
 
 const projects: Project[] = [
   {
-    title: "UniverTeca",
-    description: "Sistema de gerenciamento de biblioteca universitária com recursos avançados de catalogação e empréstimo.",
+    title: "LudiTeca",
+    description: "Sistema de gerenciamento de biblioteca de livros interativos com painel de controle e para a criação dos livros.",
     image: "/images/UniverTeca.png",
-    tags: ["React", "Node.js", "MongoDB", "TypeScript"],
+    tags: ["React", "Node.js", "Supabase", "Flutter"],
     details: {
-      overview: "Sistema completo de gestão bibliotecária desenvolvido para universidades, com foco em usabilidade e eficiência.",
+      overview: "Sistema de gerenciamento de biblioteca de livros interativos com painel de controle e para a criação dos livros, com foco em usabilidade e design.",
       technologies: {
         frontend: [
-          "React com TypeScript para interface moderna e tipada",
-          "Material-UI para componentes visuais consistentes",
-          "Redux para gerenciamento de estado",
-          "React Query para cache e sincronização de dados"
+          "Flutter é utilizado para criar uma aplicação multiplataforma, garantindo uma experiência consistente tanto em dispositivos móveis quanto na web.",
+          "Material-UI fornece uma biblioteca de componentes visuais modernos e coerentes com o design system, facilitando a padronização visual da aplicação.",
+          "Redux é responsável pelo gerenciamento centralizado do estado da aplicação, proporcionando previsibilidade e organização no fluxo de dado",
+          "React Query é utilizado para otimizar o carregamento, cache e sincronização dos dados entre o frontend e o backend, garantindo atualizações rápidas e confiáveis"
         ],
         backend: [
-          "Node.js com Express para API RESTful",
-          "MongoDB para armazenamento flexível de dados",
-          "JWT para autenticação segura",
-          "Socket.IO para atualizações em tempo real"
+          "Node.js com Express serve como base para a criação de uma API RESTful robusta, com rotas organizadas e manutenção facilitada",
+          "Supabase é empregado como banco de dados NoSQL, oferecendo flexibilidade na modelagem de dados para os livros interativos e seus metadados.",
+          "JWT (JSON Web Token) implementa a autenticação de forma segura e eficiente, permitindo controle de acesso baseado em perfis de usuários.",
+          "Socket.IO viabiliza comunicação em tempo real entre o servidor e os clientes, ideal para notificações instantâneas e interações dinâmicas no painel de controle"
         ],
         features: [
-          "Catálogo digital com busca avançada",
+          "Catálogo digital interativo, com sistema de busca avançada por títulos, autores, gêneros e palavras-chave.",
           "Sistema de empréstimo automatizado",
           "Gestão de usuários e permissões",
           "Relatórios e estatísticas em tempo real"
@@ -58,21 +58,17 @@ const projects: Project[] = [
     title: "ByClass",
     description: "Rede social educacional que conecta professores e alunos, permitindo compartilhamento de conteúdo, discussões e gerenciamento de atividades acadêmicas.",
     image: "/images/icone.png",
-    tags: ["Flutter", "Firebase", "Node.js", "MongoDB"],
+    tags: ["Flutter", "PHP", "Mysql"],
     details: {
       overview: "Plataforma social educacional que revoluciona a interação entre professores e alunos, facilitando o aprendizado colaborativo.",
       technologies: {
-        mobile: [
+        frontend: [
           "Flutter para desenvolvimento multiplataforma",
-          "Provider para gerenciamento de estado",
-          "Firebase Authentication para login seguro",
-          "Cloud Firestore para banco de dados em tempo real"
+          "GetX para gerenciamento de estado",
         ],
         backend: [
-          "Node.js com Express para API",
-          "MongoDB para armazenamento de dados",
-          "Firebase Cloud Functions para automação",
-          "Firebase Cloud Storage para arquivos"
+          "Php para backend",
+          "Mysql para banco de dados",
         ],
         features: [
           "Feed de atividades em tempo real",
@@ -87,50 +83,44 @@ const projects: Project[] = [
     title: "ByQuímica",
     description: "Plataforma educacional para ensino de química com experimentos virtuais e exercícios interativos.",
     image: "/images/Icone Byquimica.PNG",
-    tags: ["Flutter", "Firebase", "Dart"],
+    tags: ["Flutter", "INO" , "Arduino"],
     details: {
       overview: "Aplicativo educacional inovador que transforma o aprendizado de química através de experimentos virtuais e conteúdo interativo.",
       technologies: {
-        mobile: [
+        frontend: [
           "Flutter/Dart para desenvolvimento multiplataforma",
           "GetX para gerenciamento de estado",
-          "Firebase para autenticação e banco de dados",
           "Flutter Animations para interatividade"
         ],
+        backend: [
+          "INO para hardware",
+          "Arduino para hardware",
+          "Arduino IDE para desenvolvimento de hardware",        ],
         features: [
           "Simulador de experimentos químicos",
           "Exercícios interativos com feedback",
           "Biblioteca de conteúdo multimídia",
           "Sistema de progresso e gamificação"
-        ],
-        backend: [
-          "Firebase Authentication",
-          "Cloud Firestore",
-          "Firebase Storage",
-          "Cloud Functions"
         ]
       }
     }
   },
   {
     title: "Alexandria",
-    description: "Biblioteca digital com sistema de recomendação baseado em machine learning.",
+    description: "Biblioteca digital com acervo focado em educação.",
     image: "/images/Alexandria Icone.png",
-    tags: ["Python", "TensorFlow", "Flask", "PostgreSQL"],
+    tags: ["Flutter", "Dart", "PHP", "Mysql"],
     details: {
       overview: "Plataforma de biblioteca digital inteligente que utiliza machine learning para recomendar conteúdo personalizado aos usuários.",
       technologies: {
-        backend: [
-          "Python com Flask para API RESTful",
-          "TensorFlow para algoritmos de ML",
-          "PostgreSQL para banco de dados",
-          "Redis para cache e filas"
-        ],
         frontend: [
-          "React para interface moderna",
-          "Material-UI para componentes",
-          "Redux para gerenciamento de estado",
-          "Chart.js para visualizações"
+          "Flutter para desenvolvimento multiplataforma",
+          "GetX para gerenciamento de estado",
+          "Flutter Animations para interatividade"
+        ],
+        backend: [
+          "Php para backend",
+          "Mysql para banco de dados",
         ],
         features: [
           "Sistema de recomendação inteligente",
@@ -142,30 +132,30 @@ const projects: Project[] = [
     }
   },
   {
-    title: "Global Game Maker",
-    description: "Engine para criação de jogos 2D com interface intuitiva e recursos avançados.",
+    title: "ByGames",
+    description: "Site de gerencimanto de jogos educativos para crianças de todas as idades com sistema de administração e gerenciamento de jogos e usuarios.",
     image: "/images/Global-Game-Maker-LOGO.png",
-    tags: ["C++", "OpenGL", "Python", "Qt"],
+    tags: ["flutter", "Dart", "Php", "Mysql"],
     details: {
-      overview: "Engine de jogos 2D profissional com foco em usabilidade e performance, permitindo a criação de jogos sem necessidade de conhecimento profundo em programação.",
+      overview: " Site de gerencimanto de jogos educativos para crianças de todas as idades com sistema de administração e gerenciamento de jogos e usuarios.",
       technologies: {
-        core: [
-          "C++ para o motor de jogos",
-          "OpenGL para renderização 2D",
-          "Box2D para física",
-          "SDL para input e áudio"
+        frontend: [
+          "Flutter para desenvolvimento multiplataforma",
+          "GetX para gerenciamento de estado",
+          "Firebase para autenticação e banco de dados",
+          "Flutter Animations para interatividade"
         ],
-        editor: [
-          "Qt para interface gráfica",
-          "Python para scripting",
-          "OpenGL para preview",
-          "JSON para serialização"
+        backend: [
+          "Php para backend",
+          "Mysql para banco de dados",
         ],
         features: [
-          "Editor visual intuitivo",
-          "Sistema de eventos visual",
-          "Exportação multiplataforma",
-          "Asset pipeline otimizado"
+          "Gestão de jogos educativos",
+          "Gestão de usuários",
+          "Gestão de categorias",
+          "Gestão de tags",
+          "Gestão de avaliações",
+          "Gestão de feedbacks",
         ]
       }
     }
