@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Code2, Cpu, Settings2, Terminal, Laptop } from "lucide-react";
 import { Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
@@ -107,7 +107,17 @@ export const HeroSection = () => {
                   duration={500}
                   className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-6 py-2 shadow-lg cursor-pointer"
                 >
-                  {t('hero.projects')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('hero.projects')}
+                    </motion.span>
+                  </AnimatePresence>
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -119,7 +129,17 @@ export const HeroSection = () => {
                   duration={500}
                   className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input/20 bg-background/50 hover:bg-accent hover:text-accent-foreground h-11 px-6 py-2 backdrop-blur-sm cursor-pointer"
                 >
-                  {t('hero.contact')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('hero.contact')}
+                    </motion.span>
+                  </AnimatePresence>
                 </Link>
               </motion.div>
             </div>
@@ -236,7 +256,18 @@ export const HeroSection = () => {
         transition={{ delay: 1, duration: 0.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/60 flex flex-col items-center gap-2 z-20"
       >
-        <span className="text-sm">{t('hero.scroll')}</span>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={language}
+            initial={{ opacity: 0, x: 10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.25 }}
+            className="text-sm"
+          >
+            {t('hero.scroll')}
+          </motion.span>
+        </AnimatePresence>
         <motion.div
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}

@@ -50,11 +50,11 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter é utilizado para criar uma aplicação multiplataforma, garantindo uma experiência consistente tanto em dispositivos móveis quanto na web.",
-            "Material-UI fornece uma biblioteca de componentes visuais modernos e coerentes com o design system, facilitando a padronização visual da aplicação.",
-            "Redux é responsável pelo gerenciamento centralizado do estado da aplicação, proporcionando previsibilidade e organização no fluxo de dado",
-            "React Query é utilizado para otimizar o carregamento, cache e sincronização dos dados entre o frontend e o backend, garantindo atualizações rápidas e confiáveis"
-          ],
+          "Flutter é utilizado para criar uma aplicação multiplataforma, garantindo uma experiência consistente tanto em dispositivos móveis quanto na web.",
+          "Material-UI fornece uma biblioteca de componentes visuais modernos e coerentes com o design system, facilitando a padronização visual da aplicação.",
+          "Redux é responsável pelo gerenciamento centralizado do estado da aplicação, proporcionando previsibilidade e organização no fluxo de dado",
+          "React Query é utilizado para otimizar o carregamento, cache e sincronização dos dados entre o frontend e o backend, garantindo atualizações rápidas e confiáveis"
+        ],
           en: [
             "Flutter is used to create a multiplatform application, ensuring a consistent experience on both mobile devices and the web.",
             "Material-UI provides a library of modern visual components consistent with the design system, facilitating visual standardization of the application.",
@@ -64,11 +64,11 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "Node.js com Express serve como base para a criação de uma API RESTful robusta, com rotas organizadas e manutenção facilitada",
-            "Supabase é empregado como banco de dados NoSQL, oferecendo flexibilidade na modelagem de dados para os livros interativos e seus metadados.",
-            "JWT (JSON Web Token) implementa a autenticação de forma segura e eficiente, permitindo controle de acesso baseado em perfis de usuários.",
-            "Socket.IO viabiliza comunicação em tempo real entre o servidor e os clientes, ideal para notificações instantâneas e interações dinâmicas no painel de controle"
-          ],
+          "Node.js com Express serve como base para a criação de uma API RESTful robusta, com rotas organizadas e manutenção facilitada",
+          "Supabase é empregado como banco de dados NoSQL, oferecendo flexibilidade na modelagem de dados para os livros interativos e seus metadados.",
+          "JWT (JSON Web Token) implementa a autenticação de forma segura e eficiente, permitindo controle de acesso baseado em perfis de usuários.",
+          "Socket.IO viabiliza comunicação em tempo real entre o servidor e os clientes, ideal para notificações instantâneas e interações dinâmicas no painel de controle"
+        ],
           en: [
             "Node.js with Express serves as the base for creating a robust RESTful API, with organized routes and easy maintenance.",
             "Supabase is used as a NoSQL database, offering flexibility in modeling data for interactive books and their metadata.",
@@ -78,10 +78,10 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Catálogo digital interativo, com sistema de busca avançada por títulos, autores, gêneros e palavras-chave.",
-            "Sistema de empréstimo automatizado",
-            "Gestão de usuários e permissões",
-            "Relatórios e estatísticas em tempo real"
+          "Catálogo digital interativo, com sistema de busca avançada por títulos, autores, gêneros e palavras-chave.",
+          "Sistema de empréstimo automatizado",
+          "Gestão de usuários e permissões",
+          "Relatórios e estatísticas em tempo real"
           ],
           en: [
             "Interactive digital catalog, with advanced search system by titles, authors, genres, and keywords.",
@@ -112,13 +112,13 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter para desenvolvimento multiplataforma (Android/iOS)",
-            "GetX para gerenciamento de estado, rotas e injeção de dependência",
-            "Componentes customizados com Material Design adaptados à identidade visual educacional",
-            "Responsividade completa com adaptação a tablets e celulares",
-            "Consumo de REST APIs para autenticação, feed e conteúdos",
-            "Integração com Firebase Messaging para notificações push"
-          ],
+          "Flutter para desenvolvimento multiplataforma (Android/iOS)",
+          "GetX para gerenciamento de estado, rotas e injeção de dependência",
+          "Componentes customizados com Material Design adaptados à identidade visual educacional",
+          "Responsividade completa com adaptação a tablets e celulares",
+          "Consumo de REST APIs para autenticação, feed e conteúdos",
+          "Integração com Firebase Messaging para notificações push"
+        ],
           en: [
             "Flutter for multiplatform development (Android/iOS)",
             "GetX for state management, routing, and dependency injection",
@@ -130,14 +130,14 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "PHP com arquitetura RESTful para a camada de serviços e controle de rotas",
-            "MySQL com modelagem relacional eficiente e normalização de dados",
-            "Validação de requisições via middleware (autenticação por token)",
-            "Sistema de permissões baseado em papéis (professor/aluno)",
-            "Firebase Authentication para login seguro com e-mail e senha",
-            "Controle de versão com Git, GitHub Actions para CI/CD",
-            "Hospedagem em servidor Apache com HTTPS e rotas seguras"
-          ],
+          "PHP com arquitetura RESTful para a camada de serviços e controle de rotas",
+          "MySQL com modelagem relacional eficiente e normalização de dados",
+          "Validação de requisições via middleware (autenticação por token)",
+          "Sistema de permissões baseado em papéis (professor/aluno)",
+          "Firebase Authentication para login seguro com e-mail e senha",
+          "Controle de versão com Git, GitHub Actions para CI/CD",
+          "Hospedagem em servidor Apache com HTTPS e rotas seguras"
+        ],
           en: [
             "PHP with RESTful architecture for the service layer and route control",
             "MySQL with efficient relational modeling and data normalization",
@@ -150,12 +150,12 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Feed de atividades com atualização assíncrona e organização cronológica",
-            "Chat privado e em grupo com suporte a mídia (imagens, documentos)",
-            "Upload e gerenciamento de materiais didáticos (PDF, vídeo, links externos)",
-            "Sistema de avaliações personalizadas com notas, feedback textual e visualização gráfica",
-            "Perfis personalizados com foto, bio, disciplinas e histórico de participação",
-            "Notificações push via Firebase para eventos importantes (mensagens, avaliações, uploads)",
+          "Feed de atividades com atualização assíncrona e organização cronológica",
+          "Chat privado e em grupo com suporte a mídia (imagens, documentos)",
+          "Upload e gerenciamento de materiais didáticos (PDF, vídeo, links externos)",
+          "Sistema de avaliações personalizadas com notas, feedback textual e visualização gráfica",
+          "Perfis personalizados com foto, bio, disciplinas e histórico de participação",
+          "Notificações push via Firebase para eventos importantes (mensagens, avaliações, uploads)",
             "Painel administrativo para professores com controle de turmas e conteúdos"
           ],
           en: [
@@ -190,11 +190,11 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter e Dart para desenvolvimento multiplataforma (Android/iOS)",
-            "GetX para gerenciamento de estado, rotas e dependências",
-            "Custom Widgets com Flutter Animations para reforçar conceitos visuais de química",
-            "Design responsivo para tablets escolares e celulares",
-          ],
+          "Flutter e Dart para desenvolvimento multiplataforma (Android/iOS)",
+          "GetX para gerenciamento de estado, rotas e dependências",
+          "Custom Widgets com Flutter Animations para reforçar conceitos visuais de química",
+          "Design responsivo para tablets escolares e celulares",
+        ],
           en: [
             "Flutter and Dart for multiplatform development (Android/iOS)",
             "GetX for state management, routing, and dependencies",
@@ -204,10 +204,10 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "Arduino UNO integrado via comunicação serial e Bluetooth para controle de sensores e simulação física de experimentos (ex: acidez, condutividade)",
-            "Arduino IDE para desenvolvimento e upload dos firmwares personalizados",
-            "Leitura de sensores (como pH, temperatura, condutividade) conectados à plataforma",
-          ],
+          "Arduino UNO integrado via comunicação serial e Bluetooth para controle de sensores e simulação física de experimentos (ex: acidez, condutividade)",
+          "Arduino IDE para desenvolvimento e upload dos firmwares personalizados",
+          "Leitura de sensores (como pH, temperatura, condutividade) conectados à plataforma",
+              ],
           en: [
             "Arduino UNO integrated via serial communication and Bluetooth for sensor control and physical experiment simulation (e.g., acidity, conductivity)",
             "Arduino IDE for development and upload of personalized firmwares",
@@ -216,15 +216,15 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Simulador visual de experimentos químicos com etapas guiadas",
-            "Módulo de conexão com hardware físico para experimentos reais via sensores",
-            "Funcionalidades offline para escolas com baixa conectividade",
+          "Simulador visual de experimentos químicos com etapas guiadas",
+          "Módulo de conexão com hardware físico para experimentos reais via sensores",
+          "Funcionalidades offline para escolas com baixa conectividade",
           ],
           en: [
             "Visual experiment simulator with guided steps",
             "Hardware connection module for real experiments via sensors",
             "Offline functionalities for schools with low connectivity",
-          ]
+        ]
         }
       }
     }
@@ -248,12 +248,12 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter com Dart para desenvolvimento de aplicativo multiplataforma (Android/iOS)",
-            "GetX para gerenciamento eficiente de estado, rotas e dependências",
-            "Design responsivo com navegação intuitiva e fluida",
-            "Widgets personalizados para exibição de acervo, filtros e histórico de leitura",
-            "Sistema de autenticação com Flutter Secure Storage",
-          ],
+          "Flutter com Dart para desenvolvimento de aplicativo multiplataforma (Android/iOS)",
+          "GetX para gerenciamento eficiente de estado, rotas e dependências",
+          "Design responsivo com navegação intuitiva e fluida",
+          "Widgets personalizados para exibição de acervo, filtros e histórico de leitura",
+          "Sistema de autenticação com Flutter Secure Storage",
+        ],
           en: [
             "Flutter and Dart for multiplatform application development (Android/iOS)",
             "GetX for efficient state management, routing, and dependencies",
@@ -264,12 +264,12 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "PHP com estrutura modular para criação de rotas RESTful",
-            "MySQL para gerenciamento e indexação de acervo digital",
-            "Endpoints seguros com autenticação baseada em token",
-            "Sistema de tags e categorias para organização do conteúdo",
-            "Painel administrativo para controle de usuários, uploads dos livros",
-          ],
+          "PHP com estrutura modular para criação de rotas RESTful",
+          "MySQL para gerenciamento e indexação de acervo digital",
+          "Endpoints seguros com autenticação baseada em token",
+          "Sistema de tags e categorias para organização do conteúdo",
+          "Painel administrativo para controle de usuários, uploads dos livros",
+        ],
           en: [
             "PHP with modular structure for creating RESTful routes",
             "MySQL for digital collection management and indexing",
@@ -280,13 +280,13 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Busca avançada com filtros por autor, tema, data e tipo de mídia",
-            "Organização por categorias personalizáveis e tags atribuídas manualmente ou por padrão",
-            "Perfil do usuário com histórico de leitura e favoritos",
-            "Painel de administração com upload de arquivos, controle de categorias e visualização de acessos",
-            "Modo offline para leitura de conteúdos previamente baixados",
-            "Suporte a múltiplos formatos: PDF, ePub, vídeo-aula, artigo HTML",
-            "Acesso controlado por perfil (aluno, professor, gestor)"
+          "Busca avançada com filtros por autor, tema, data e tipo de mídia",
+          "Organização por categorias personalizáveis e tags atribuídas manualmente ou por padrão",
+          "Perfil do usuário com histórico de leitura e favoritos",
+          "Painel de administração com upload de arquivos, controle de categorias e visualização de acessos",
+          "Modo offline para leitura de conteúdos previamente baixados",
+          "Suporte a múltiplos formatos: PDF, ePub, vídeo-aula, artigo HTML",
+          "Acesso controlado por perfil (aluno, professor, gestor)"
           ],
           en: [
             "Advanced search with filters by author, theme, date, and media type",
@@ -320,11 +320,11 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter e Dart para desenvolvimento multiplataforma (web/mobile)",
-            "GetX para gerenciamento de estado e navegação entre telas",
-            "Flutter Animations para elementos interativos e lúdicos",
-            "Design responsivo adaptado para tablets e dispositivos escolares",
-          ],
+          "Flutter e Dart para desenvolvimento multiplataforma (web/mobile)",
+          "GetX para gerenciamento de estado e navegação entre telas",
+          "Flutter Animations para elementos interativos e lúdicos",
+          "Design responsivo adaptado para tablets e dispositivos escolares",
+        ],
           en: [
             "Flutter and Dart for multiplatform development (web/mobile)",
             "GetX for state management and screen navigation",
@@ -334,12 +334,12 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "PHP com arquitetura RESTful para APIs administrativas",
-            "MySQL com modelagem relacional para gerenciamento de entidades (jogos, usuários, categorias, avaliações)",
-            "Controle de permissões por perfil (admin, professor, aluno)",
-            "Rotas seguras com validação de token",
-            "Painel de controle para cadastro, edição e remoção de conteúdos"
-          ],
+          "PHP com arquitetura RESTful para APIs administrativas",
+          "MySQL com modelagem relacional para gerenciamento de entidades (jogos, usuários, categorias, avaliações)",
+          "Controle de permissões por perfil (admin, professor, aluno)",
+          "Rotas seguras com validação de token",
+          "Painel de controle para cadastro, edição e remoção de conteúdos"
+        ],
           en: [
             "PHP with RESTful architecture for administrative APIs",
             "MySQL with relational modeling for entity management (games, users, categories, assessments)",
@@ -350,14 +350,14 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Cadastro, organização e visualização de jogos educativos com imagens, descrições e links de execução",
-            "Gestão completa de usuários com perfis diferenciados (aluno, professor, administrador)",
-            "Classificação de jogos por categorias temáticas e faixas etárias",
-            "Sistema de avaliação dos jogos com notas, comentários e indicadores de usabilidade",
-            "Módulo de feedbacks para que alunos e professores compartilhem suas impressões",
-            "Relatórios administrativos com estatísticas de acesso e uso por usuário ou jogo",
-            "Ambiente lúdico e colorido, projetado para acessibilidade e usabilidade por crianças",
-            "Suporte a uso offline para visualização de jogos previamente carregados"
+          "Cadastro, organização e visualização de jogos educativos com imagens, descrições e links de execução",
+          "Gestão completa de usuários com perfis diferenciados (aluno, professor, administrador)",
+          "Classificação de jogos por categorias temáticas e faixas etárias",
+          "Sistema de avaliação dos jogos com notas, comentários e indicadores de usabilidade",
+          "Módulo de feedbacks para que alunos e professores compartilhem suas impressões",
+          "Relatórios administrativos com estatísticas de acesso e uso por usuário ou jogo",
+          "Ambiente lúdico e colorido, projetado para acessibilidade e usabilidade por crianças",
+          "Suporte a uso offline para visualização de jogos previamente carregados"
           ],
           en: [
             "Game registration, organization, and visualization with images, descriptions, and execution links",
@@ -392,12 +392,12 @@ const projects: Project[] = [
       technologies: {
         frontend: {
           pt: [
-            "Flutter com Dart para criação de interface multiplataforma (web e mobile)",
-            "GetX para gerenciamento de estado e navegação eficiente",
-            "Widgets personalizados para visualização de turmas, alunos e cronogramas",
-            "Design responsivo otimizado para uso em celulares e tablets educacionais",
-            "Integração com APIs REST para sincronização de dados educacionais"
-          ],
+          "Flutter com Dart para criação de interface multiplataforma (web e mobile)",
+          "GetX para gerenciamento de estado e navegação eficiente",
+          "Widgets personalizados para visualização de turmas, alunos e cronogramas",
+          "Design responsivo otimizado para uso em celulares e tablets educacionais",
+          "Integração com APIs REST para sincronização de dados educacionais"
+        ],
           en: [
             "Flutter and Dart for multiplatform interface creation (web and mobile)",
             "GetX for efficient state management and navigation",
@@ -408,12 +408,12 @@ const projects: Project[] = [
         },
         backend: {
           pt: [
-            "PHP com rotas RESTful para CRUD de dados acadêmicos e administrativos",
-            "MySQL para estruturação de banco de dados relacional (professores, turmas, conteúdos, atividades)",
-            "Sistema de autenticação com níveis de acesso (professor, coordenador, gestor)",
-            "Implementação de logs de acesso e alteração de dados para rastreabilidade",
-            "Painel de controle para gestão escolar: turmas, disciplinas, calendários e relatórios"
-          ],
+          "PHP com rotas RESTful para CRUD de dados acadêmicos e administrativos",
+          "MySQL para estruturação de banco de dados relacional (professores, turmas, conteúdos, atividades)",
+          "Sistema de autenticação com níveis de acesso (professor, coordenador, gestor)",
+          "Implementação de logs de acesso e alteração de dados para rastreabilidade",
+          "Painel de controle para gestão escolar: turmas, disciplinas, calendários e relatórios"
+        ],
           en: [
             "PHP with RESTful routes for CRUD of academic and administrative data",
             "MySQL for relational database structure (teachers, classes, contents, activities)",
@@ -424,14 +424,14 @@ const projects: Project[] = [
         },
         features: {
           pt: [
-            "Cadastro e gerenciamento de turmas, disciplinas e horários",
-            "Lançamento e acompanhamento de atividades e avaliações por aluno",
-            "Envio de materiais didáticos e planos de aula por disciplina",
-            "Visualização de relatórios de desempenho individual e por turma",
-            "Agenda integrada com cronograma letivo, eventos e prazos importantes",
-            "Sistema de anotações pedagógicas e comunicados internos entre professores",
-            "Exportação de dados para planilhas e PDFs",
-            "Ambiente seguro com autenticação e permissões baseadas em perfil"
+          "Cadastro e gerenciamento de turmas, disciplinas e horários",
+          "Lançamento e acompanhamento de atividades e avaliações por aluno",
+          "Envio de materiais didáticos e planos de aula por disciplina",
+          "Visualização de relatórios de desempenho individual e por turma",
+          "Agenda integrada com cronograma letivo, eventos e prazos importantes",
+          "Sistema de anotações pedagógicas e comunicados internos entre professores",
+          "Exportação de dados para planilhas e PDFs",
+          "Ambiente seguro com autenticação e permissões baseadas em perfil"
           ],
           en: [
             "Class registration and management",
@@ -458,7 +458,17 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-primary">
-            {project.title[language]}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={language + '-modal-title'}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {project.title[language]}
+              </motion.span>
+            </AnimatePresence>
           </DialogTitle>
         </DialogHeader>
 
@@ -475,13 +485,35 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
           </div>
 
           <div className="space-y-4">
-            <p className="text-muted-foreground">{project.details.overview[language]}</p>
+            <p className="text-muted-foreground">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={language + '-modal-overview'}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {project.details.overview[language]}
+                </motion.span>
+              </AnimatePresence>
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {Object.entries(project.details.technologies).map(([category, items]) => (
                 <div key={category} className="space-y-3">
                   <h3 className="text-lg font-semibold text-primary capitalize">
-                    {t(`projects.${category}`)}
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={language + '-modal-category-' + category}
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        {t(`projects.${category}`)}
+                      </motion.span>
+                    </AnimatePresence>
                   </h3>
                   <ul className="space-y-2">
                     {items[language].map((item, index) => (
@@ -493,7 +525,17 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                         className="flex items-start gap-2 text-sm"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                        {item}
+                        <AnimatePresence mode="wait" initial={false}>
+                          <motion.span
+                            key={language + '-modal-item-' + category + '-' + index}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.25 }}
+                          >
+                            {item}
+                          </motion.span>
+                        </AnimatePresence>
                       </motion.li>
                     ))}
                   </ul>
@@ -502,13 +544,23 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
             </div>
 
             <div className="flex flex-wrap gap-2 pt-4">
-              {project.tags[language].map(tag => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                >
-                  {tag}
-                </span>
+              {project.tags[language].map((tag, idx) => (
+                <AnimatePresence mode="wait" initial={false}>
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                  >
+                    <motion.span
+                      key={language + '-modal-tag-' + idx}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {tag}
+                    </motion.span>
+                  </span>
+                </AnimatePresence>
               ))}
             </div>
           </div>
@@ -531,7 +583,17 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold mb-12 text-center"
         >
-          {t('projects.title')}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={language + '-section-title'}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.25 }}
+            >
+              {t('projects.title')}
+            </motion.span>
+          </AnimatePresence>
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -557,17 +619,51 @@ export const ProjectsSection = () => {
               </div>
 
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-semibold text-primary">{project.title[language]}</h3>
-                <p className="text-muted-foreground text-sm">{project.description[language]}</p>
+                <h3 className="text-xl font-semibold text-primary">
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-card-title-' + index}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {project.title[language]}
+                    </motion.span>
+                  </AnimatePresence>
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-card-desc-' + index}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {project.description[language]}
+                    </motion.span>
+                  </AnimatePresence>
+                </p>
 
                 <div className="flex flex-wrap gap-2">
-                  {project.tags[language].map(tag => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
-                    >
-                      {tag}
-                    </span>
+                  {project.tags[language].map((tag, idx) => (
+                    <AnimatePresence mode="wait" initial={false}>
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                      >
+                        <motion.span
+                          key={language + '-card-tag-' + index + '-' + idx}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          {tag}
+                        </motion.span>
+                      </span>
+                    </AnimatePresence>
                   ))}
                 </div>
               </div>

@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
+import { AnimatePresence as mAnimatePresence, motion as m } from 'framer-motion';
 
 // Variants para animações
 const formVariants = {
@@ -103,7 +104,7 @@ const buttonVariants = {
 };
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -203,7 +204,7 @@ const ContactSection = () => {
         </svg>
       ),
       title: t('contact.phone'),
-      info: "+55 (98) 98555-5475",
+      info: t('contact.phoneNumber'),
     },
     {
       icon: (
@@ -213,7 +214,7 @@ const ContactSection = () => {
         </svg>
       ),
       title: t('contact.email'),
-      info: "lluisrodrigo2@gmail.com",
+      info: t('contact.emailNumber'),
     },
     {
       icon: (
@@ -223,7 +224,7 @@ const ContactSection = () => {
         </svg>
       ),
       title: t('contact.address'),
-      info: "São Luis, MA - Brasil",
+      info: t('contact.addressCity'),
     },
   ];
 
@@ -236,7 +237,17 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {t('contact.title')}
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={language + '-contact-title'}
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              transition={{ duration: 0.25 }}
+            >
+              {t('contact.title')}
+            </motion.span>
+          </AnimatePresence>
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -254,13 +265,33 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {t('contact.sendMessage')}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={language + '-contact-sendMessage'}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {t('contact.sendMessage')}
+                </motion.span>
+              </AnimatePresence>
             </motion.h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <motion.div variants={inputVariants}>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary/80">
-                  {t('contact.name')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-contact-name'}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('contact.name')}
+                    </motion.span>
+                  </AnimatePresence>
                 </label>
                 <input
                   type="text"
@@ -268,14 +299,24 @@ const ContactSection = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105 text-white"
                   placeholder={t('contact.placeholderName')}
                 />
               </motion.div>
               
               <motion.div variants={inputVariants}>
                 <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary/80">
-                  {t('contact.email')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-contact-email'}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('contact.email')}
+                    </motion.span>
+                  </AnimatePresence>
                 </label>
                 <input
                   type="email"
@@ -283,21 +324,31 @@ const ContactSection = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105 text-white"
                   placeholder={t('contact.placeholderEmail')}
                 />
               </motion.div>
               
               <motion.div variants={inputVariants}>
                 <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary/80">
-                  {t('contact.message')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-contact-message'}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('contact.message')}
+                    </motion.span>
+                  </AnimatePresence>
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 min-h-[120px] focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
+                  className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 min-h-[120px] focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105 text-white"
                   placeholder={t('contact.placeholderMessage')}
                 />
               </motion.div>
@@ -334,7 +385,17 @@ const ContactSection = () => {
                   transition={{ duration: 0.5 }}
                 />
                 <span className="relative z-10">
-                {formStatus.loading ? t('contact.sending') : t('contact.send')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + (formStatus.loading ? '-loading' : '-send')}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {formStatus.loading ? t('contact.sending') : t('contact.send')}
+                    </motion.span>
+                  </AnimatePresence>
                 </span>
               </motion.button>
             </form>
@@ -353,7 +414,17 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              {t('contact.infoTitle')}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={language + '-contact-infoTitle'}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -10 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {t('contact.infoTitle')}
+                </motion.span>
+              </AnimatePresence>
             </motion.h3>
             
             <div className="space-y-6 mb-8">
@@ -377,8 +448,32 @@ const ContactSection = () => {
                     {item.icon}
                   </motion.div>
                   <div>
-                    <h4 className="font-medium text-primary/90">{item.title}</h4>
-                    <p className="text-muted-foreground">{item.info}</p>
+                    <h4 className="font-medium text-primary/90">
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.span
+                          key={language + '-contact-item-title-' + index}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          {item.title}
+                        </motion.span>
+                      </AnimatePresence>
+                    </h4>
+                    <p className="text-white/80 text-sm mt-1">
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.span
+                          key={language + '-contact-item-info-' + index}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          {item.info}
+                        </motion.span>
+                      </AnimatePresence>
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -391,7 +486,17 @@ const ContactSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {t('contact.socialTitle')}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={language + '-contact-socialTitle'}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {t('contact.socialTitle')}
+                  </motion.span>
+                </AnimatePresence>
               </motion.h4>
               <div className="flex space-x-4">
                 {[

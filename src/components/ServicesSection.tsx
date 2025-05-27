@@ -3,6 +3,7 @@ import { Card, CardContent } from "./ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { AnimatePresence } from "framer-motion";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -163,7 +164,17 @@ export const ServicesSection = () => {
               backgroundPosition: "0 0",
             }}
           >
-            {t('services.title')}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={t('services.title')}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('services.title')}
+              </motion.span>
+            </AnimatePresence>
           </motion.h2>
           <motion.p 
             className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
@@ -176,7 +187,17 @@ export const ServicesSection = () => {
             }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            {t('services.subtitle')}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={t('services.subtitle')}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('services.subtitle')}
+              </motion.span>
+            </AnimatePresence>
           </motion.p>
         </motion.div>
 
@@ -199,7 +220,17 @@ export const ServicesSection = () => {
                             whileHover="hover"
                             className="text-xl font-semibold text-primary text-left group-hover:text-primary/80 cursor-pointer"
                           >
-                            {service.title}
+                            <AnimatePresence mode="wait" initial={false}>
+                              <motion.span
+                                key={service.title}
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -10 }}
+                                transition={{ duration: 0.25 }}
+                              >
+                                {service.title}
+                              </motion.span>
+                            </AnimatePresence>
                           </motion.h3>
                         </AccordionTrigger>
                       </motion.div>
@@ -218,10 +249,20 @@ export const ServicesSection = () => {
                             whileHover="hover"
                             custom={0}
                           >
-                            {service.description}
+                            <AnimatePresence mode="wait" initial={false}>
+                              <motion.span
+                                key={service.description}
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -10 }}
+                                transition={{ duration: 0.25 }}
+                              >
+                                {service.description}
+                              </motion.span>
+                            </AnimatePresence>
                           </motion.p>
-                          <ul className="space-y-2">
-                            {service.features.map((feature, featureIndex) => (
+                  <ul className="space-y-2">
+                    {service.features.map((feature, featureIndex) => (
                               <motion.li
                                 key={featureIndex}
                                 variants={textVariants}
@@ -236,15 +277,22 @@ export const ServicesSection = () => {
                                   variants={bulletVariants}
                                   whileHover="hover"
                                 />
-                                <motion.span
-                                  variants={textVariants}
-                                  whileHover="hover"
-                                >
-                                  {feature}
-                                </motion.span>
+                                <AnimatePresence mode="wait" initial={false}>
+                                  <motion.span
+                                    key={feature}
+                                    variants={textVariants}
+                                    whileHover="hover"
+                                    initial={{ opacity: 0, x: 10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -10 }}
+                                    transition={{ duration: 0.25 }}
+                                  >
+                                    {feature}
+                                  </motion.span>
+                                </AnimatePresence>
                               </motion.li>
-                            ))}
-                          </ul>
+                    ))}
+                  </ul>
                         </motion.div>
                       </AccordionContent>
                     </AccordionItem>

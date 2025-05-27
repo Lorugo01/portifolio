@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { useLanguage } from '../contexts/LanguageContext';
+import { LanguageToggle } from "./LanguageToggle";
+import { AnimatePresence, motion as m } from 'framer-motion';
 
 // Função cn para concatenar classes condicionalmente
 const cn = (...classes: (string | boolean | undefined)[]) => {
@@ -10,7 +12,7 @@ const cn = (...classes: (string | boolean | undefined)[]) => {
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,12 +65,33 @@ const Header = () => {
             className="text-xl md:text-2xl font-bold text-white cursor-pointer"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span className="text-primary">{t('nav.logo.first')}</span>
-            <span>{t('nav.logo.second')}</span>
+            <AnimatePresence mode="wait" initial={false}>
+              <m.span
+                key={language + '-logo-first'}
+                className="text-primary"
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('nav.logo.first')}
+              </m.span>
+            </AnimatePresence>
+            <AnimatePresence mode="wait" initial={false}>
+              <m.span
+                key={language + '-logo-second'}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('nav.logo.second')}
+              </m.span>
+            </AnimatePresence>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.to}
@@ -80,9 +103,20 @@ const Header = () => {
                 className="text-white hover:text-primary cursor-pointer transition-colors duration-300"
                 activeClass="text-primary font-medium"
               >
-                {item.name}
+                <AnimatePresence mode="wait" initial={false}>
+                  <m.span
+                    key={language + '-' + item.to}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {item.name}
+                  </m.span>
+                </AnimatePresence>
               </Link>
             ))}
+            <LanguageToggle />
           </nav>
 
           {/* Mobile Menu Button */}

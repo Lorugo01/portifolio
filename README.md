@@ -108,7 +108,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Autor
 
-Luis Rodrigo Lima
+Luis Rodrigo Lima Rodrigues
 - LinkedIn: [luisrodrigolima](https://www.linkedin.com/in/luisrodrigolima/)
 - GitHub: [Lorugo01](https://github.com/Lorugo01)
 - Instagram: [lorugolabs](https://www.instagram.com/lorugolabs/)

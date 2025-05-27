@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Download } from "lucide-react";
@@ -86,7 +86,7 @@ const descriptionHoverVariants = {
 };
 
 export const AboutSection = () => {
-  const { t, tObject } = useLanguage();
+  const { t, tObject, language } = useLanguage();
 
   const skills = [
     tObject('about.skills.mobile') as { title: string; description: string },
@@ -140,7 +140,17 @@ export const AboutSection = () => {
               backgroundPosition: "0 0",
             }}
           >
-            {t('about.title')}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={language}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('about.title')}
+              </motion.span>
+            </AnimatePresence>
           </motion.h2>
           <motion.p 
             className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
@@ -153,7 +163,17 @@ export const AboutSection = () => {
             }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            {t('about.subtitle')}
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={language}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.25 }}
+              >
+                {t('about.subtitle')}
+              </motion.span>
+            </AnimatePresence>
           </motion.p>
         </motion.div>
 
@@ -172,7 +192,7 @@ export const AboutSection = () => {
               <div className="flex items-center gap-6 mb-6">
                 <motion.img
                   src="/images/1730123583060.jpeg"
-                  alt="Luis Rodrigo Lima"
+                  alt="Luis Rodrigo Lima Rodrigues"
                   className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg"
                   variants={imageVariants}
                   whileHover="hover"
@@ -200,15 +220,21 @@ export const AboutSection = () => {
                     variants={textHoverVariants}
                     whileHover="hover"
                   >
-                    {t('about.role')}
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={language + '-role'}
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        {t('about.role')}
+                      </motion.span>
+                    </AnimatePresence>
                   </motion.p>
                 </motion.div>
               </div>
-              {[
-                t('about.paragraph1'),
-                t('about.paragraph2'),
-                t('about.paragraph3')
-              ].map((text, index) => (
+              {["about.paragraph1", "about.paragraph2", "about.paragraph3"].map((key, index) => (
                 <motion.p
                   key={index}
                   initial={{ opacity: 0, y: 10, ...paragraphHoverVariants.initial }}
@@ -218,7 +244,17 @@ export const AboutSection = () => {
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                   className="text-foreground/90 leading-relaxed cursor-pointer"
                 >
-                  {text}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language + '-' + key}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t(key)}
+                    </motion.span>
+                  </AnimatePresence>
                 </motion.p>
               ))}
               <motion.div 
@@ -242,7 +278,17 @@ export const AboutSection = () => {
                     >
                       <Download size={20} />
                     </motion.div>
-                    {t('about.downloadCV')}
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.span
+                        key={language + '-downloadCV'}
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        {t('about.downloadCV')}
+                      </motion.span>
+                    </AnimatePresence>
                   </Button>
                 </motion.div>
               </motion.div>
@@ -267,7 +313,17 @@ export const AboutSection = () => {
                   }}
                   transition={{ duration: 0.5 }}
                 >
-                  {t('about.skills.title')}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                      key={language}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -10 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      {t('about.skills.title')}
+                    </motion.span>
+                  </AnimatePresence>
                 </motion.h3>
                 <div className="space-y-4">
                   {skills.map((skill, index) => (
@@ -290,7 +346,17 @@ export const AboutSection = () => {
                           variants={textHoverVariants}
                           whileHover="hover"
                         >
-                          {skill.title}
+                          <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                              key={language + '-skill-title-' + index}
+                              initial={{ opacity: 0, x: 10 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              exit={{ opacity: 0, x: -10 }}
+                              transition={{ duration: 0.25 }}
+                            >
+                              {skill.title}
+                            </motion.span>
+                          </AnimatePresence>
                         </motion.h4>
                       </div>
                       <motion.p 
@@ -298,7 +364,17 @@ export const AboutSection = () => {
                         variants={descriptionHoverVariants}
                         whileHover="hover"
                       >
-                        {skill.description}
+                        <AnimatePresence mode="wait" initial={false}>
+                          <motion.span
+                            key={language + '-skill-desc-' + index}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -10 }}
+                            transition={{ duration: 0.25 }}
+                          >
+                            {skill.description}
+                          </motion.span>
+                        </AnimatePresence>
                       </motion.p>
                     </motion.div>
                   ))}
