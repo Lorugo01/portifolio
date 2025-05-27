@@ -2,69 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { ChevronDown } from "lucide-react";
-
-const services = [
-  {
-    title: "Desenvolvimento Mobile",
-    description: "Criação de aplicativos móveis modernos e responsivos utilizando Flutter/Dart, com foco em experiência do usuário e performance.",
-    features: [
-      "Apps multiplataforma com Flutter",
-      "Interfaces interativas e animadas",
-      "Integração com APIs e serviços",
-      "Desenvolvimento nativo Android/iOS"
-    ]
-  },
-  {
-    title: "Sistemas Educacionais",
-    description: "Desenvolvimento de soluções tecnológicas para educação, combinando software e hardware para criar experiências de aprendizado inovadoras.",
-    features: [
-      "Plataformas de gestão educacional",
-      "Sistemas de biblioteca digital",
-      "Conteúdo interativo e multimídia",
-      "Integração com dispositivos IoT"
-    ]
-  },
-  {
-    title: "IoT e Sistemas Embarcados",
-    description: "Implementação de soluções IoT e sistemas embarcados, integrando hardware e software para automação e coleta de dados.",
-    features: [
-      "Programação de microcontroladores",
-      "Sensores e atuadores",
-      "Protocolos de comunicação",
-      "Visualização de dados em tempo real"
-    ]
-  },
-  {
-    title: "Desenvolvimento Web",
-    description: "Criação de aplicações web modernas e responsivas, utilizando as mais recentes tecnologias e frameworks do mercado.",
-    features: [
-      "Frontend com React e Vue.js",
-      "Backend com Node.js e Python",
-      "Bancos de dados SQL e NoSQL",
-      "APIs RESTful e GraphQL"
-    ]
-  },
-  {
-    title: "Automação e Sistemas Internos",
-    description: "Desenvolvimento de soluções automatizadas e sistemas internos para otimização de processos e melhoria da eficiência operacional.",
-    features: [
-      "Automação de processos",
-      "Sistemas de gestão interna",
-      "Integração entre sistemas",
-      "Otimização de fluxos de trabalho"
-    ]
-  },
-  {
-    title: "Suporte Técnico Especializado",
-    description: "Serviços de suporte técnico, manutenção e diagnóstico para hardware e software, garantindo o funcionamento adequado dos sistemas.",
-    features: [
-      "Manutenção de hardware",
-      "Diagnóstico de sistemas",
-      "Resolução de problemas técnicos",
-      "Documentação e treinamento"
-    ]
-  }
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -167,21 +105,37 @@ const titleVariants = {
 };
 
 export const ServicesSection = () => {
+  const { t, tObject } = useLanguage();
+
+  const services = [
+    tObject('services.mobile'),
+    tObject('services.education'),
+    tObject('services.iot'),
+    tObject('services.web'),
+    tObject('services.automation'),
+    tObject('services.support'),
+  ] as Array<{
+    title: string;
+    description: string;
+    features: string[];
+  }>;
+
   return (
     <section id="services" className="py-20 relative overflow-hidden">
-      {/* Background Elements com animação */}
-      <div className="absolute inset-0 bg-background">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-background/50">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }}
+          animate={{ opacity: 0.3 }}
           transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,var(--primary),transparent)]"
+          className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,var(--primary),transparent)]"
         />
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: 1 }}
-          className="absolute inset-0 bg-[radial-gradient(circle_800px_at_0%_800px,var(--secondary),transparent)]"
+          initial={{ opacity: 0, backgroundPosition: "0px 0px" }}
+          animate={{ opacity: 0.2, backgroundPosition: "24px 24px" }}
+          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+          className="absolute inset-0 bg-[linear-gradient(to_right,var(--primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--primary)_1px,transparent_1px)]"
+          style={{ backgroundSize: '24px 24px' }}
         />
       </div>
 
@@ -209,7 +163,7 @@ export const ServicesSection = () => {
               backgroundPosition: "0 0",
             }}
           >
-            Serviços
+            {t('services.title')}
           </motion.h2>
           <motion.p 
             className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
@@ -222,7 +176,7 @@ export const ServicesSection = () => {
             }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Soluções tecnológicas especializadas para educação, gestão e inovação
+            {t('services.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -266,8 +220,8 @@ export const ServicesSection = () => {
                           >
                             {service.description}
                           </motion.p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
+                          <ul className="space-y-2">
+                            {service.features.map((feature, featureIndex) => (
                               <motion.li
                                 key={featureIndex}
                                 variants={textVariants}
@@ -286,11 +240,11 @@ export const ServicesSection = () => {
                                   variants={textVariants}
                                   whileHover="hover"
                                 >
-                        {feature}
+                                  {feature}
                                 </motion.span>
                               </motion.li>
-                    ))}
-                  </ul>
+                            ))}
+                          </ul>
                         </motion.div>
                       </AccordionContent>
                     </AccordionItem>

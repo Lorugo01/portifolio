@@ -7,10 +7,8 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { LanguageToggle } from "./LanguageToggle";
 
 export const HeroSection = () => {
-  const locationRef = useRef<any>(null);
-  const institutionRef = useRef<any>(null);
   const descriptionRef = useRef<any>(null);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
@@ -34,12 +32,13 @@ export const HeroSection = () => {
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <Typewriter
+                  key={language}
                   onInit={(typewriter) => {
                     typewriter
                       .typeString(t('hero.name'))
                       .callFunction(() => {
-                        if (locationRef.current) {
-                          locationRef.current.start();
+                        if (descriptionRef.current) {
+                          descriptionRef.current.start();
                         }
                       })
                       .start();
@@ -53,6 +52,7 @@ export const HeroSection = () => {
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground/90">
                 <Typewriter
+                  key={language}
                   onInit={(typewriter) => {
                     typewriter
                       .typeString(t('hero.title'))
@@ -74,36 +74,25 @@ export const HeroSection = () => {
             
             <div className="space-y-2 text-muted-foreground/80">
               <Typewriter
+                key={language + '-location'}
                 onInit={(typewriter) => {
-                  locationRef.current = typewriter;
-                  typewriter
-                    .typeString(t('hero.location'))
-                    .callFunction(() => {
-                      if (institutionRef.current) {
-                        institutionRef.current.start();
-                      }
-                    })
-                    .pauseFor(1000);
+                  typewriter.typeString(t('hero.location')).start();
                 }}
                 options={{
                   delay: 30,
                   cursor: '|',
                   wrapperClassName: 'text-muted-foreground/80',
-                  autoStart: false
                 }}
               />
               <Typewriter
+                key={language + '-institution'}
                 onInit={(typewriter) => {
-                  institutionRef.current = typewriter;
-                  typewriter
-                    .typeString(t('hero.institution'))
-                    .pauseFor(1000);
+                  typewriter.typeString(t('hero.institution')).start();
                 }}
                 options={{
                   delay: 30,
                   cursor: '|',
                   wrapperClassName: 'text-muted-foreground/80',
-                  autoStart: false
                 }}
               />
             </div>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Download } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const skillCardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -85,6 +86,17 @@ const descriptionHoverVariants = {
 };
 
 export const AboutSection = () => {
+  const { t, tObject } = useLanguage();
+
+  const skills = [
+    tObject('about.skills.mobile') as { title: string; description: string },
+    tObject('about.skills.embedded') as { title: string; description: string },
+    tObject('about.skills.web') as { title: string; description: string },
+    tObject('about.skills.integration') as { title: string; description: string },
+    tObject('about.skills.debugging') as { title: string; description: string },
+    tObject('about.skills.hardware') as { title: string; description: string },
+  ];
+
   return (
     <section id="about" className="py-20 relative overflow-hidden">
       {/* Background Elements com animação */}
@@ -128,7 +140,7 @@ export const AboutSection = () => {
               backgroundPosition: "0 0",
             }}
           >
-            Sobre Mim
+            {t('about.title')}
           </motion.h2>
           <motion.p 
             className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
@@ -141,7 +153,7 @@ export const AboutSection = () => {
             }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Desenvolvedor apaixonado por transformar ideias em experiências digitais eficazes
+            {t('about.subtitle')}
           </motion.p>
         </motion.div>
 
@@ -188,15 +200,14 @@ export const AboutSection = () => {
                     variants={textHoverVariants}
                     whileHover="hover"
                   >
-                    Desenvolvedor Júnior
+                    {t('about.role')}
                   </motion.p>
                 </motion.div>
               </div>
-              {/* Parágrafos com fade in sequencial e efeito hover */}
               {[
-                "Sou Luis Rodrigo Lima Rodrigues, programador com experiência prática no desenvolvimento de soluções tecnológicas voltadas para a educação e o bem-estar. Atualmente atuo na Globaltec Educacional, onde colaboro em projetos inovadores que integram software, hardware educacional e tecnologias interativas.",
-                "Iniciei minha trajetória profissional como estagiário de programação em uma clínica médica, desenvolvendo sistemas internos e ferramentas de melhoria da experiência dos pacientes. Além disso, tive uma passagem significativa como assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.",
-                "Sou graduando em Engenharia de Software pela UNDB, com sólida base em linguagens como Dart (Flutter), Python e C++, e conhecimentos em HTML, CSS e JavaScript. Tenho também vivência no desenvolvimento de sistemas com foco em automação, integração de dispositivos IoT, e construção de interfaces interativas."
+                t('about.paragraph1'),
+                t('about.paragraph2'),
+                t('about.paragraph3')
               ].map((text, index) => (
                 <motion.p
                   key={index}
@@ -229,10 +240,10 @@ export const AboutSection = () => {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                     >
-                  <Download size={20} />
+                      <Download size={20} />
                     </motion.div>
-                  Baixar Currículo
-                </Button>
+                    {t('about.downloadCV')}
+                  </Button>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -256,35 +267,10 @@ export const AboutSection = () => {
                   }}
                   transition={{ duration: 0.5 }}
                 >
-                  Habilidades Técnicas
+                  {t('about.skills.title')}
                 </motion.h3>
                 <div className="space-y-4">
-                  {[
-                    {
-                      title: "Desenvolvimento Mobile",
-                      description: "Flutter/Dart para criação de apps intuitivos e funcionais"
-                    },
-                    {
-                      title: "Sistemas Embarcados",
-                      description: "Projetos com microcontroladores, sensores e automação"
-                    },
-                    {
-                      title: "Web Development",
-                      description: "HTML, CSS, JavaScript e frameworks modernos"
-                    },
-                    {
-                      title: "Integração de Sistemas",
-                      description: "Soluções com IoT e plataformas educacionais"
-                    },
-                    {
-                      title: "Depuração e Testes",
-                      description: "Identificação e correção de bugs em software e hardware"
-                    },
-                    {
-                      title: "Manutenção de Hardware",
-                      description: "Montagem e diagnóstico de componentes"
-                    }
-                  ].map((skill, index) => (
+                  {skills.map((skill, index) => (
                     <motion.div
                       key={index}
                       className="glass-card p-4 cursor-pointer"
@@ -294,7 +280,7 @@ export const AboutSection = () => {
                       whileHover="hover"
                       custom={index}
                     >
-                    <div className="flex items-center gap-3 mb-2">
+                      <div className="flex items-center gap-3 mb-2">
                         <motion.span 
                           className="w-2 h-2 rounded-full bg-primary"
                           whileHover={{ scale: 1.5 }}
@@ -306,7 +292,7 @@ export const AboutSection = () => {
                         >
                           {skill.title}
                         </motion.h4>
-                    </div>
+                      </div>
                       <motion.p 
                         className="text-muted-foreground"
                         variants={descriptionHoverVariants}

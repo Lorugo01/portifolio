@@ -1,16 +1,16 @@
-
 import { Link } from 'react-scroll';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   
   const footerLinks = [
-    { name: 'Início', to: 'hero' },
-    { name: 'Sobre', to: 'about' },
-    { name: 'Projetos', to: 'projects' },
-    { name: 'Serviços', to: 'services' },
-    { name: 'Depoimentos', to: 'testimonials' },
-    { name: 'Contato', to: 'contact' },
+    { name: t('nav.home'), to: 'hero' },
+    { name: t('nav.about'), to: 'about' },
+    { name: t('nav.projects'), to: 'projects' },
+    { name: t('nav.services'), to: 'services' },
+    { name: t('nav.contact'), to: 'contact' },
   ];
   
   const socialLinks = [
@@ -30,7 +30,7 @@ const Footer = () => {
               <span>Rodrigo</span>
             </div>
             <p className="text-muted-foreground mb-6">
-              Transformando ideias em experiências digitais através de design e desenvolvimento de qualidade.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
@@ -71,7 +71,7 @@ const Footer = () => {
           
           {/* Quick links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.to}>
@@ -92,7 +92,7 @@ const Footer = () => {
           
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contato</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contactTitle')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary mt-0.5">
@@ -121,10 +121,10 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-border pt-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Luis Rodrigo. Todos os direitos reservados.
+            {t('footer.copyright').replace('{year}', currentYear.toString())}
           </p>
           <p className="text-muted-foreground text-sm mt-2 sm:mt-0">
-            Design e Desenvolvimento por <span className="text-primary">Luis Rodrigo</span>
+            {t('footer.designBy')} <span className="text-primary">Luis Rodrigo</span>
           </p>
         </div>
       </div>

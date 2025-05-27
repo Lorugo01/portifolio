@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Variants para animações
 const formVariants = {
@@ -102,6 +103,7 @@ const buttonVariants = {
 };
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -200,7 +202,7 @@ const ContactSection = () => {
           <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
         </svg>
       ),
-      title: "Telefone",
+      title: t('contact.phone'),
       info: "+55 (98) 98555-5475",
     },
     {
@@ -210,7 +212,7 @@ const ContactSection = () => {
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
         </svg>
       ),
-      title: "Email",
+      title: t('contact.email'),
       info: "lluisrodrigo2@gmail.com",
     },
     {
@@ -220,7 +222,7 @@ const ContactSection = () => {
           <circle cx="12" cy="10" r="3"></circle>
         </svg>
       ),
-      title: "Endereço",
+      title: t('contact.address'),
       info: "São Luis, MA - Brasil",
     },
   ];
@@ -234,7 +236,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Contato
+          {t('contact.title')}
         </motion.h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -252,13 +254,13 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              Envie uma mensagem
+              {t('contact.sendMessage')}
             </motion.h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <motion.div variants={inputVariants}>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary/80">
-                  Nome
+                  {t('contact.name')}
                 </label>
                 <input
                   type="text"
@@ -267,13 +269,13 @@ const ContactSection = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
-                  placeholder="Seu nome"
+                  placeholder={t('contact.placeholderName')}
                 />
               </motion.div>
               
               <motion.div variants={inputVariants}>
                 <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary/80">
-                  Email
+                  {t('contact.email')}
                 </label>
                 <input
                   type="email"
@@ -282,13 +284,13 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
-                  placeholder="Seu email"
+                  placeholder={t('contact.placeholderEmail')}
                 />
               </motion.div>
               
               <motion.div variants={inputVariants}>
                 <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary/80">
-                  Mensagem
+                  {t('contact.message')}
                 </label>
                 <textarea
                   id="message"
@@ -296,7 +298,7 @@ const ContactSection = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-md border border-input bg-background/50 backdrop-blur-sm transition-all duration-300 min-h-[120px] focus:ring-2 focus:ring-primary focus:border-primary hover:scale-105"
-                  placeholder="Como posso ajudar?"
+                  placeholder={t('contact.placeholderMessage')}
                 />
               </motion.div>
               
@@ -312,7 +314,7 @@ const ContactSection = () => {
                         : 'bg-red-100/80 text-red-800 backdrop-blur-sm'
                     }`}
                   >
-                  {formStatus.message}
+                    {t(formStatus.message)}
                   </motion.div>
               )}
               </AnimatePresence>
@@ -332,7 +334,7 @@ const ContactSection = () => {
                   transition={{ duration: 0.5 }}
                 />
                 <span className="relative z-10">
-                {formStatus.loading ? 'Enviando...' : 'Enviar mensagem'}
+                {formStatus.loading ? t('contact.sending') : t('contact.send')}
                 </span>
               </motion.button>
             </form>
@@ -351,7 +353,7 @@ const ContactSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              Informações de contato
+              {t('contact.infoTitle')}
             </motion.h3>
             
             <div className="space-y-6 mb-8">
@@ -389,7 +391,7 @@ const ContactSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                Me siga nas redes sociais
+                {t('contact.socialTitle')}
               </motion.h4>
               <div className="flex space-x-4">
                 {[

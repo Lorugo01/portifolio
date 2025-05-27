@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Função cn para concatenar classes condicionalmente
 const cn = (...classes: (string | boolean | undefined)[]) => {
@@ -9,6 +10,7 @@ const cn = (...classes: (string | boolean | undefined)[]) => {
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,11 +37,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Início', to: 'hero' },
-    { name: 'Sobre', to: 'about' },
-    { name: 'Projetos', to: 'projects' },
-    { name: 'Serviços', to: 'services' },
-    { name: 'Contato', to: 'contact' },
+    { name: t('nav.home'), to: 'hero' },
+    { name: t('nav.about'), to: 'about' },
+    { name: t('nav.projects'), to: 'projects' },
+    { name: t('nav.services'), to: 'services' },
+    { name: t('nav.contact'), to: 'contact' },
   ];
 
   return (
@@ -61,8 +63,8 @@ const Header = () => {
             className="text-xl md:text-2xl font-bold text-white cursor-pointer"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span className="text-primary">Port</span>
-            <span>fólio</span>
+            <span className="text-primary">{t('nav.logo.first')}</span>
+            <span>{t('nav.logo.second')}</span>
           </Link>
 
           {/* Desktop Navigation */}
