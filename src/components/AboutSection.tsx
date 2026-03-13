@@ -269,26 +269,32 @@ export const AboutSection = () => {
                   whileTap="tap"
                 >
                   <Button 
-                    className="btn-primary flex items-center gap-2" 
-                    onClick={() => window.open('/Luis Rodrigo Lima Rodrigues.pdf', '_blank')}
+                    asChild
+                    className="btn-primary flex items-center gap-2"
                   >
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    <a
+                      href="/luis-rodrigo-curriculo.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <Download size={20} />
-                    </motion.div>
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.span
-                        key={language + '-downloadCV'}
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.25 }}
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                       >
-                        {t('about.downloadCV')}
-                      </motion.span>
-                    </AnimatePresence>
+                        <Download size={20} />
+                      </motion.div>
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.span
+                          key={language + '-downloadCV'}
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          {t('about.downloadCV')}
+                        </motion.span>
+                      </AnimatePresence>
+                    </a>
                   </Button>
                 </motion.div>
               </motion.div>

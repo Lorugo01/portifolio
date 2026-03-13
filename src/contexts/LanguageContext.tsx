@@ -132,7 +132,7 @@ const translations: Record<Language, Translations> = {
     // About Section
     'about.title': 'Sobre Mim',
     'about.subtitle': 'Desenvolvedor apaixonado por transformar ideias em experiências digitais eficazes',
-    'about.role': 'Desenvolvedor Júnior',
+    'about.role': 'Desenvolvedor',
     'about.paragraph1': 'Sou Luis Rodrigo Lima Rodrigues, programador com experiência prática no desenvolvimento de soluções tecnológicas voltadas para a educação e o bem-estar. Atualmente atuo na Globaltec Educacional, onde colaboro em projetos inovadores que integram software, hardware educacional e tecnologias interativas.',
     'about.paragraph2': 'Iniciei minha trajetória profissional como estagiário de programação em uma clínica médica, desenvolvendo sistemas internos e ferramentas de melhoria da experiência dos pacientes. Além disso, tive uma passagem significativa como assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.',
     'about.paragraph3': 'Sou graduando em Engenharia de Software pela UNDB, com sólida base em linguagens como Dart (Flutter), Python e C++, e conhecimentos em HTML, CSS e JavaScript. Tenho também vivência no desenvolvimento de sistemas com foco em automação, integração de dispositivos IoT, e construção de interfaces interativas.',
@@ -286,7 +286,7 @@ const translations: Record<Language, Translations> = {
     // About Section
     'about.title': 'About Me',
     'about.subtitle': 'Developer passionate about transforming ideas into effective digital experiences',
-    'about.role': 'Junior Developer',
+    'about.role': 'Developer',
     'about.paragraph1': 'I am Luis Rodrigo Lima Rodrigues, a programmer with practical experience in developing technological solutions focused on education and well-being. I currently work at Globaltec Educacional, where I collaborate on innovative projects that integrate software, educational hardware, and interactive technologies.',
     'about.paragraph2': 'I started my professional journey as a programming intern at a medical clinic, developing internal systems and tools to improve patient experience. Additionally, I had a significant experience as an administrative assistant, which strengthened my organization, proactivity, and interpersonal skills.',
     'about.paragraph3': 'I am an undergraduate in Software Engineering at UNDB, with a solid foundation in languages such as Dart (Flutter), Python, and C++, and knowledge in HTML, CSS, and JavaScript. I also have experience in developing systems focused on automation, IoT device integration, and building interactive interfaces.',
