@@ -273,7 +273,7 @@ export const AboutSection = () => {
                     className="btn-primary flex items-center gap-2"
                   >
                     <a
-                      href="/luis-rodrigo-curriculo.pdf"
+                      href="/Luis%20Rodrigo%20Lima%20Rodrigues.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
