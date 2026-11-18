@@ -191,7 +191,7 @@ export const AboutSection = () => {
             >
               <div className="flex items-center gap-6 mb-6">
                 <motion.img
-                  src="/images/1730123583060.jpeg"
+                  src="/images/foto-perfil.webp"
                   alt="Luis Rodrigo Lima Rodrigues"
                   className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg"
                   variants={imageVariants}
@@ -273,7 +273,7 @@ export const AboutSection = () => {
                     className="btn-primary flex items-center gap-2"
                   >
                     <a
-                      href="/Luis%20Rodrigo%20Lima%20Rodrigues.pdf"
+                      href={language === 'en' ? '/Luis_Rodrigo_Lima_Rodrigues_-_Resume_EN.pdf' : '/Luis_Rodrigo_Lima_Rodrigues_-_Curriculo.pdf'}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

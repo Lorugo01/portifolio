@@ -28,9 +28,9 @@ const translations: Record<Language, Translations> = {
 
     // Hero Section
     'hero.name': 'Luis Rodrigo Lima Rodrigues',
-    'hero.title': 'Desenvolvedor de Software | Dart, JavaScript, Python, Java, C++, HTML, CSS',
+    'hero.title': 'Desenvolvedor Backend Pleno | NestJS, Prisma, PostgreSQL, TypeScript, React, Flutter',
     'hero.location': 'São Luis, Maranhão, Brasil',
-    'hero.institution': 'GlobalTec Educacional | UNDB - Unidade de Ensino Superior Dom Bosco',
+    'hero.institution': 'Supervisor do Setor de Aplicações @ Globaltec Educacional | Engenharia de Software - UNDB',
     'hero.projects': 'Ver Projetos',
     'hero.contact': 'Vamos Conversar',
     'hero.scroll': 'Role para baixo',
@@ -46,10 +46,10 @@ const translations: Record<Language, Translations> = {
 
     // Services Section
     'services.title': 'Serviços',
-    'services.subtitle': 'Soluções tecnológicas especializadas para educação, gestão e inovação',
+    'services.subtitle': 'Sistemas de ponta a ponta para educação, gestão e inovação: do banco de dados ao deploy',
     'services.mobile': {
       title: 'Desenvolvimento Mobile',
-      description: 'Criação de aplicativos móveis modernos e responsivos utilizando Flutter/Dart, com foco em experiência do usuário e performance.',
+      description: 'Criação de aplicativos móveis modernos utilizando Flutter/Dart, como ERPs mobile com API própria e assistentes de IA com voz, com foco em experiência do usuário e performance.',
       features: [
         'Apps multiplataforma com Flutter',
         'Interfaces interativas e animadas',
@@ -59,7 +59,7 @@ const translations: Record<Language, Translations> = {
     },
     'services.education': {
       title: 'Sistemas Educacionais',
-      description: 'Desenvolvimento de soluções tecnológicas para educação, combinando software e hardware para criar experiências de aprendizado inovadoras.',
+      description: 'Desenvolvimento de soluções tecnológicas para educação na Globaltec Educacional, combinando software e hardware para criar experiências de aprendizado inovadoras.',
       features: [
         'Plataformas de gestão educacional',
         'Sistemas de biblioteca digital',
@@ -69,9 +69,9 @@ const translations: Record<Language, Translations> = {
     },
     'services.iot': {
       title: 'IoT e Sistemas Embarcados',
-      description: 'Implementação de soluções IoT e sistemas embarcados, integrando hardware e software para automação e coleta de dados.',
+      description: 'Implementação de soluções IoT e sistemas embarcados com ESP32 e C++, como os armários inteligentes de laboratório BYLAB, integrando hardware e software para automação e coleta de dados.',
       features: [
-        'Programação de microcontroladores',
+        'Firmware para microcontroladores (ESP32)',
         'Sensores e atuadores',
         'Protocolos de comunicação',
         'Visualização de dados em tempo real'
@@ -79,27 +79,27 @@ const translations: Record<Language, Translations> = {
     },
     'services.web': {
       title: 'Desenvolvimento Web',
-      description: 'Criação de aplicações web modernas e responsivas, utilizando as mais recentes tecnologias e frameworks do mercado.',
+      description: 'Criação de sistemas web completos: modelagem do banco, APIs, autenticação, tempo real e deploy em servidor próprio.',
       features: [
-        'Frontend com React e Vue.js',
-        'Backend com Node.js e Python',
-        'Bancos de dados SQL e NoSQL',
-        'APIs RESTful e GraphQL'
+        'Frontend com React e Next.js',
+        'Backend com NestJS, Prisma e TypeScript',
+        'Bancos de dados PostgreSQL e SQL',
+        'APIs REST, login único (SSO) e tempo real (SSE)'
       ]
     },
     'services.automation': {
       title: 'Automação e Sistemas Internos',
-      description: 'Desenvolvimento de soluções automatizadas e sistemas internos para otimização de processos e melhoria da eficiência operacional.',
+      description: 'Desenvolvimento de ERPs e sistemas internos para otimização de processos, como o ERP Globaltec com 12 módulos e redução estimada de 62% no esforço de RH e ponto.',
       features: [
         'Automação de processos',
-        'Sistemas de gestão interna',
+        'ERPs: RH e ponto, estoque, compras e financeiro',
         'Integração entre sistemas',
         'Otimização de fluxos de trabalho'
       ]
     },
     'services.support': {
       title: 'Suporte Técnico Especializado',
-      description: 'Serviços de suporte técnico, manutenção e diagnóstico para hardware e software, garantindo o funcionamento adequado dos sistemas.',
+      description: 'Serviços de suporte técnico, manutenção, diagnóstico e infraestrutura (VMs, VPS, Docker, Caddy e Nginx), garantindo o funcionamento adequado dos sistemas.',
       features: [
         'Manutenção de hardware',
         'Diagnóstico de sistemas',
@@ -118,7 +118,7 @@ const translations: Record<Language, Translations> = {
     'contact.success': 'Mensagem enviada com sucesso!',
     'contact.error': 'Erro ao enviar mensagem. Tente novamente.',
     'contact.phone': 'Telefone',
-    'contact.phoneNumber': '+55 (98) 989855-5475',
+    'contact.phoneNumber': '+55 (98) 98555-5475',
     'contact.address': 'Endereço',
     'contact.addressCity': 'São Luis, Maranhão, Brasil',
     'contact.sendMessage': 'Envie uma mensagem',
@@ -131,36 +131,36 @@ const translations: Record<Language, Translations> = {
 
     // About Section
     'about.title': 'Sobre Mim',
-    'about.subtitle': 'Desenvolvedor apaixonado por transformar ideias em experiências digitais eficazes',
-    'about.role': 'Desenvolvedor',
-    'about.paragraph1': 'Sou Luis Rodrigo Lima Rodrigues, programador com experiência prática no desenvolvimento de soluções tecnológicas voltadas para a educação e o bem-estar. Atualmente atuo na Globaltec Educacional, onde colaboro em projetos inovadores que integram software, hardware educacional e tecnologias interativas.',
-    'about.paragraph2': 'Iniciei minha trajetória profissional como estagiário de programação em uma clínica médica, desenvolvendo sistemas internos e ferramentas de melhoria da experiência dos pacientes. Além disso, tive uma passagem significativa como assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.',
-    'about.paragraph3': 'Sou graduando em Engenharia de Software pela UNDB, com sólida base em linguagens como Dart (Flutter), Python e C++, e conhecimentos em HTML, CSS e JavaScript. Tenho também vivência no desenvolvimento de sistemas com foco em automação, integração de dispositivos IoT, e construção de interfaces interativas.',
+    'about.subtitle': 'Desenvolvedor backend que constrói sistemas de ponta a ponta, do banco de dados ao deploy',
+    'about.role': 'Desenvolvedor Backend',
+    'about.paragraph1': 'Sou Luis Rodrigo Lima Rodrigues, desenvolvedor backend pleno e Supervisor do Setor de Aplicações na Globaltec Educacional, onde lidero as equipes de aplicações. Construo sistemas de ponta a ponta (modelagem do banco, APIs, autenticação, tempo real e deploy em servidor próprio), com foco em NestJS, Prisma, PostgreSQL e TypeScript.',
+    'about.paragraph2': 'Na Globaltec passei de estagiário de TI e auxiliar de programação à supervisão, atuando em projetos como o ERP Globaltec (12 módulos), o login único (SSO) usado por 7 aplicações e os armários inteligentes BYLAB com ESP32. Antes, fui estagiário de TI no Instituto Ruy Palhano, desenvolvendo sistemas internos e ferramentas para melhorar a experiência dos pacientes, e assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.',
+    'about.paragraph3': 'Sou bacharel em Engenharia de Software pela UNDB (2026) e criador do MaxRPG (maxrpg.io), plataforma de fichas digitais de D&D 5e com mesas em tempo real e mais de 800 usuários. Também trabalho com React/Next.js, Flutter/Dart, Python, C++ e IoT com ESP32, além de infraestrutura com Docker, VPS, Caddy e Nginx.',
     'about.downloadCV': 'Baixar Currículo',
     'about.skills.title': 'Habilidades Técnicas',
     'about.skills.mobile': {
       title: 'Desenvolvimento Mobile',
-      description: 'Flutter/Dart para criação de apps intuitivos e funcionais'
+      description: 'Flutter/Dart para apps multiplataforma, como ERP mobile e assistente de IA com voz'
     },
     'about.skills.embedded': {
       title: 'Sistemas Embarcados',
-      description: 'Projetos com microcontroladores, sensores e automação'
+      description: 'Firmware em C++ com ESP32, sensores e automação de laboratórios'
     },
     'about.skills.web': {
       title: 'Desenvolvimento Web',
-      description: 'HTML, CSS, JavaScript e frameworks modernos'
+      description: 'NestJS, Prisma e PostgreSQL no backend; React e Next.js no frontend'
     },
     'about.skills.integration': {
       title: 'Integração de Sistemas',
-      description: 'Soluções com IoT e plataformas educacionais'
+      description: 'SSO com JWT RS256/JWKS, tempo real via SSE, IoT e plataformas educacionais'
     },
     'about.skills.debugging': {
       title: 'Depuração e Testes',
-      description: 'Identificação e correção de bugs em software e hardware'
+      description: 'Code review, identificação e correção de bugs em software e hardware'
     },
     'about.skills.hardware': {
       title: 'Manutenção de Hardware',
-      description: 'Montagem e diagnóstico de componentes'
+      description: 'Montagem e diagnóstico de componentes, VMs, VPS e Docker'
     },
 
     // Footer
@@ -182,9 +182,9 @@ const translations: Record<Language, Translations> = {
 
     // Hero Section
     'hero.name': 'Luis Rodrigo Lima Rodrigues',
-    'hero.title': 'Software Developer | Dart, JavaScript, Python, Java, C++, HTML, CSS',
+    'hero.title': 'Mid-level Backend Developer | NestJS, Prisma, PostgreSQL, TypeScript, React, Flutter',
     'hero.location': 'São Luís, Maranhão, Brazil',
-    'hero.institution': 'GlobalTec Educational | UNDB - Dom Bosco Higher Education Unit',
+    'hero.institution': 'Applications Department Supervisor @ Globaltec Educacional | Software Engineering - UNDB',
     'hero.projects': 'View Projects',
     'hero.contact': "Let's Talk",
     'hero.scroll': 'Scroll',
@@ -200,10 +200,10 @@ const translations: Record<Language, Translations> = {
 
     // Services Section
     'services.title': 'Services',
-    'services.subtitle': 'Specialized technological solutions for education, management, and innovation',
+    'services.subtitle': 'End-to-end systems for education, management, and innovation: from database to deploy',
     'services.mobile': {
       title: 'Mobile Development',
-      description: 'Creation of modern and responsive mobile applications using Flutter/Dart, focusing on user experience and performance.',
+      description: 'Creation of modern mobile applications using Flutter/Dart, such as mobile ERPs with their own API and voice-enabled AI assistants, focusing on user experience and performance.',
       features: [
         'Cross-platform apps with Flutter',
         'Interactive and animated interfaces',
@@ -213,7 +213,7 @@ const translations: Record<Language, Translations> = {
     },
     'services.education': {
       title: 'Educational Systems',
-      description: 'Development of technological solutions for education, combining software and hardware to create innovative learning experiences.',
+      description: 'Development of technological solutions for education at Globaltec Educacional, combining software and hardware to create innovative learning experiences.',
       features: [
         'Educational management platforms',
         'Digital library systems',
@@ -223,9 +223,9 @@ const translations: Record<Language, Translations> = {
     },
     'services.iot': {
       title: 'IoT and Embedded Systems',
-      description: 'Implementation of IoT solutions and embedded systems, integrating hardware and software for automation and data collection.',
+      description: 'Implementation of IoT solutions and embedded systems with ESP32 and C++, such as the BYLAB smart lab cabinets, integrating hardware and software for automation and data collection.',
       features: [
-        'Microcontroller programming',
+        'Microcontroller firmware (ESP32)',
         'Sensors and actuators',
         'Communication protocols',
         'Real-time data visualization'
@@ -233,27 +233,27 @@ const translations: Record<Language, Translations> = {
     },
     'services.web': {
       title: 'Web Development',
-      description: 'Creation of modern and responsive web applications using the latest technologies and frameworks in the market.',
+      description: 'Creation of complete web systems: database modeling, APIs, authentication, real time, and self-hosted deployment.',
       features: [
-        'Frontend with React and Vue.js',
-        'Backend with Node.js and Python',
-        'SQL and NoSQL databases',
-        'RESTful and GraphQL APIs'
+        'Frontend with React and Next.js',
+        'Backend with NestJS, Prisma, and TypeScript',
+        'PostgreSQL and SQL databases',
+        'REST APIs, single sign-on (SSO), and real time (SSE)'
       ]
     },
     'services.automation': {
       title: 'Automation and Internal Systems',
-      description: 'Development of automated solutions and internal systems for process optimization and operational efficiency improvement.',
+      description: 'Development of ERPs and internal systems for process optimization, such as the 12-module Globaltec ERP, with an estimated 62% reduction in HR and timekeeping effort.',
       features: [
         'Process automation',
-        'Internal management systems',
+        'ERPs: HR and timekeeping, inventory, purchasing, and finance',
         'System integration',
         'Workflow optimization'
       ]
     },
     'services.support': {
       title: 'Specialized Technical Support',
-      description: 'Technical support, maintenance, and diagnostic services for hardware and software, ensuring proper system operation.',
+      description: 'Technical support, maintenance, diagnostics, and infrastructure (VMs, VPS, Docker, Caddy, and Nginx), ensuring proper system operation.',
       features: [
         'Hardware maintenance',
         'System diagnostics',
@@ -272,7 +272,7 @@ const translations: Record<Language, Translations> = {
     'contact.success': 'Message sent successfully!',
     'contact.error': 'Error sending message. Please try again.',
     'contact.phone': 'Phone',
-    'contact.phoneNumber': '+55 (98) 989855-5475',
+    'contact.phoneNumber': '+55 (98) 98555-5475',
     'contact.address': 'Address',
     'contact.addressCity': 'Sao Luis, Maranhão, Brazil',
     'contact.sendMessage': 'Send a message',
@@ -285,36 +285,36 @@ const translations: Record<Language, Translations> = {
 
     // About Section
     'about.title': 'About Me',
-    'about.subtitle': 'Developer passionate about transforming ideas into effective digital experiences',
-    'about.role': 'Developer',
-    'about.paragraph1': 'I am Luis Rodrigo Lima Rodrigues, a programmer with practical experience in developing technological solutions focused on education and well-being. I currently work at Globaltec Educacional, where I collaborate on innovative projects that integrate software, educational hardware, and interactive technologies.',
-    'about.paragraph2': 'I started my professional journey as a programming intern at a medical clinic, developing internal systems and tools to improve patient experience. Additionally, I had a significant experience as an administrative assistant, which strengthened my organization, proactivity, and interpersonal skills.',
-    'about.paragraph3': 'I am an undergraduate in Software Engineering at UNDB, with a solid foundation in languages such as Dart (Flutter), Python, and C++, and knowledge in HTML, CSS, and JavaScript. I also have experience in developing systems focused on automation, IoT device integration, and building interactive interfaces.',
+    'about.subtitle': 'Backend developer who builds end-to-end systems, from database to deploy',
+    'about.role': 'Backend Developer',
+    'about.paragraph1': 'I am Luis Rodrigo Lima Rodrigues, a mid-level backend developer and Applications Department Supervisor at Globaltec Educacional, where I lead the applications teams. I build end-to-end systems (database modeling, APIs, authentication, real time, and self-hosted deployment), focusing on NestJS, Prisma, PostgreSQL, and TypeScript.',
+    'about.paragraph2': 'At Globaltec I went from IT intern and programming assistant to supervisor, working on projects such as the Globaltec ERP (12 modules), the single sign-on (SSO) used by 7 applications, and the BYLAB smart cabinets with ESP32. Before that, I was an IT intern at Instituto Ruy Palhano, building internal systems and tools to improve patient experience, and an administrative assistant, which strengthened my organization, proactivity, and interpersonal skills.',
+    'about.paragraph3': 'I hold a bachelor\'s degree in Software Engineering from UNDB (2026) and created MaxRPG (maxrpg.io), a D&D 5e digital character sheet platform with real-time tables and over 800 users. I also work with React/Next.js, Flutter/Dart, Python, C++, and IoT with ESP32, plus infrastructure with Docker, VPS, Caddy, and Nginx.',
     'about.downloadCV': 'Download CV',
     'about.skills.title': 'Technical Skills',
     'about.skills.mobile': {
       title: 'Mobile Development',
-      description: 'Flutter/Dart for creating intuitive and functional apps'
+      description: 'Flutter/Dart for cross-platform apps, such as a mobile ERP and a voice AI assistant'
     },
     'about.skills.embedded': {
       title: 'Embedded Systems',
-      description: 'Projects with microcontrollers, sensors, and automation'
+      description: 'C++ firmware with ESP32, sensors, and lab automation'
     },
     'about.skills.web': {
       title: 'Web Development',
-      description: 'HTML, CSS, JavaScript, and modern frameworks'
+      description: 'NestJS, Prisma, and PostgreSQL on the backend; React and Next.js on the frontend'
     },
     'about.skills.integration': {
       title: 'System Integration',
-      description: 'IoT solutions and educational platforms'
+      description: 'SSO with JWT RS256/JWKS, real time via SSE, IoT, and educational platforms'
     },
     'about.skills.debugging': {
       title: 'Debugging and Testing',
-      description: 'Identifying and fixing bugs in software and hardware'
+      description: 'Code review, identifying and fixing bugs in software and hardware'
     },
     'about.skills.hardware': {
       title: 'Hardware Maintenance',
-      description: 'Assembly and component diagnostics'
+      description: 'Assembly and component diagnostics, VMs, VPS, and Docker'
     },
 
     // Footer

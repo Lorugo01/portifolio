@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # Portfólio Profissional
-
-![Portfólio Preview](public/preview.png)
 
 ## 📋 Sobre o Projeto
 
@@ -14,7 +11,7 @@ Este é um portfólio profissional moderno e responsivo, desenvolvido com React,
 - Formulário de contato integrado com EmailJS
 - Seções para projetos, habilidades e informações de contato
 - Links para redes sociais
-- Tema claro/escuro
+- Versões em português e inglês (PT/EN)
 - Otimizado para SEO
 
 ## 🚀 Tecnologias Utilizadas
@@ -28,7 +25,7 @@ Este é um portfólio profissional moderno e responsivo, desenvolvido com React,
 
 ## 🛠️ Pré-requisitos
 
-- Node.js (versão 14 ou superior)
+- Node.js (versão 18 ou superior)
 - npm ou yarn
 - Conta no EmailJS (para o formulário de contato)
 
@@ -36,8 +33,8 @@ Este é um portfólio profissional moderno e responsivo, desenvolvido com React,
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/portfolio.git
-cd portfolio
+git clone https://github.com/Lorugo01/portifolio.git
+cd portifolio
 ```
 
 2. Instale as dependências:
@@ -49,7 +46,7 @@ yarn install
 
 3. Configure as variáveis de ambiente:
    - Crie um arquivo `.env` na raiz do projeto
-   - Copie o conteúdo do arquivo `.env.example`
+   - Copie o conteúdo do arquivo `.env.example` (`cp .env.example .env`)
    - Preencha as variáveis com suas credenciais do EmailJS:
 ```env
 VITE_EMAILJS_SERVICE_ID=seu_service_id
@@ -64,7 +61,7 @@ npm run dev
 yarn dev
 ```
 
-O projeto estará disponível em `http://localhost:5173`
+O projeto estará disponível em `http://localhost:8080`
 
 ## 📦 Build
 
@@ -85,6 +82,7 @@ Os arquivos otimizados serão gerados na pasta `dist`
 3. Crie um template de email
 4. Copie as credenciais (Service ID, Template ID e Public Key)
 5. Adicione as credenciais no arquivo `.env`
+6. O template deve usar as variáveis `{{name}}`, `{{email}}`, `{{message}}` e `{{title}}`
 
 ## 📱 Responsividade
 
@@ -96,7 +94,9 @@ O projeto é totalmente responsivo e otimizado para:
 ## 🎨 Personalização
 
 Você pode personalizar:
-- Cores no arquivo `tailwind.config.js`
+- Cores no arquivo `tailwind.config.js` e nas variáveis de `src/index.css`
+- Textos (PT/EN) em `src/contexts/LanguageContext.tsx`
+- Projetos em `src/components/ProjectsSection.tsx`
 - Conteúdo nas seções do portfólio
 - Imagens e ícones
 - Animações
@@ -120,6 +120,3 @@ Luis Rodrigo Lima Rodrigues
 - [Framer Motion](https://www.framer.com/motion/)
 - [EmailJS](https://www.emailjs.com/)
 - [Vite](https://vitejs.dev/)
-=======
-# portifolio
->>>>>>> 2938571c0f8c2131ced0bd481eea6b3457ba120c

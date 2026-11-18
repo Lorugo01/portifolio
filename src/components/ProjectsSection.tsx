@@ -545,9 +545,12 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
             <div className="flex flex-wrap gap-2 pt-4">
               {project.tags[language].map((tag, idx) => (
-                <AnimatePresence mode="wait" initial={false}>
+                <AnimatePresence
+                  key={tag}
+                  mode="wait"
+                  initial={false}
+                >
                   <span
-                    key={tag}
                     className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
                   >
                     <motion.span
@@ -648,9 +651,12 @@ export const ProjectsSection = () => {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags[language].map((tag, idx) => (
-                    <AnimatePresence mode="wait" initial={false}>
+                    <AnimatePresence
+                      key={tag}
+                      mode="wait"
+                      initial={false}
+                    >
                       <span
-                        key={tag}
                         className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
                       >
                         <motion.span

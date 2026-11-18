@@ -47,7 +47,7 @@ export const HeroSection = () => {
                   }}
                 />
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground/90">
+              <div className="text-xl md:text-2xl text-muted-foreground/90">
                 <Typewriter
                   key={language}
                   onInit={(typewriter) => {
@@ -66,7 +66,7 @@ export const HeroSection = () => {
                     wrapperClassName: 'text-muted-foreground/90'
                   }}
                 />
-              </p>
+              </div>
             </div>
             
             <div className="space-y-2 text-muted-foreground/80">

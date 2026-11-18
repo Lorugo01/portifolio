@@ -160,10 +160,12 @@ const ContactSection = () => {
       setFormStatus(prev => ({ ...prev, loading: true }));
       
       const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
+        // Campos devem bater com o template do EmailJS:
+        // {{name}}, {{email}}, {{message}}, {{title}}
+        name: formData.name,
+        email: formData.email,
         message: formData.message,
-        to_email: 'lluisrodrigo2@gmail.com'
+        title: 'Nova mensagem do portfólio'
       };
 
       await emailjs.send(
