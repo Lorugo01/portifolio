@@ -122,19 +122,22 @@ export default async function handler(req: Request, res: ServerResponse) {
 
   const transporter = createTransporter();
   if (!transporter || !mail.to) {
+    const missing = ['SMTP_HOST', 'SMTP_USER'].filter((key) => !process.env[key]);
     if (process.env.NODE_ENV !== 'production') {
       console.log(`[e-mail não enviado] ${mail.subject}\n${mail.text}`);
-    } else {
-      console.warn('SMTP_HOST ou destino não definidos: o contato não tem para onde ir.');
     }
-    return sendJson(res, 503, { success: false, error: 'mail_unavailable' });
+    console.warn(`Contato sem configuração de e-mail. Faltando: ${missing.join(', ') || 'CONTACT_EMAIL'}`);
+    // Só os nomes das variáveis, nunca os valores.
+    return sendJson(res, 503, { success: false, error: 'mail_not_configured', missing });
   }
 
   try {
     await transporter.sendMail(mail);
     return sendJson(res, 200, { success: true });
   } catch (error) {
-    console.error(`Falha ao enviar o contato: ${error}`);
-    return sendJson(res, 503, { success: false, error: 'mail_unavailable' });
+    const code = (error as { code?: string }).code || 'unknown';
+    console.error(`Falha ao enviar o contato (${code}): ${error}`);
+    // EAUTH = usuário/senha recusados; ETIMEDOUT/ECONNECTION = host ou porta.
+    return sendJson(res, 503, { success: false, error: 'mail_send_failed', code });
   }
 }
