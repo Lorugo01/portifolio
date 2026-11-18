@@ -162,6 +162,27 @@ const translations: Record<Language, Translations> = {
       title: 'Manutenção de Hardware',
       description: 'Montagem e diagnóstico de componentes, VMs, VPS e Docker'
     },
+    'about.skills.backend': {
+      title: 'Desenvolvimento Backend',
+      description: 'APIs em NestJS e Node.js com TypeScript, Prisma, PostgreSQL e documentação com Swagger'
+    },
+    'about.skills.auth': {
+      title: 'Autenticação e Tempo Real',
+      description: 'JWT com refresh token, login com Google (OAuth), SSO com JWKS e eventos em tempo real via SSE'
+    },
+    'about.skills.devops': {
+      title: 'Infraestrutura e Deploy',
+      description: 'Docker Compose, Caddy e Nginx em VPS Linux e máquinas virtuais, com scripts de backup e restauração'
+    },
+    'about.skills.leadership': {
+      title: 'Liderança e Metodologias Ágeis',
+      description: 'Liderança das equipes de aplicações, arquitetura, code review e sprints com Kanban'
+    },
+    'about.stack.title': 'Tecnologias e Ferramentas',
+    'about.languages.title': 'Idiomas',
+    'about.languages.list': ['Português: nativo', 'Inglês: avançado', 'Espanhol: básico'],
+    'projects.visit': 'Acessar projeto',
+    'projects.private': 'Código privado',
 
     // Footer
     'footer.description': 'Transformando ideias em experiências digitais através de design e desenvolvimento de qualidade.',
@@ -316,6 +337,27 @@ const translations: Record<Language, Translations> = {
       title: 'Hardware Maintenance',
       description: 'Assembly and component diagnostics, VMs, VPS, and Docker'
     },
+    'about.skills.backend': {
+      title: 'Backend Development',
+      description: 'NestJS and Node.js APIs with TypeScript, Prisma, PostgreSQL, and Swagger documentation'
+    },
+    'about.skills.auth': {
+      title: 'Authentication and Real Time',
+      description: 'JWT with refresh tokens, Google sign-in (OAuth), SSO with JWKS, and real-time events via SSE'
+    },
+    'about.skills.devops': {
+      title: 'Infrastructure and Deploy',
+      description: 'Docker Compose, Caddy, and Nginx on Linux VPS and virtual machines, with backup and restore scripts'
+    },
+    'about.skills.leadership': {
+      title: 'Leadership and Agile',
+      description: 'Leading the applications teams: architecture, code review, and Kanban sprints'
+    },
+    'about.stack.title': 'Technologies and Tools',
+    'about.languages.title': 'Languages',
+    'about.languages.list': ['Portuguese: native', 'English: advanced', 'Spanish: basic'],
+    'projects.visit': 'Open project',
+    'projects.private': 'Private code',
 
     // Footer
     'footer.description': 'Transforming ideas into digital experiences through quality design and development.',

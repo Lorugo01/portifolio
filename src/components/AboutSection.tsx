@@ -95,7 +95,22 @@ export const AboutSection = () => {
     tObject('about.skills.integration') as { title: string; description: string },
     tObject('about.skills.debugging') as { title: string; description: string },
     tObject('about.skills.hardware') as { title: string; description: string },
+    tObject('about.skills.backend') as { title: string; description: string },
+    tObject('about.skills.auth') as { title: string; description: string },
+    tObject('about.skills.devops') as { title: string; description: string },
+    tObject('about.skills.leadership') as { title: string; description: string },
   ];
+
+  const stack = [
+    'NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger',
+    'React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod',
+    'Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++',
+    'JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'APIs REST',
+    'Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS', 'Meilisearch',
+    'ESP32', 'Arduino', 'IoT', 'Git', 'GitHub',
+  ];
+
+  const spokenLanguages = tObject('about.languages.list') as string[];
 
   return (
     <section id="about" className="py-20 relative overflow-hidden">
@@ -385,6 +400,29 @@ export const AboutSection = () => {
                     </motion.div>
                   ))}
                 </div>
+
+                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
+                  {t('about.stack.title')}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
+                  {t('about.languages.title')}
+                </h3>
+                <ul className="space-y-1 text-muted-foreground">
+                  {spokenLanguages.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           </motion.div>

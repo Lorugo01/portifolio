@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
-import { X } from "lucide-react";
+import { X, ExternalLink, Lock } from "lucide-react";
 import { useLanguage } from '../contexts/LanguageContext';
 
 interface ProjectDetails {
@@ -22,6 +22,8 @@ interface Project {
   image: string;
   tags: { pt: string[]; en: string[] };
   details: ProjectDetails;
+  link?: string;
+  privateCode?: boolean;
 }
 
 interface ProjectModalProps {
@@ -31,6 +33,244 @@ interface ProjectModalProps {
 }
 
 const projects: Project[] = [
+  {
+    title: { pt: "MaxRPG", en: "MaxRPG" },
+    description: {
+      pt: "Ficha digital de D&D 5e com mesas em tempo real, usada por mais de 800 jogadores na web e no app.",
+      en: "D&D 5e digital character sheet with real-time tables, used by more than 800 players on web and mobile."
+    },
+    image: "/images/maxrpg-icon.png",
+    link: "https://maxrpg.io",
+    privateCode: true,
+    tags: {
+      pt: ["NestJS", "Prisma", "PostgreSQL", "React", "Flutter", "SSE", "Docker"],
+      en: ["NestJS", "Prisma", "PostgreSQL", "React", "Flutter", "SSE", "Docker"]
+    },
+    details: {
+      overview: {
+        pt: "O MaxRPG é uma plataforma própria, criada e mantida por mim de ponta a ponta (produto, backend, web, app, deploy e comunidade). Ele automatiza a ficha de personagem de D&D 5e e conecta mestre e jogadores em mesas compartilhadas, com fichas, vida e rolagens atualizadas ao vivo. Está em produção em maxrpg.io com mais de 800 usuários.",
+        en: "MaxRPG is my own platform, built and maintained end to end (product, backend, web, app, deploy, and community). It automates the D&D 5e character sheet and connects game masters and players in shared tables, with sheets, hit points, and rolls updated live. It is in production at maxrpg.io with more than 800 users."
+      },
+      technologies: {
+        frontend: {
+          pt: [
+            "React com Vite, TanStack Query, Zustand e React Hook Form + Zod",
+            "Radix UI e Framer Motion para a interface e as animações",
+            "App mobile em Flutter",
+            "Overlay para streamers (OBS) e extensão para o Owlbear Rodeo"
+          ],
+          en: [
+            "React with Vite, TanStack Query, Zustand, and React Hook Form + Zod",
+            "Radix UI and Framer Motion for the interface and animations",
+            "Flutter mobile app",
+            "Streamer overlay (OBS) and Owlbear Rodeo extension"
+          ]
+        },
+        backend: {
+          pt: [
+            "API em módulos NestJS com TypeScript e documentação em Swagger",
+            "Prisma com PostgreSQL 16, com as regras do jogo guardadas como dados",
+            "Tempo real com Server-Sent Events (SSE) nas mesas e no overlay",
+            "JWT com refresh token, login com Google e recuperação de senha por e-mail",
+            "Deploy em VPS Linux com Docker Compose e Caddy, com scripts de backup e restauração"
+          ],
+          en: [
+            "Modular NestJS API with TypeScript and Swagger documentation",
+            "Prisma with PostgreSQL 16, with the game rules stored as data",
+            "Real time with Server-Sent Events (SSE) for tables and the overlay",
+            "JWT with refresh tokens, Google sign-in, and password recovery by email",
+            "Deployed on a Linux VPS with Docker Compose and Caddy, with backup and restore scripts"
+          ]
+        },
+        features: {
+          pt: [
+            "Ficha automatizada: atributos, perícias, CA e iniciativa recalculados a cada mudança",
+            "Multiclasse pelas regras do PHB 2024",
+            "Mesas em tempo real com entrada por código",
+            "Homebrew de raças, talentos, magias, equipamentos e subclasses",
+            "Exportação da ficha em PDF nos modelos oficiais"
+          ],
+          en: [
+            "Automated sheet: abilities, skills, AC, and initiative recalculated on every change",
+            "Multiclassing following the PHB 2024 rules",
+            "Real-time tables joined by code",
+            "Homebrew races, feats, spells, equipment, and subclasses",
+            "Sheet export to PDF using the official templates"
+          ]
+        }
+      }
+    }
+  },
+  {
+    title: { pt: "OrçaEng", en: "OrçaEng" },
+    description: {
+      pt: "Plataforma de orçamento de obras com base SINAPI, árvore de etapas, busca com filtros e versionamento.",
+      en: "Construction budgeting platform based on SINAPI, with a stage tree, filtered search, and versioning."
+    },
+    image: "/images/orcaeng.svg",
+    link: "https://github.com/Lorugo01/ERP-eng",
+    tags: {
+      pt: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Meilisearch"],
+      en: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Meilisearch"]
+    },
+    details: {
+      overview: {
+        pt: "O OrçaEng é uma plataforma de orçamento de obras com bases oficiais de preço (SINAPI), composições próprias e filtros avançados sobre a árvore do orçamento. O total geral é recalculado a cada alteração, e orçamentos aprovados viram versões que não podem mais ser editadas.",
+        en: "OrçaEng is a construction budgeting platform with official price bases (SINAPI), custom compositions, and advanced filters over the budget tree. The grand total is recalculated on every change, and approved budgets become versions that can no longer be edited."
+      },
+      technologies: {
+        frontend: {
+          pt: [
+            "Next.js 16 (App Router) com React 19 e server actions",
+            "Tailwind CSS 4, shadcn/ui e TanStack Table",
+            "TypeScript nos dois workspaces"
+          ],
+          en: [
+            "Next.js 16 (App Router) with React 19 and server actions",
+            "Tailwind CSS 4, shadcn/ui, and TanStack Table",
+            "TypeScript in both workspaces"
+          ]
+        },
+        backend: {
+          pt: [
+            "Prisma 7 com PostgreSQL 17",
+            "Meilisearch para a busca com filtros",
+            "Better Auth para autenticação",
+            "decimal.js no motor de cálculo e testes com Vitest"
+          ],
+          en: [
+            "Prisma 7 with PostgreSQL 17",
+            "Meilisearch for filtered search",
+            "Better Auth for authentication",
+            "decimal.js in the calculation engine, tested with Vitest"
+          ]
+        },
+        features: {
+          pt: [
+            "Orçamento em árvore com etapas, subetapas e itens sem limite de profundidade",
+            "Importação das bases SINAPI por UF, referência e regime de desoneração",
+            "Busca em uma caixa só, com filtros salvos",
+            "Versionamento de orçamentos aprovados",
+            "Conferência por item: pendente, aprovado ou divergente"
+          ],
+          en: [
+            "Budget tree with stages, sub-stages, and items with unlimited depth",
+            "SINAPI base import by state, reference date, and tax regime",
+            "Single search box with saved filters",
+            "Versioning of approved budgets",
+            "Per-item review: pending, approved, or divergent"
+          ]
+        }
+      }
+    }
+  },
+  {
+    title: { pt: "Odonto", en: "Odonto" },
+    description: {
+      pt: "SaaS para clínicas odontológicas com cadastro de pacientes, agenda e odontograma interativo.",
+      en: "SaaS for dental clinics with patient records, scheduling, and an interactive dental chart."
+    },
+    image: "/images/odonto.svg",
+    link: "https://github.com/Lorugo01/odonto",
+    tags: {
+      pt: ["NestJS", "Prisma", "PostgreSQL", "React", "Tailwind CSS", "Docker"],
+      en: ["NestJS", "Prisma", "PostgreSQL", "React", "Tailwind CSS", "Docker"]
+    },
+    details: {
+      overview: {
+        pt: "O Odonto é um SaaS odontológico construído com a mesma arquitetura do ERP Globaltec: um backend em NestJS com Prisma e um frontend em React. Ele reúne o cadastro de pacientes, a agenda da clínica e um odontograma interativo, com perfis de acesso para administração, dentistas, recepção e pacientes.",
+        en: "Odonto is a dental SaaS built with the same architecture as the Globaltec ERP: a NestJS backend with Prisma and a React frontend. It brings together patient records, the clinic schedule, and an interactive dental chart, with access profiles for administrators, dentists, reception, and patients."
+      },
+      technologies: {
+        frontend: {
+          pt: [
+            "React com Vite e Tailwind CSS",
+            "Proxy da API configurado no Vite para desenvolvimento"
+          ],
+          en: [
+            "React with Vite and Tailwind CSS",
+            "API proxy configured in Vite for development"
+          ]
+        },
+        backend: {
+          pt: [
+            "API em NestJS com TypeScript",
+            "Prisma com PostgreSQL rodando em Docker",
+            "Autenticação com perfis de acesso"
+          ],
+          en: [
+            "NestJS API with TypeScript",
+            "Prisma with PostgreSQL running in Docker",
+            "Authentication with access profiles"
+          ]
+        },
+        features: {
+          pt: [
+            "Cadastro de pacientes",
+            "Agenda da clínica",
+            "Odontograma interativo",
+            "Perfis para administração, dentista, recepção e paciente"
+          ],
+          en: [
+            "Patient records",
+            "Clinic schedule",
+            "Interactive dental chart",
+            "Profiles for administrators, dentists, reception, and patients"
+          ]
+        }
+      }
+    }
+  },
+  {
+    title: { pt: "GlobaltecONE", en: "GlobaltecONE" },
+    description: {
+      pt: "Portfólio de transferência tecnológica com 351 tecnologias em 19 áreas, integrado ao ERP Globaltec.",
+      en: "Technology transfer portfolio with 351 technologies across 19 areas, integrated with the Globaltec ERP."
+    },
+    image: "/images/globaltecone.svg",
+    link: "https://globaltecone.tech",
+    privateCode: true,
+    tags: {
+      pt: ["NestJS", "Prisma", "React", "TypeScript"],
+      en: ["NestJS", "Prisma", "React", "TypeScript"]
+    },
+    details: {
+      overview: {
+        pt: "O GlobaltecONE é a plataforma de transferência tecnológica da Globaltec Educacional. Ele reúne um catálogo de 351 tecnologias organizadas em 19 áreas e é integrado ao ERP Globaltec, que também desenvolvo.",
+        en: "GlobaltecONE is Globaltec Educacional's technology transfer platform. It brings together a catalog of 351 technologies organized into 19 areas and is integrated with the Globaltec ERP, which I also develop."
+      },
+      technologies: {
+        frontend: {
+          pt: [
+            "React com TypeScript"
+          ],
+          en: [
+            "React with TypeScript"
+          ]
+        },
+        backend: {
+          pt: [
+            "API em NestJS com Prisma",
+            "Integração com o ERP Globaltec"
+          ],
+          en: [
+            "NestJS API with Prisma",
+            "Integration with the Globaltec ERP"
+          ]
+        },
+        features: {
+          pt: [
+            "Catálogo de 351 tecnologias em 19 áreas",
+            "Dados compartilhados com o ERP Globaltec"
+          ],
+          en: [
+            "Catalog of 351 technologies across 19 areas",
+            "Data shared with the Globaltec ERP"
+          ]
+        }
+      }
+    }
+  },
   {
     title: { pt: "LudiTeca", en: "LudiTeca" },
     description: {
@@ -566,6 +806,28 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
                 </AnimatePresence>
               ))}
             </div>
+
+            {(project.link || project.privateCode) && (
+              <div className="flex flex-wrap items-center gap-4 pt-4">
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-5 text-sm font-medium transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    {t('projects.visit')}
+                  </a>
+                )}
+                {project.privateCode && (
+                  <span className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                    <Lock className="w-4 h-4" />
+                    {t('projects.private')}
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </DialogContent>

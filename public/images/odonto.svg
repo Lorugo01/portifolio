@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <path transform="translate(270 60)" fill="none" stroke="#4d6bff" stroke-width="9" stroke-linejoin="round"
+        d="M50 10 C30 0 0 5 0 40 C0 70 12 85 18 120 C22 140 38 140 40 120 C43 100 45 88 50 88 C55 88 57 100 60 120 C62 140 78 140 82 120 C88 85 100 70 100 40 C100 5 70 0 50 10 Z"/>
+  <text x="320" y="250" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">Odonto</text>
+  <text x="320" y="290" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#94a3b8">SaaS para clínicas odontológicas</text>
+</svg>

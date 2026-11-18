@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <g fill="none" stroke="#4d6bff" stroke-width="8" transform="translate(320 130)">
+    <circle r="62"/>
+    <ellipse rx="26" ry="62"/>
+    <path d="M-62 0 H62 M-54 -30 H54 M-54 30 H54"/>
+  </g>
+  <text x="320" y="250" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#ffffff">GlobaltecONE</text>
+  <text x="320" y="290" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#94a3b8">351 tecnologias · 19 áreas</text>
+</svg>

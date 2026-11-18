@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { useLanguage } from '../contexts/LanguageContext';
 import { AnimatePresence as mAnimatePresence, motion as m } from 'framer-motion';
 
@@ -108,7 +107,8 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    website: ''
   });
   const [formStatus, setFormStatus] = useState<{
     submitted: boolean;
@@ -156,43 +156,52 @@ const ContactSection = () => {
       return;
     }
 
+    // Mesmo limite do servidor (api/contact.ts)
+    if (formData.message.trim().length < 10) {
+      setFormStatus({
+        submitted: true,
+        success: false,
+        message: language === 'en'
+          ? 'The message must have at least 10 characters.'
+          : 'A mensagem deve ter pelo menos 10 caracteres.',
+        loading: false
+      });
+      return;
+    }
+
     try {
       setFormStatus(prev => ({ ...prev, loading: true }));
       
-      const templateParams = {
-        // Campos devem bater com o template do EmailJS:
-        // {{name}}, {{email}}, {{message}}, {{title}}
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        title: 'Nova mensagem do portfólio'
-      };
+      // Enviado pelo servidor (api/contact.ts) com Nodemailer, como no MaxRPG.
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json().catch(() => ({ success: false }));
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || `HTTP ${response.status}`);
+      }
 
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      );
-      
       setFormStatus({
         submitted: true,
         success: true,
-        message: 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+        message: t('contact.success'),
         loading: false
       });
-      
+
       // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
-        message: ''
+        message: '',
+        website: ''
       });
     } catch (error) {
       setFormStatus({
         submitted: true,
         success: false,
-        message: 'Erro ao enviar mensagem. Por favor, tente novamente.',
+        message: t('contact.error'),
         loading: false
       });
     }
@@ -281,6 +290,19 @@ const ContactSection = () => {
             </motion.h3>
             
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Campo-isca: escondido para pessoas, robôs que preenchem tudo se denunciam. */}
+              <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleInputChange}
+                />
+              </div>
               <motion.div variants={inputVariants}>
                 <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary/80">
                   <AnimatePresence mode="wait" initial={false}>
