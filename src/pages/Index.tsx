@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 const Index = () => {
   // Set page title and description dynamically
   useEffect(() => {
-    document.title = "Luis Rodrigo | Desenvolvedor Backend";
+    document.title = "Luis Rodrigo | Desenvolvedor Backend Pleno";
   }, []);
 
   return (
