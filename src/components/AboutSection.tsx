@@ -111,6 +111,7 @@ export const AboutSection = () => {
   ];
 
   const spokenLanguages = tObject('about.languages.list') as string[];
+  const softSkills = tObject('about.softSkills.list') as string[];
 
   return (
     <section id="about" className="py-20 relative overflow-hidden">
@@ -423,6 +424,20 @@ export const AboutSection = () => {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+
+                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
+                  {t('about.softSkills.title')}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {softSkills.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           </motion.div>
