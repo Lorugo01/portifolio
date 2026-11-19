@@ -24,6 +24,8 @@ interface Project {
   details: ProjectDetails;
   link?: string;
   privateCode?: boolean;
+  /** "cover" para fotos que preenchem o card; o padrão mostra o logo inteiro. */
+  imageFit?: "cover";
 }
 
 interface ProjectModalProps {
@@ -107,7 +109,8 @@ const projects: Project[] = [
       pt: "Plataforma de orçamento de obras com base SINAPI, árvore de etapas, busca com filtros e versionamento.",
       en: "Construction budgeting platform based on SINAPI, with a stage tree, filtered search, and versioning."
     },
-    image: "/images/orcaeng.svg",
+    image: "/images/orcaeng.jpg",
+    imageFit: "cover",
     link: "https://github.com/Lorugo01/ERP-eng",
     tags: {
       pt: ["Next.js", "React", "TypeScript", "Prisma", "PostgreSQL", "Meilisearch"],
@@ -170,7 +173,8 @@ const projects: Project[] = [
       pt: "SaaS para clínicas odontológicas com cadastro de pacientes, agenda e odontograma interativo.",
       en: "SaaS for dental clinics with patient records, scheduling, and an interactive dental chart."
     },
-    image: "/images/odonto.svg",
+    image: "/images/odonto.jpg",
+    imageFit: "cover",
     link: "https://github.com/Lorugo01/odonto",
     tags: {
       pt: ["NestJS", "Prisma", "PostgreSQL", "React", "Tailwind CSS", "Docker"],
@@ -227,7 +231,7 @@ const projects: Project[] = [
       pt: "Portfólio de transferência tecnológica com 351 tecnologias em 19 áreas, integrado ao ERP Globaltec.",
       en: "Technology transfer portfolio with 351 technologies across 19 areas, integrated with the Globaltec ERP."
     },
-    image: "/images/globaltecone.svg",
+    image: "/images/globaltecone-logo.png",
     link: "https://globaltecone.tech",
     privateCode: true,
     tags: {
@@ -869,14 +873,14 @@ export const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-colors cursor-pointer"
+              className="group flex flex-col bg-card/60 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/40 hover:shadow-[0_20px_60px_-25px_hsl(var(--primary)/0.5)] transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="aspect-video relative overflow-hidden bg-black flex items-center justify-center">
+              <div className="aspect-video relative overflow-hidden flex items-center justify-center bg-background/80 bg-[radial-gradient(circle_at_50%_40%,hsl(var(--primary)/0.18),transparent_70%)] border-b border-white/10">
                 <motion.img
                   src={project.image}
                   alt={project.title[language]}
-                  className="object-contain w-full h-full drop-shadow-md"
+                  className={project.imageFit === "cover" ? "absolute inset-0 h-full w-full object-cover" : "object-contain h-[72%] w-[72%] rounded-xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.45)]"}
                   initial={{ scale: 1.05 }}
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 0.3 }}

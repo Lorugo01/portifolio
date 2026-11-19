@@ -6,6 +6,14 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 8080
+    },
+    {
+      "name": "odonto-preview",
+      "url": "http://localhost:4174"
+    },
+    {
+      "name": "orcaeng-preview",
+      "url": "http://localhost:3000"
     }
   ]
 }

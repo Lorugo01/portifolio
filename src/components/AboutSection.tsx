@@ -1,448 +1,299 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardContent } from "./ui/card";
-import { Button } from "./ui/button";
-import { Download } from "lucide-react";
+import { motion } from "framer-motion";
+import { Download, Languages, MapPin, Sparkles } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { Marquee } from "./ui/marquee";
+import { SpotlightCard } from "./ui/spotlight-card";
+import { cn } from "@/lib/utils";
+import { techLogo } from "@/lib/tech-logos";
 
-const skillCardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
+type Skill = { title: string; description: string };
+type Highlight = { value: string; label: string };
+type StackGroup = { title: string; items: string[] };
+
+/** Ordem do bento: o primeiro ocupa duas colunas e as linhas fecham em 3. */
+const SKILLS: { key: string; logos: string[]; wide?: boolean }[] = [
+  { key: "about.skills.backend", logos: ["NestJS", "Node.js", "TypeScript", "Prisma", "PostgreSQL"], wide: true },
+  { key: "about.skills.auth", logos: ["JWT", "OAuth"] },
+  { key: "about.skills.devops", logos: ["Docker", "Caddy", "Nginx", "Linux / VPS"] },
+  { key: "about.skills.web", logos: ["React", "Next.js", "Tailwind CSS"] },
+  { key: "about.skills.mobile", logos: ["Flutter", "Dart"] },
+  { key: "about.skills.integration", logos: ["JWT", "ESP32", "PostgreSQL"] },
+  { key: "about.skills.embedded", logos: ["ESP32", "Arduino", "C++"] },
+  { key: "about.skills.leadership", logos: ["Git", "GitHub"] },
+  { key: "about.skills.debugging", logos: ["TypeScript", "Python", "C++"] },
+  { key: "about.skills.hardware", logos: ["Linux / VPS", "Docker", "Arduino"], wide: true },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.1,
-      duration: 0.5,
-      ease: "easeOut"
-    }
+    transition: { duration: 0.5, delay: i * 0.06, ease: "easeOut" },
   }),
-  hover: {
-    scale: 1.02,
-    backgroundColor: "rgba(var(--primary), 0.1)",
-    transition: {
-      duration: 0.2
-    }
-  }
 };
 
-const imageVariants = {
-  hover: {
-    scale: 1.05,
-    rotate: 5,
-    borderColor: "rgba(var(--primary), 0.4)",
-    transition: {
-      duration: 0.3
-    }
-  }
-};
-
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    transition: {
-      duration: 0.2,
-      type: "spring",
-      stiffness: 300
-    }
-  },
-  tap: {
-    scale: 0.95
-  }
-};
-
-const textHoverVariants = {
-  hover: {
-    color: "var(--primary)",
-    x: 5,
-    transition: {
-      duration: 0.2,
-      ease: "easeInOut"
-    }
-  }
-};
-
-const paragraphHoverVariants = {
-  initial: {
-    backgroundSize: "0% 2px",
-    backgroundPosition: "0 100%",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: "linear-gradient(to right, var(--primary), var(--primary))",
-  },
-  hover: {
-    backgroundSize: "100% 2px",
-    transition: {
-      duration: 0.3
-    }
-  }
-};
-
-const descriptionHoverVariants = {
-  hover: {
-    color: "var(--foreground)",
-    scale: 1.01,
-    transition: {
-      duration: 0.2
-    }
-  }
-};
+const SectionHeading = ({ title, subtitle }: { title: string; subtitle?: string }) => (
+  <div className="mb-10 text-center">
+    <h3 className="text-2xl md:text-3xl font-bold">{title}</h3>
+    {subtitle && <p className="mt-2 text-muted-foreground">{subtitle}</p>}
+  </div>
+);
 
 export const AboutSection = () => {
   const { t, tObject, language } = useLanguage();
 
-  const skills = [
-    tObject('about.skills.mobile') as { title: string; description: string },
-    tObject('about.skills.embedded') as { title: string; description: string },
-    tObject('about.skills.web') as { title: string; description: string },
-    tObject('about.skills.integration') as { title: string; description: string },
-    tObject('about.skills.debugging') as { title: string; description: string },
-    tObject('about.skills.hardware') as { title: string; description: string },
-    tObject('about.skills.backend') as { title: string; description: string },
-    tObject('about.skills.auth') as { title: string; description: string },
-    tObject('about.skills.devops') as { title: string; description: string },
-    tObject('about.skills.leadership') as { title: string; description: string },
-  ];
-
-  const stack = [
-    'NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger',
-    'React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod',
-    'Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++',
-    'JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'APIs REST',
-    'Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS', 'Meilisearch',
-    'ESP32', 'Arduino', 'IoT', 'Git', 'GitHub',
-  ];
-
-  const spokenLanguages = tObject('about.languages.list') as string[];
-  const softSkills = tObject('about.softSkills.list') as string[];
+  const highlights = tObject("about.highlights") as Highlight[];
+  const stackGroups = tObject("about.stack.groups") as StackGroup[];
+  const spokenLanguages = tObject("about.languages.list") as string[];
+  const softSkills = tObject("about.softSkills.list") as string[];
+  const allTech = stackGroups.flatMap((group) => group.items);
+  const cvHref =
+    language === "en"
+      ? "/Luis_Rodrigo_Lima_Rodrigues_-_Resume_EN.pdf"
+      : "/Luis_Rodrigo_Lima_Rodrigues_-_Curriculo.pdf";
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
-      {/* Background Elements com animação */}
-      <div className="absolute inset-0 bg-background/50">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.3 }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,var(--primary),transparent)]"
-        />
-        <motion.div
-          initial={{ opacity: 0, backgroundPosition: "0px 0px" }}
-          animate={{ opacity: 0.2, backgroundPosition: "24px 24px" }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute inset-0 bg-[linear-gradient(to_right,var(--primary)_1px,transparent_1px),linear-gradient(to_bottom,var(--primary)_1px,transparent_1px)]"
-          style={{ backgroundSize: '24px 24px' }}
+    <section id="about" className="relative overflow-hidden py-20 md:py-28">
+      {/* Fundo: brilho suave e grade pontilhada */}
+      <div aria-hidden className="absolute inset-0 -z-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_600px_at_50%_0px,hsl(var(--primary)/0.15),transparent)]" />
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: "radial-gradient(hsl(var(--foreground)) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" key={language}>
+        {/* Título */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="mb-14 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
         >
-          <motion.h2 
-            className="section-title cursor-pointer"
-            whileInView={{
-              backgroundSize: ["100% 0%", "100% 100%"],
-              transition: { duration: 1, ease: "easeOut" }
-            }}
-            whileHover={{
-              scale: 1.02,
-              color: "var(--primary)",
-              transition: { duration: 0.2 }
-            }}
-            style={{
-              backgroundImage: "linear-gradient(transparent 60%, var(--primary-foreground) 40%)",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "0 0",
-            }}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={language}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-                transition={{ duration: 0.25 }}
-              >
-                {t('about.title')}
-              </motion.span>
-            </AnimatePresence>
-          </motion.h2>
-          <motion.p 
-            className="text-muted-foreground max-w-2xl mx-auto text-lg cursor-pointer"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{
-              scale: 1.01,
-              color: "var(--primary)",
-              transition: { duration: 0.2 }
-            }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.span
-                key={language}
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -10 }}
-                transition={{ duration: 0.25 }}
-              >
-                {t('about.subtitle')}
-              </motion.span>
-            </AnimatePresence>
-          </motion.p>
+          <h2 className="section-title after:left-1/2 after:-translate-x-1/2">{t("about.title")}</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{t("about.subtitle")}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Perfil + texto */}
+        <div className="grid gap-6 lg:grid-cols-12">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="lg:col-span-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
           >
-            <motion.div 
-              className="glass-card p-6 space-y-4"
-              whileHover={{ boxShadow: "0 10px 30px -15px rgba(0,0,0,0.2)" }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex items-center gap-6 mb-6">
-                <motion.img
-                  src="/images/foto-perfil.webp"
-                  alt="Luis Rodrigo Lima Rodrigues"
-                  className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 shadow-lg"
-                  variants={imageVariants}
-                  whileHover="hover"
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                />
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
-                  <motion.h3 
-                    className="text-2xl font-semibold text-primary mb-2 cursor-pointer"
-                    whileHover={{
-                      scale: 1.02,
-                      x: 5,
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    Luis Rodrigo Lima Rodrigues
-                  </motion.h3>
-                  <motion.p 
-                    className="text-muted-foreground cursor-pointer"
-                    variants={textHoverVariants}
-                    whileHover="hover"
-                  >
-                    <AnimatePresence mode="wait" initial={false}>
-                      <motion.span
-                        key={language + '-role'}
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        {t('about.role')}
-                      </motion.span>
-                    </AnimatePresence>
-                  </motion.p>
-                </motion.div>
+            <SpotlightCard className="h-full p-8">
+              <div className="flex items-center gap-5">
+                <div className="relative shrink-0">
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary to-secondary opacity-70 blur-sm" />
+                  <img
+                    src="/images/foto-perfil.webp"
+                    alt="Luis Rodrigo Lima Rodrigues"
+                    className="relative h-24 w-24 rounded-full border-2 border-background object-cover"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-xl font-semibold leading-tight">Luis Rodrigo Lima Rodrigues</h3>
+                  <p className="mt-1 font-medium text-primary">{t("about.role")}</p>
+                  <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
+                    <MapPin className="h-3.5 w-3.5" />
+                    {t("hero.location")}
+                  </p>
+                </div>
               </div>
-              {["about.paragraph1", "about.paragraph2", "about.paragraph3"].map((key, index) => (
-                <motion.p
-                  key={index}
-                  initial={{ opacity: 0, y: 10, ...paragraphHoverVariants.initial }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover="hover"
-                  variants={paragraphHoverVariants}
-                  transition={{ delay: index * 0.2, duration: 0.5 }}
-                  className="text-foreground/90 leading-relaxed cursor-pointer"
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.span
-                      key={language + '-' + key}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      {t(key)}
-                    </motion.span>
-                  </AnimatePresence>
-                </motion.p>
-              ))}
-              <motion.div 
-                className="pt-4"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-              >
-                <motion.div
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  <Button 
-                    asChild
-                    className="btn-primary flex items-center gap-2"
+
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                {highlights.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-xl border border-white/10 bg-background/60 p-4"
                   >
-                    <a
-                      href={language === 'en' ? '/Luis_Rodrigo_Lima_Rodrigues_-_Resume_EN.pdf' : '/Luis_Rodrigo_Lima_Rodrigues_-_Curriculo.pdf'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Download size={20} />
-                      </motion.div>
-                      <AnimatePresence mode="wait" initial={false}>
-                        <motion.span
-                          key={language + '-downloadCV'}
-                          initial={{ opacity: 0, x: 10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -10 }}
-                          transition={{ duration: 0.25 }}
-                        >
-                          {t('about.downloadCV')}
-                        </motion.span>
-                      </AnimatePresence>
-                    </a>
-                  </Button>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                    <div className="font-heading text-2xl font-bold text-primary">{item.value}</div>
+                    <div className="mt-1 text-xs leading-snug text-muted-foreground">{item.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-8 flex w-full items-center justify-center gap-2"
+              >
+                <Download className="h-4 w-4" />
+                {t("about.downloadCV")}
+              </a>
+            </SpotlightCard>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            className="lg:col-span-7"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={1}
           >
-            <Card className="glass-card">
-              <CardContent className="p-6">
-                <motion.h3 
-                  className="text-xl font-semibold mb-6 text-primary flex items-center gap-2 cursor-pointer"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  whileHover={{
-                    scale: 1.05,
-                    x: 5,
-                    transition: { duration: 0.2 }
-                  }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    <motion.span
-                      key={language}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -10 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      {t('about.skills.title')}
-                    </motion.span>
-                  </AnimatePresence>
-                </motion.h3>
-                <div className="space-y-4">
-                  {skills.map((skill, index) => (
-                    <motion.div
-                      key={index}
-                      className="glass-card p-4 cursor-pointer"
-                      variants={skillCardVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      whileHover="hover"
-                      custom={index}
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <motion.span 
-                          className="w-2 h-2 rounded-full bg-primary"
-                          whileHover={{ scale: 1.5 }}
-                        />
-                        <motion.h4 
-                          className="font-medium text-primary"
-                          variants={textHoverVariants}
-                          whileHover="hover"
-                        >
-                          <AnimatePresence mode="wait" initial={false}>
-                            <motion.span
-                              key={language + '-skill-title-' + index}
-                              initial={{ opacity: 0, x: 10 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              exit={{ opacity: 0, x: -10 }}
-                              transition={{ duration: 0.25 }}
-                            >
-                              {skill.title}
-                            </motion.span>
-                          </AnimatePresence>
-                        </motion.h4>
-                      </div>
-                      <motion.p 
-                        className="text-muted-foreground"
-                        variants={descriptionHoverVariants}
-                        whileHover="hover"
+            <SpotlightCard className="h-full p-8">
+              <div className="space-y-5 text-[1.05rem] leading-relaxed text-muted-foreground">
+                {["about.paragraph1", "about.paragraph2", "about.paragraph3"].map((key) => (
+                  <p key={key}>{t(key)}</p>
+                ))}
+              </div>
+
+              <div className="mt-8 grid gap-6 border-t border-white/10 pt-6 sm:grid-cols-2">
+                <div>
+                  <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-foreground/80">
+                    <Languages className="h-4 w-4 text-primary" />
+                    {t("about.languages.title")}
+                  </h4>
+                  <ul className="space-y-1 text-sm text-muted-foreground">
+                    {spokenLanguages.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-foreground/80">
+                    <Sparkles className="h-4 w-4 text-primary" />
+                    {t("about.softSkills.title")}
+                  </h4>
+                  <div className="flex flex-wrap gap-1.5">
+                    {softSkills.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-white/10 bg-background/60 px-2.5 py-1 text-xs text-muted-foreground"
                       >
-                        <AnimatePresence mode="wait" initial={false}>
-                          <motion.span
-                            key={language + '-skill-desc-' + index}
-                            initial={{ opacity: 0, x: 10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -10 }}
-                            transition={{ duration: 0.25 }}
-                          >
-                            {skill.description}
-                          </motion.span>
-                        </AnimatePresence>
-                      </motion.p>
-                    </motion.div>
-                  ))}
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-
-                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
-                  {t('about.stack.title')}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
-                  {t('about.languages.title')}
-                </h3>
-                <ul className="space-y-1 text-muted-foreground">
-                  {spokenLanguages.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-
-                <h3 className="text-xl font-semibold mt-8 mb-4 text-primary">
-                  {t('about.softSkills.title')}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {softSkills.map((item) => (
-                    <span
-                      key={item}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </SpotlightCard>
           </motion.div>
+        </div>
+
+        {/* Habilidades em bento grid */}
+        <div className="mt-24">
+          <SectionHeading title={t("about.skills.title")} />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SKILLS.map(({ key, logos, wide }, index) => {
+              const skill = tObject(key) as Skill;
+              return (
+                <motion.div
+                  key={key}
+                  className={cn(wide && "lg:col-span-2")}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={index % 3}
+                >
+                  <SpotlightCard className="h-full">
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {logos.map((name) => (
+                        <TechLogo key={name} name={name} />
+                      ))}
+                    </div>
+                    <h4 className="text-lg font-semibold">{skill.title}</h4>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{skill.description}</p>
+                  </SpotlightCard>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Tecnologias */}
+        <div className="mt-24">
+          <SectionHeading title={t("about.stack.title")} subtitle={t("about.stack.subtitle")} />
+
+          <div className="mb-10 space-y-3">
+            <Marquee className="[--duration:45s]">
+              {allTech.slice(0, Math.ceil(allTech.length / 2)).map((tech) => (
+                <TechPill key={tech} name={tech} />
+              ))}
+            </Marquee>
+            <Marquee reverse className="[--duration:45s]">
+              {allTech.slice(Math.ceil(allTech.length / 2)).map((tech) => (
+                <TechPill key={tech} name={tech} />
+              ))}
+            </Marquee>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {stackGroups.map((group, index) => (
+              <motion.div
+                key={group.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                custom={index % 3}
+              >
+                <SpotlightCard className="h-full">
+                  <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-primary">
+                    {group.title}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <span
+                        key={item}
+                        className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-background/60 py-1.5 pl-1.5 pr-3 text-sm text-foreground/90"
+                      >
+                        {techLogo(item) ? (
+                          <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white p-1">
+                            <img src={techLogo(item)} alt="" className="h-full w-full object-contain" loading="lazy" />
+                          </span>
+                        ) : (
+                          <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-primary" />
+                        )}
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
+  );
+};
+
+const TechPill = ({ name }: { name: string }) => {
+  const logo = techLogo(name);
+  return (
+    <span className="inline-flex items-center gap-2.5 whitespace-nowrap rounded-full border border-white/10 bg-card/70 py-2 pl-2 pr-4 text-sm font-medium text-foreground/90">
+      {logo && (
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white p-1.5">
+          <img src={logo} alt="" className="h-full w-full object-contain" loading="lazy" />
+        </span>
+      )}
+      {name}
+    </span>
+  );
+};
+
+/** Logo real em um quadrado branco, para ficar legível no fundo escuro. */
+const TechLogo = ({ name }: { name: string }) => {
+  const logo = techLogo(name);
+  if (!logo) return null;
+  return (
+    <span
+      title={name}
+      className="flex h-11 w-11 items-center justify-center rounded-xl bg-white p-2 shadow-md shadow-black/30"
+    >
+      <img src={logo} alt={name} className="h-full w-full object-contain" loading="lazy" />
+    </span>
   );
 };

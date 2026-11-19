@@ -2,7 +2,7 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'pt' | 'en';
 
-type TranslationValue = string | string[] | { [key: string]: TranslationValue };
+type TranslationValue = string | TranslationValue[] | { [key: string]: TranslationValue };
 
 interface Translations {
   [key: string]: TranslationValue;
@@ -23,6 +23,7 @@ const translations: Record<Language, Translations> = {
     'nav.projects': 'Projetos',
     'nav.services': 'Serviços',
     'nav.contact': 'Contato',
+    'nav.experience': 'Trajetória',
     'nav.logo.first': 'Luis ',
     'nav.logo.second': 'Rodrigo',
 
@@ -183,6 +184,24 @@ const translations: Record<Language, Translations> = {
     'about.languages.list': ['Português: nativo', 'Inglês: avançado', 'Espanhol: básico'],
     'about.softSkills.title': 'Habilidades interpessoais',
     'about.softSkills.list': ['Liderança', 'Trabalho em equipe', 'Pensamento analítico', 'Resolução de problemas', 'Boa comunicação', 'Organização', 'Adaptabilidade'],
+    'about.highlights': [
+      { value: '800+', label: 'usuários no MaxRPG' },
+      { value: '12', label: 'módulos no ERP Globaltec' },
+      { value: '7', label: 'apps com login único (SSO)' },
+      { value: '−62%', label: 'de esforço em RH e ponto' }
+    ],
+    'about.stack.subtitle': 'Ferramentas que uso no dia a dia, do banco de dados ao deploy',
+    'about.stack.groups': [
+      { title: 'Backend e dados', items: ['NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger', 'Meilisearch'] },
+      { title: 'Frontend', items: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod'] },
+      { title: 'Mobile e linguagens', items: ['Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++'] },
+      { title: 'Autenticação e tempo real', items: ['JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'APIs REST'] },
+      { title: 'Infraestrutura e deploy', items: ['Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS'] },
+      { title: 'IoT e ferramentas', items: ['ESP32', 'Arduino', 'IoT', 'Git', 'GitHub'] }
+    ],
+    'experience.title': 'Trajetória',
+    'experience.subtitle': 'Experiência profissional e formação',
+    'experience.current': 'Atual',
     'projects.visit': 'Acessar projeto',
     'projects.private': 'Código privado',
 
@@ -200,6 +219,7 @@ const translations: Record<Language, Translations> = {
     'nav.projects': 'Projects',
     'nav.services': 'Services',
     'nav.contact': 'Contact',
+    'nav.experience': 'Experience',
     'nav.logo.first': 'Luis ',
     'nav.logo.second': 'Rodrigo',
 
@@ -360,6 +380,24 @@ const translations: Record<Language, Translations> = {
     'about.languages.list': ['Portuguese: native', 'English: advanced', 'Spanish: basic'],
     'about.softSkills.title': 'Soft skills',
     'about.softSkills.list': ['Leadership', 'Teamwork', 'Analytical thinking', 'Problem solving', 'Communication', 'Organization', 'Adaptability'],
+    'about.highlights': [
+      { value: '800+', label: 'MaxRPG users' },
+      { value: '12', label: 'modules in the Globaltec ERP' },
+      { value: '7', label: 'apps with single sign-on (SSO)' },
+      { value: '−62%', label: 'effort in HR and time tracking' }
+    ],
+    'about.stack.subtitle': 'Tools I use every day, from database to deploy',
+    'about.stack.groups': [
+      { title: 'Backend and data', items: ['NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger', 'Meilisearch'] },
+      { title: 'Frontend', items: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod'] },
+      { title: 'Mobile and languages', items: ['Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++'] },
+      { title: 'Authentication and real time', items: ['JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'REST APIs'] },
+      { title: 'Infrastructure and deploy', items: ['Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS'] },
+      { title: 'IoT and tools', items: ['ESP32', 'Arduino', 'IoT', 'Git', 'GitHub'] }
+    ],
+    'experience.title': 'Experience',
+    'experience.subtitle': 'Professional experience and education',
+    'experience.current': 'Current',
     'projects.visit': 'Open project',
     'projects.private': 'Private code',
 

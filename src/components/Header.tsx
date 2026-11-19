@@ -41,6 +41,7 @@ const Header = () => {
   const navItems = [
     { name: t('nav.home'), to: 'hero' },
     { name: t('nav.about'), to: 'about' },
+    { name: t('nav.experience'), to: 'experience' },
     { name: t('nav.projects'), to: 'projects' },
     { name: t('nav.services'), to: 'services' },
     { name: t('nav.contact'), to: 'contact' },
