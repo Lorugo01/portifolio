@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Languages, MapPin, Sparkles } from "lucide-react";
+import { ArrowUpRight, Download, Languages, MapPin, Sparkles } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Marquee } from "./ui/marquee";
 import { SpotlightCard } from "./ui/spotlight-card";
@@ -9,6 +9,13 @@ import { techLogo } from "@/lib/tech-logos";
 type Skill = { title: string; description: string };
 type Highlight = { value: string; label: string };
 type StackGroup = { title: string; items: string[] };
+type NowItem = { title: string; detail: string };
+
+const LINKS = [
+  { label: "GitHub", value: "github.com/Lorugo01", href: "https://github.com/Lorugo01", logo: "/tech/github.svg" },
+  { label: "LinkedIn", value: "in/luisrodrigolima", href: "https://www.linkedin.com/in/luisrodrigolima/", logo: "/tech/linkedin.svg" },
+  { label: "MaxRPG", value: "maxrpg.io", href: "https://maxrpg.io", logo: "/images/maxrpg-icon.png" },
+];
 
 /** Ordem do bento: o primeiro ocupa duas colunas e as linhas fecham em 3. */
 const SKILLS: { key: string; logos: string[]; wide?: boolean }[] = [
@@ -44,6 +51,7 @@ export const AboutSection = () => {
   const { t, tObject, language } = useLanguage();
 
   const highlights = tObject("about.highlights") as Highlight[];
+  const nowItems = tObject("about.now.items") as NowItem[];
   const stackGroups = tObject("about.stack.groups") as StackGroup[];
   const spokenLanguages = tObject("about.languages.list") as string[];
   const softSkills = tObject("about.softSkills.list") as string[];
@@ -89,7 +97,7 @@ export const AboutSection = () => {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <SpotlightCard className="h-full p-8">
+            <SpotlightCard className="h-full p-8" contentClassName="flex h-full flex-col">
               <div className="flex items-center gap-5">
                 <div className="relative shrink-0">
                   <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary to-secondary opacity-70 blur-sm" />
@@ -121,11 +129,58 @@ export const AboutSection = () => {
                 ))}
               </div>
 
+              <div className="mt-8">
+                <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground/80">
+                  {t("about.now.title")}
+                </h4>
+                <ul className="space-y-3">
+                  {nowItems.map((item) => (
+                    <li key={item.title} className="flex gap-3">
+                      <span className="relative mt-1.5 flex h-2.5 w-2.5 shrink-0">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-medium text-foreground">{item.title}</p>
+                        <p className="text-xs text-muted-foreground">{item.detail}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8">
+                <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground/80">
+                  {t("about.links.title")}
+                </h4>
+                <div className="space-y-2">
+                  {LINKS.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link flex items-center gap-3 rounded-xl border border-white/10 bg-background/60 p-2.5 transition-colors hover:border-primary/40 hover:bg-primary/5"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-1.5">
+                        <img src={link.logo} alt="" className="h-full w-full object-contain" loading="lazy" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block text-sm font-medium text-foreground">{link.label}</span>
+                        <span className="block truncate text-xs text-muted-foreground">{link.value}</span>
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-primary" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="min-h-8 flex-1" />
               <a
                 href={cvHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary mt-8 flex w-full items-center justify-center gap-2"
+                className="btn-primary flex w-full items-center justify-center gap-2"
               >
                 <Download className="h-4 w-4" />
                 {t("about.downloadCV")}

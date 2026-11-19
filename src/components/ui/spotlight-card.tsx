@@ -4,13 +4,15 @@ import { cn } from "@/lib/utils";
 interface SpotlightCardProps {
   children: ReactNode;
   className?: string;
+  /** Classes do conteúdo interno (por exemplo, "flex h-full flex-col"). */
+  contentClassName?: string;
 }
 
 /**
  * Card com um brilho que segue o mouse (no estilo dos "spotlight cards" do
  * Aceternity UI / React Bits). Sem mouse, fica como um card comum.
  */
-export function SpotlightCard({ children, className }: SpotlightCardProps) {
+export function SpotlightCard({ children, className, contentClassName }: SpotlightCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleMove = (event: MouseEvent<HTMLDivElement>) => {
@@ -39,7 +41,7 @@ export function SpotlightCard({ children, className }: SpotlightCardProps) {
             "radial-gradient(400px circle at var(--x, 50%) var(--y, 50%), hsl(var(--primary) / 0.12), transparent 60%)",
         }}
       />
-      <div className="relative">{children}</div>
+      <div className={cn("relative", contentClassName)}>{children}</div>
     </div>
   );
 }

@@ -1,20 +1,33 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Monitor, Code2, Cpu, Settings2, Terminal, Laptop } from "lucide-react";
 import { Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
 import { useRef } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import { OrbitingCircles } from "./ui/orbiting-circles";
+import { techLogo } from "@/lib/tech-logos";
+
+const INNER_ORBIT = ["NestJS", "Prisma", "PostgreSQL", "TypeScript"];
+const OUTER_ORBIT = ["React", "Next.js", "Flutter", "Docker", "Node.js", "ESP32"];
+
+const OrbitLogo = ({ name }: { name: string }) => (
+  <span
+    title={name}
+    className="flex h-full w-full items-center justify-center rounded-full border border-white/20 bg-white p-2.5 shadow-lg shadow-black/40"
+  >
+    <img src={techLogo(name)} alt={name} className="h-full w-full object-contain" />
+  </span>
+);
 
 export const HeroSection = () => {
-  const descriptionRef = useRef<any>(null);
+  const descriptionRef = useRef<{ start: () => void } | null>(null);
   const { t, language } = useLanguage();
 
   return (
-    <section id="hero" className="pt-24 min-h-screen flex items-center relative overflow-hidden">
+    <section id="hero" className="pt-24 pb-10 min-h-screen flex flex-col justify-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-background z-0">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_1200px_at_100%_200px,var(--primary),transparent)]"></div>
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_1200px_at_0%_800px,var(--secondary),transparent)]"></div>
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_1200px_at_100%_200px,hsl(var(--primary)),transparent)]"></div>
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_1200px_at_0%_800px,hsl(var(--secondary)),transparent)]"></div>
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -142,106 +155,61 @@ export const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Animated Icons */}
+          {/* Foto com os logos reais da stack em órbita */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative w-full max-w-2xl mx-auto lg:ml-auto"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative mx-auto flex h-[340px] w-[340px] items-center justify-center sm:h-[440px] sm:w-[440px] lg:ml-auto lg:mr-0"
           >
-            <div className="aspect-square relative bg-black/5 backdrop-blur-sm rounded-xl p-8 flex items-center justify-center">
-              {/* Central Monitor */}
-              <motion.div
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="absolute flex items-center justify-center"
-              >
-                <div className="relative w-32 h-32 flex items-center justify-center">
-                  <Monitor className="w-full h-full text-primary" strokeWidth={1.5} />
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, delay: 0.6 }}
-                    className="absolute"
-                  >
-                    <Code2 className="w-16 h-16 text-primary/70" strokeWidth={1.5} />
-                  </motion.div>
-                </div>
-              </motion.div>
+            <div aria-hidden className="absolute inset-10 rounded-full bg-primary/25 blur-3xl" />
 
-              {/* Floating Terminal */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute top-8 left-8"
-              >
-                <Terminal className="w-10 h-10 text-primary/60" strokeWidth={1.5} />
-              </motion.div>
-
-              {/* Rotating Notebook */}
-              <motion.div
-                animate={{ rotate: [0, 10, -10, 0] }}
-                transition={{ duration: 6, repeat: Infinity }}
-                className="absolute bottom-10 right-10"
-              >
-                <Laptop className="w-12 h-12 text-primary/40" strokeWidth={1.5} />
-              </motion.div>
-
-              {/* Rotating Gears */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                className="absolute top-12 right-24"
-              >
-                <Settings2 className="w-16 h-16 text-primary/80" strokeWidth={1.5} />
-              </motion.div>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-12 left-24"
-              >
-                <Settings2 className="w-20 h-20 text-primary/60" strokeWidth={1.5} />
-              </motion.div>
-
-              {/* CPU Icon */}
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.1, 1],
-                  opacity: [0.6, 1, 0.6]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/2 transform -translate-y-1/2 left-16"
-              >
-                <Cpu className="w-12 h-12 text-primary/70" strokeWidth={1.5} />
-              </motion.div>
-
-              {/* Pulsing Dots */}
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.7, 0.3]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-6 right-6 w-2 h-2 rounded-full bg-primary"
-              />
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.7, 0.3]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute top-6 right-12 w-2 h-2 rounded-full bg-primary"
-              />
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.7, 0.3]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute top-6 right-18 w-2 h-2 rounded-full bg-primary"
+            <div className="relative z-10">
+              <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-primary via-secondary to-primary opacity-80 blur-md" />
+              <img
+                src="/images/foto-perfil.webp"
+                alt="Luis Rodrigo Lima Rodrigues"
+                className="relative h-36 w-36 rounded-full border-4 border-background object-cover sm:h-44 sm:w-44"
               />
             </div>
+
+            <div className="absolute inset-0 origin-center scale-[0.77] sm:scale-100">
+              <div className="relative flex h-full w-full items-center justify-center">
+                <OrbitingCircles radius={130} duration={28} iconSize={48}>
+                  {INNER_ORBIT.map((name) => (
+                    <OrbitLogo key={name} name={name} />
+                  ))}
+                </OrbitingCircles>
+                <OrbitingCircles radius={205} duration={40} iconSize={52} reverse>
+                  {OUTER_ORBIT.map((name) => (
+                    <OrbitLogo key={name} name={name} />
+                  ))}
+                </OrbitingCircles>
+              </div>
+            </div>
+
+            {/* Selos flutuantes */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -left-2 top-10 z-20 hidden rounded-xl border border-white/10 bg-card/80 px-3 py-2 shadow-xl backdrop-blur-md sm:block"
+            >
+              <div className="font-heading text-lg font-bold text-primary">800+</div>
+              <div className="text-xs text-muted-foreground">{t('about.highlightsShort.users')}</div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="absolute -right-2 bottom-12 z-20 hidden items-center gap-2 rounded-xl border border-white/10 bg-card/80 px-3 py-2 shadow-xl backdrop-blur-md sm:flex"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
+              <span className="text-xs font-medium text-foreground">{t('hero.badge')}</span>
+            </motion.div>
           </motion.div>
         </div>
       </div>
@@ -251,7 +219,7 @@ export const HeroSection = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground/60 flex flex-col items-center gap-2 z-20"
+        className="relative z-20 mt-10 hidden flex-col items-center gap-2 self-center text-muted-foreground/60 lg:flex"
       >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span

@@ -35,6 +35,8 @@ const translations: Record<Language, Translations> = {
     'hero.projects': 'Ver Projetos',
     'hero.contact': 'Vamos Conversar',
     'hero.scroll': 'Role para baixo',
+    'hero.badge': 'Aberto a novos projetos',
+    'about.highlightsShort.users': 'usuários no MaxRPG',
 
     // Projects Section
     'projects.title': 'Projetos em Destaque',
@@ -184,6 +186,12 @@ const translations: Record<Language, Translations> = {
     'about.languages.list': ['Português: nativo', 'Inglês: avançado', 'Espanhol: básico'],
     'about.softSkills.title': 'Habilidades interpessoais',
     'about.softSkills.list': ['Liderança', 'Trabalho em equipe', 'Pensamento analítico', 'Resolução de problemas', 'Boa comunicação', 'Organização', 'Adaptabilidade'],
+    'about.now.title': 'Atualmente',
+    'about.now.items': [
+      { title: 'Supervisor de Departamento', detail: 'Globaltec Educacional · desde nov 2025' },
+      { title: 'Criador e mantenedor do MaxRPG', detail: 'maxrpg.io · mais de 800 usuários' }
+    ],
+    'about.links.title': 'Onde me encontrar',
     'about.highlights': [
       { value: '800+', label: 'usuários no MaxRPG' },
       { value: '12', label: 'módulos no ERP Globaltec' },
@@ -231,6 +239,8 @@ const translations: Record<Language, Translations> = {
     'hero.projects': 'View Projects',
     'hero.contact': "Let's Talk",
     'hero.scroll': 'Scroll',
+    'hero.badge': 'Open to new projects',
+    'about.highlightsShort.users': 'MaxRPG users',
 
     // Projects Section
     'projects.title': 'Featured Projects',
@@ -380,6 +390,12 @@ const translations: Record<Language, Translations> = {
     'about.languages.list': ['Portuguese: native', 'English: advanced', 'Spanish: basic'],
     'about.softSkills.title': 'Soft skills',
     'about.softSkills.list': ['Leadership', 'Teamwork', 'Analytical thinking', 'Problem solving', 'Communication', 'Organization', 'Adaptability'],
+    'about.now.title': 'Currently',
+    'about.now.items': [
+      { title: 'Department Supervisor', detail: 'Globaltec Educacional · since Nov 2025' },
+      { title: 'Creator and maintainer of MaxRPG', detail: 'maxrpg.io · 800+ users' }
+    ],
+    'about.links.title': 'Find me',
     'about.highlights': [
       { value: '800+', label: 'MaxRPG users' },
       { value: '12', label: 'modules in the Globaltec ERP' },
