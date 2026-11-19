@@ -132,7 +132,7 @@ const translations: Record<Language, Translations> = {
     // About Section
     'about.title': 'Sobre Mim',
     'about.subtitle': 'Desenvolvedor backend que constrói sistemas de ponta a ponta, do banco de dados ao deploy',
-    'about.role': 'Desenvolvedor Backend',
+    'about.role': 'Desenvolvedor Backend Pleno',
     'about.paragraph1': 'Sou Luis Rodrigo Lima Rodrigues, desenvolvedor backend pleno e Supervisor de Departamento na Globaltec Educacional, onde lidero as equipes de aplicações. Construo sistemas de ponta a ponta (modelagem do banco, APIs, autenticação, tempo real e deploy em servidor próprio), com foco em NestJS, Prisma, PostgreSQL e TypeScript.',
     'about.paragraph2': 'Na Globaltec passei de estagiário de TI e auxiliar de programação à supervisão, atuando em projetos como o ERP Globaltec (12 módulos), o login único (SSO) usado por 7 aplicações e os armários inteligentes BYLAB com ESP32. Antes, fui estagiário de TI no Instituto Ruy Palhano, desenvolvendo sistemas internos e ferramentas para melhorar a experiência dos pacientes, e assistente administrativo, o que fortaleceu minha organização, proatividade e habilidades interpessoais.',
     'about.paragraph3': 'Sou bacharel em Engenharia de Software pela UNDB (2026) e criador do MaxRPG (maxrpg.io), plataforma de fichas digitais de D&D 5e com mesas em tempo real e mais de 800 usuários. Também trabalho com React/Next.js, Flutter/Dart, Python, C++ e IoT com ESP32, além de infraestrutura com Docker, VPS, Caddy e Nginx.',
@@ -309,7 +309,7 @@ const translations: Record<Language, Translations> = {
     // About Section
     'about.title': 'About Me',
     'about.subtitle': 'Backend developer who builds end-to-end systems, from database to deploy',
-    'about.role': 'Backend Developer',
+    'about.role': 'Mid-level Backend Developer',
     'about.paragraph1': 'I am Luis Rodrigo Lima Rodrigues, a mid-level backend developer and Department Supervisor at Globaltec Educacional, where I lead the applications teams. I build end-to-end systems (database modeling, APIs, authentication, real time, and self-hosted deployment), focusing on NestJS, Prisma, PostgreSQL, and TypeScript.',
     'about.paragraph2': 'At Globaltec I went from IT intern and programming assistant to supervisor, working on projects such as the Globaltec ERP (12 modules), the single sign-on (SSO) used by 7 applications, and the BYLAB smart lockers with ESP32. Before that, I was an IT intern at Instituto Ruy Palhano, building internal systems and tools to improve patient experience, and an administrative assistant, which strengthened my organization, proactivity, and interpersonal skills.',
     'about.paragraph3': 'I hold a bachelor\'s degree in Software Engineering from UNDB (2026) and created MaxRPG (maxrpg.io), a D&D 5e digital character sheet platform with real-time tables and over 800 users. I also work with React/Next.js, Flutter/Dart, Python, C++, and IoT with ESP32, plus infrastructure with Docker, VPS, Caddy, and Nginx.',
