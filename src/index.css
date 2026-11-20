@@ -83,6 +83,19 @@
     @apply border-border;
   }
 
+  /* Animações que entram de lado (x: ±50) não podem alargar a página no celular */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  @supports (overflow: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
+  }
+
   body {
     @apply bg-background text-foreground font-sans scroll-smooth;
     font-family: 'Poppins', sans-serif;

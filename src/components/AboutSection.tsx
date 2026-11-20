@@ -17,18 +17,15 @@ const LINKS = [
   { label: "MaxRPG", value: "maxrpg.io", href: "https://maxrpg.io", logo: "/images/maxrpg-icon.png" },
 ];
 
-/** Ordem do bento: o primeiro ocupa duas colunas e as linhas fecham em 3. */
+/** Ordem do bento: o primeiro e o último ocupam duas colunas, e as linhas fecham em 3. */
 const SKILLS: { key: string; logos: string[]; wide?: boolean }[] = [
   { key: "about.skills.backend", logos: ["NestJS", "Node.js", "TypeScript", "Prisma", "PostgreSQL"], wide: true },
   { key: "about.skills.auth", logos: ["JWT", "OAuth"] },
-  { key: "about.skills.devops", logos: ["Docker", "Caddy", "Nginx", "Linux / VPS"] },
   { key: "about.skills.web", logos: ["React", "Next.js", "Tailwind CSS"] },
   { key: "about.skills.mobile", logos: ["Flutter", "Dart"] },
-  { key: "about.skills.integration", logos: ["JWT", "ESP32", "PostgreSQL"] },
+  { key: "about.skills.devops", logos: ["Docker", "Caddy", "Nginx", "Linux / VPS"] },
   { key: "about.skills.embedded", logos: ["ESP32", "Arduino", "C++"] },
-  { key: "about.skills.leadership", logos: ["Git", "GitHub"] },
-  { key: "about.skills.debugging", logos: ["TypeScript", "Python", "C++"] },
-  { key: "about.skills.hardware", logos: ["Linux / VPS", "Docker", "Arduino"], wide: true },
+  { key: "about.skills.leadership", logos: ["Git", "GitHub"], wide: true },
 ];
 
 const fadeUp = {

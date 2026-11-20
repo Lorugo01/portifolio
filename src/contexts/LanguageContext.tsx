@@ -49,7 +49,7 @@ const translations: Record<Language, Translations> = {
 
     // Services Section
     'services.title': 'Serviços',
-    'services.subtitle': 'Sistemas de ponta a ponta para educação, gestão e inovação: do banco de dados ao deploy',
+    'services.subtitle': 'O que posso construir para você ou para sua empresa, do banco de dados ao deploy',
     'services.mobile': {
       title: 'Desenvolvimento Mobile',
       description: 'Criação de aplicativos móveis modernos utilizando Flutter/Dart, como ERPs mobile com API própria e assistentes de IA com voz, com foco em experiência do usuário e performance.',
@@ -61,13 +61,13 @@ const translations: Record<Language, Translations> = {
       ]
     },
     'services.education': {
-      title: 'Sistemas Educacionais',
-      description: 'Desenvolvimento de soluções tecnológicas para educação na Globaltec Educacional, combinando software e hardware para criar experiências de aprendizado inovadoras.',
+      title: 'Plataformas Educacionais',
+      description: 'Apps e sistemas para escolas e instituições de ensino, criados na Globaltec Educacional, unindo software, conteúdo interativo e hardware.',
       features: [
-        'Plataformas de gestão educacional',
-        'Sistemas de biblioteca digital',
-        'Conteúdo interativo e multimídia',
-        'Integração com dispositivos IoT'
+        'Bibliotecas digitais e livros interativos (LudiTeca, Alexandria)',
+        'Gestão escolar e apoio ao professor (Galileu, ByClass)',
+        'Jogos educativos (ByGames)',
+        'Experimentos com sensores (ByQuímica)'
       ]
     },
     'services.iot': {
@@ -100,14 +100,14 @@ const translations: Record<Language, Translations> = {
         'Otimização de fluxos de trabalho'
       ]
     },
-    'services.support': {
-      title: 'Suporte Técnico Especializado',
-      description: 'Serviços de suporte técnico, manutenção, diagnóstico e infraestrutura (VMs, VPS, Docker, Caddy e Nginx), garantindo o funcionamento adequado dos sistemas.',
+    'services.infra': {
+      title: 'Infraestrutura e Deploy',
+      description: 'Coloco o sistema no ar e mantenho funcionando: servidores, containers, proxy reverso, backups e atualizações.',
       features: [
-        'Manutenção de hardware',
-        'Diagnóstico de sistemas',
-        'Resolução de problemas técnicos',
-        'Documentação e treinamento'
+        'VPS Linux e máquinas virtuais',
+        'Docker e Docker Compose',
+        'Caddy e Nginx com HTTPS',
+        'Scripts de deploy, backup e restauração'
       ]
     },
 
@@ -146,24 +146,12 @@ const translations: Record<Language, Translations> = {
       description: 'Flutter/Dart para apps multiplataforma, como ERP mobile e assistente de IA com voz'
     },
     'about.skills.embedded': {
-      title: 'Sistemas Embarcados',
-      description: 'Firmware em C++ com ESP32, sensores e automação de laboratórios'
+      title: 'IoT e Sistemas Embarcados',
+      description: 'Firmware em C++ com ESP32 e Arduino, sensores e automação de laboratórios'
     },
     'about.skills.web': {
       title: 'Desenvolvimento Web',
       description: 'NestJS, Prisma e PostgreSQL no backend; React e Next.js no frontend'
-    },
-    'about.skills.integration': {
-      title: 'Integração de Sistemas',
-      description: 'SSO com JWT RS256/JWKS, tempo real via SSE, IoT e plataformas educacionais'
-    },
-    'about.skills.debugging': {
-      title: 'Depuração e Testes',
-      description: 'Code review, identificação e correção de bugs em software e hardware'
-    },
-    'about.skills.hardware': {
-      title: 'Manutenção de Hardware',
-      description: 'Montagem e diagnóstico de componentes, VMs, VPS e Docker'
     },
     'about.skills.backend': {
       title: 'Desenvolvimento Backend',
@@ -181,7 +169,7 @@ const translations: Record<Language, Translations> = {
       title: 'Liderança e Metodologias Ágeis',
       description: 'Liderança das equipes de aplicações, arquitetura, code review e sprints com Kanban'
     },
-    'about.stack.title': 'Tecnologias e Ferramentas',
+    'about.stack.title': 'Linguagens e Tecnologias',
     'about.languages.title': 'Idiomas',
     'about.languages.list': ['Português: nativo', 'Inglês: avançado', 'Espanhol: básico'],
     'about.softSkills.title': 'Habilidades interpessoais',
@@ -200,12 +188,12 @@ const translations: Record<Language, Translations> = {
     ],
     'about.stack.subtitle': 'Ferramentas que uso no dia a dia, do banco de dados ao deploy',
     'about.stack.groups': [
-      { title: 'Backend e dados', items: ['NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger', 'Meilisearch'] },
+      { title: 'Linguagens', items: ['TypeScript', 'JavaScript', 'Dart', 'Python', 'Java', 'Kotlin', 'C++', 'SQL'] },
+      { title: 'Backend e banco de dados', items: ['NestJS', 'Node.js', 'Prisma', 'PostgreSQL', 'Meilisearch'] },
       { title: 'Frontend', items: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod'] },
-      { title: 'Mobile e linguagens', items: ['Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++'] },
-      { title: 'Autenticação e tempo real', items: ['JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'APIs REST'] },
+      { title: 'Mobile e IoT', items: ['Flutter', 'ESP32', 'Arduino'] },
       { title: 'Infraestrutura e deploy', items: ['Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS'] },
-      { title: 'IoT e ferramentas', items: ['ESP32', 'Arduino', 'IoT', 'Git', 'GitHub'] }
+      { title: 'APIs e ferramentas', items: ['APIs REST', 'Swagger', 'JWT', 'OAuth', 'SSE', 'Git', 'GitHub'] }
     ],
     'experience.title': 'Trajetória',
     'experience.subtitle': 'Experiência profissional e formação',
@@ -253,7 +241,7 @@ const translations: Record<Language, Translations> = {
 
     // Services Section
     'services.title': 'Services',
-    'services.subtitle': 'End-to-end systems for education, management, and innovation: from database to deploy',
+    'services.subtitle': 'What I can build for you or your company, from database to deploy',
     'services.mobile': {
       title: 'Mobile Development',
       description: 'Creation of modern mobile applications using Flutter/Dart, such as mobile ERPs with their own API and voice-enabled AI assistants, focusing on user experience and performance.',
@@ -265,13 +253,13 @@ const translations: Record<Language, Translations> = {
       ]
     },
     'services.education': {
-      title: 'Educational Systems',
-      description: 'Development of technological solutions for education at Globaltec Educacional, combining software and hardware to create innovative learning experiences.',
+      title: 'Educational Platforms',
+      description: 'Apps and systems for schools and educational institutions, built at Globaltec Educacional, combining software, interactive content, and hardware.',
       features: [
-        'Educational management platforms',
-        'Digital library systems',
-        'Interactive and multimedia content',
-        'IoT device integration'
+        'Digital libraries and interactive books (LudiTeca, Alexandria)',
+        'School management and teacher support (Galileu, ByClass)',
+        'Educational games (ByGames)',
+        'Sensor-based experiments (ByQuímica)'
       ]
     },
     'services.iot': {
@@ -304,14 +292,14 @@ const translations: Record<Language, Translations> = {
         'Workflow optimization'
       ]
     },
-    'services.support': {
-      title: 'Specialized Technical Support',
-      description: 'Technical support, maintenance, diagnostics, and infrastructure (VMs, VPS, Docker, Caddy, and Nginx), ensuring proper system operation.',
+    'services.infra': {
+      title: 'Infrastructure and Deploy',
+      description: 'I ship the system and keep it running: servers, containers, reverse proxy, backups, and updates.',
       features: [
-        'Hardware maintenance',
-        'System diagnostics',
-        'Technical problem resolution',
-        'Documentation and training'
+        'Linux VPS and virtual machines',
+        'Docker and Docker Compose',
+        'Caddy and Nginx with HTTPS',
+        'Deploy, backup, and restore scripts'
       ]
     },
 
@@ -350,24 +338,12 @@ const translations: Record<Language, Translations> = {
       description: 'Flutter/Dart for cross-platform apps, such as a mobile ERP and a voice AI assistant'
     },
     'about.skills.embedded': {
-      title: 'Embedded Systems',
-      description: 'C++ firmware with ESP32, sensors, and lab automation'
+      title: 'IoT and Embedded Systems',
+      description: 'C++ firmware with ESP32 and Arduino, sensors, and lab automation'
     },
     'about.skills.web': {
       title: 'Web Development',
       description: 'NestJS, Prisma, and PostgreSQL on the backend; React and Next.js on the frontend'
-    },
-    'about.skills.integration': {
-      title: 'System Integration',
-      description: 'SSO with JWT RS256/JWKS, real time via SSE, IoT, and educational platforms'
-    },
-    'about.skills.debugging': {
-      title: 'Debugging and Testing',
-      description: 'Code review, identifying and fixing bugs in software and hardware'
-    },
-    'about.skills.hardware': {
-      title: 'Hardware Maintenance',
-      description: 'Assembly and component diagnostics, VMs, VPS, and Docker'
     },
     'about.skills.backend': {
       title: 'Backend Development',
@@ -385,7 +361,7 @@ const translations: Record<Language, Translations> = {
       title: 'Leadership and Agile',
       description: 'Leading the applications teams: architecture, code review, and Kanban sprints'
     },
-    'about.stack.title': 'Technologies and Tools',
+    'about.stack.title': 'Languages and Technologies',
     'about.languages.title': 'Languages',
     'about.languages.list': ['Portuguese: native', 'English: advanced', 'Spanish: basic'],
     'about.softSkills.title': 'Soft skills',
@@ -404,12 +380,12 @@ const translations: Record<Language, Translations> = {
     ],
     'about.stack.subtitle': 'Tools I use every day, from database to deploy',
     'about.stack.groups': [
-      { title: 'Backend and data', items: ['NestJS', 'Node.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'SQL', 'Swagger', 'Meilisearch'] },
+      { title: 'Languages', items: ['TypeScript', 'JavaScript', 'Dart', 'Python', 'Java', 'Kotlin', 'C++', 'SQL'] },
+      { title: 'Backend and databases', items: ['NestJS', 'Node.js', 'Prisma', 'PostgreSQL', 'Meilisearch'] },
       { title: 'Frontend', items: ['React', 'Next.js', 'Vite', 'Tailwind CSS', 'TanStack Query', 'Zustand', 'Zod'] },
-      { title: 'Mobile and languages', items: ['Dart', 'Flutter', 'Python', 'Java', 'Kotlin', 'C++'] },
-      { title: 'Authentication and real time', items: ['JWT', 'OAuth', 'SSO / JWKS', 'SSE', 'REST APIs'] },
+      { title: 'Mobile and IoT', items: ['Flutter', 'ESP32', 'Arduino'] },
       { title: 'Infrastructure and deploy', items: ['Docker', 'Docker Compose', 'Caddy', 'Nginx', 'Linux / VPS'] },
-      { title: 'IoT and tools', items: ['ESP32', 'Arduino', 'IoT', 'Git', 'GitHub'] }
+      { title: 'APIs and tools', items: ['REST APIs', 'Swagger', 'JWT', 'OAuth', 'SSE', 'Git', 'GitHub'] }
     ],
     'experience.title': 'Experience',
     'experience.subtitle': 'Professional experience and education',

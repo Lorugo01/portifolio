@@ -41,7 +41,7 @@ const projects: Project[] = [
       pt: "Ficha digital de D&D 5e com mesas em tempo real, usada por mais de 800 jogadores na web e no app.",
       en: "D&D 5e digital character sheet with real-time tables, used by more than 800 players on web and mobile."
     },
-    image: "/images/maxrpg-icon.png",
+    image: "/images/maxrpg-icon.webp",
     link: "https://maxrpg.io",
     privateCode: true,
     tags: {
@@ -109,7 +109,7 @@ const projects: Project[] = [
       pt: "Plataforma de orçamento de obras com base SINAPI, árvore de etapas, busca com filtros e versionamento.",
       en: "Construction budgeting platform based on SINAPI, with a stage tree, filtered search, and versioning."
     },
-    image: "/images/orcaeng.jpg",
+    image: "/images/orcaeng.webp",
     imageFit: "cover",
     link: "https://github.com/Lorugo01/ERP-eng",
     tags: {
@@ -173,7 +173,7 @@ const projects: Project[] = [
       pt: "SaaS para clínicas odontológicas com cadastro de pacientes, agenda e odontograma interativo.",
       en: "SaaS for dental clinics with patient records, scheduling, and an interactive dental chart."
     },
-    image: "/images/odonto.jpg",
+    image: "/images/odonto.webp",
     imageFit: "cover",
     link: "https://github.com/Lorugo01/odonto",
     tags: {
@@ -231,7 +231,7 @@ const projects: Project[] = [
       pt: "Portfólio de transferência tecnológica com 351 tecnologias em 19 áreas, integrado ao ERP Globaltec.",
       en: "Technology transfer portfolio with 351 technologies across 19 areas, integrated with the Globaltec ERP."
     },
-    image: "/images/globaltecone-logo.png",
+    image: "/images/globaltecone-logo.webp",
     link: "https://globaltecone.tech",
     privateCode: true,
     tags: {
@@ -281,7 +281,7 @@ const projects: Project[] = [
       pt: "Sistema de gerenciamento de biblioteca de livros interativos com painel de controle e para a criação dos livros.",
       en: "Interactive book library management system with control panel and book creation."
     },
-    image: "/images/UniverTeca.png",
+    image: "/images/UniverTeca.webp",
     tags: {
       pt: ["React", "Node.js", "Supabase", "Flutter"],
       en: ["React", "Node.js", "Supabase", "Flutter"]
@@ -343,7 +343,7 @@ const projects: Project[] = [
       pt: "Rede social educacional que conecta professores e alunos, permitindo compartilhamento de conteúdo, discussões e gerenciamento de atividades acadêmicas.",
       en: "Educational social network that connects teachers and students, allowing content sharing, discussions, and management of academic activities."
     },
-    image: "/images/icone.png",
+    image: "/images/icone.webp",
     tags: {
       pt: ["Flutter", "PHP", "Mysql"],
       en: ["Flutter", "PHP", "Mysql"]
@@ -421,7 +421,7 @@ const projects: Project[] = [
       pt: "Plataforma educacional para ensino de química com experimentos virtuais e exercícios interativos.",
       en: "Educational platform for chemistry teaching with virtual experiments and interactive exercises."
     },
-    image: "/images/Icone Byquimica.PNG",
+    image: "/images/Icone-Byquimica.webp",
     tags: {
       pt: ["Flutter", "INO" , "Arduino"],
       en: ["Flutter", "INO" , "Arduino"]
@@ -479,7 +479,7 @@ const projects: Project[] = [
       pt: "Biblioteca digital com acervo focado em educação.",
       en: "Digital library with focus on education."
     },
-    image: "/images/Alexandria Icone.png",
+    image: "/images/Alexandria-Icone.webp",
     tags: {
       pt: ["Flutter", "Dart", "PHP", "Mysql"],
       en: ["Flutter", "Dart", "PHP", "Mysql"]
@@ -551,7 +551,7 @@ const projects: Project[] = [
       pt: "Site de gerencimanto de jogos educativos para crianças de todas as idades com sistema de administração e gerenciamento de jogos e usuarios.",
       en: "Educational games management site for children of all ages with administration and management system."
     },
-    image: "/images/Global-Game-Maker-LOGO.png",
+    image: "/images/Global-Game-Maker-LOGO.webp",
     tags: {
       pt: ["flutter", "Dart", "Php", "Mysql"],
       en: ["flutter", "Dart", "Php", "Mysql"]
@@ -623,7 +623,7 @@ const projects: Project[] = [
       pt: "Sistema de gestão educacional voltado ao apoio pedagógico de professores, com funcionalidades para organização de conteúdos, acompanhamento de turmas e administração de informações acadêmicas.",
       en: "Educational management system focused on teacher pedagogical support, with functionalities for content organization, class monitoring, and academic information management."
     },
-    image: "/images/Galileu Logo.png",
+    image: "/images/Galileu-Logo.webp",
     tags: {
       pt: ["Flutter", "Dart", "PHP", "MySQL"],
       en: ["Flutter", "Dart", "PHP", "MySQL"]
@@ -849,6 +849,7 @@ export const ProjectsSection = () => {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-3xl font-bold mb-12 text-center"
         >
@@ -868,22 +869,22 @@ export const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
-              key={project.title[language]}
-              initial={{ opacity: 0, y: 20 }}
+              key={project.title.pt}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35, delay: (index % 3) * 0.06 }}
               whileHover={{ scale: 1.02 }}
               className="group flex flex-col bg-card/60 rounded-2xl overflow-hidden border border-white/10 hover:border-primary/40 hover:shadow-[0_20px_60px_-25px_hsl(var(--primary)/0.5)] transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedProject(project)}
             >
               <div className="aspect-video relative overflow-hidden flex items-center justify-center bg-background/80 bg-[radial-gradient(circle_at_50%_40%,hsl(var(--primary)/0.18),transparent_70%)] border-b border-white/10">
-                <motion.img
+                <img
                   src={project.image}
                   alt={project.title[language]}
-                  className={project.imageFit === "cover" ? "absolute inset-0 h-full w-full object-cover" : "object-contain h-[72%] w-[72%] rounded-xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.45)]"}
-                  initial={{ scale: 1.05 }}
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.3 }}
+                  loading="lazy"
+                  decoding="async"
+                  className={`transition-transform duration-300 group-hover:scale-105 ${project.imageFit === "cover" ? "absolute inset-0 h-full w-full object-cover" : "object-contain h-[72%] w-[72%] rounded-xl drop-shadow-[0_10px_25px_rgba(0,0,0,0.45)]"}`}
                 />
               </div>
 

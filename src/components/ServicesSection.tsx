@@ -8,11 +8,11 @@ type Service = { title: string; description: string; features: string[] };
 
 const SERVICES: { key: string; logos: string[] }[] = [
   { key: "services.web", logos: ["NestJS", "React", "PostgreSQL"] },
-  { key: "services.automation", logos: ["NestJS", "Prisma", "PostgreSQL"] },
+  { key: "services.automation", logos: ["Prisma", "PostgreSQL", "React"] },
   { key: "services.mobile", logos: ["Flutter", "Dart"] },
   { key: "services.education", logos: ["Flutter", "React", "ESP32"] },
   { key: "services.iot", logos: ["ESP32", "Arduino", "C++"] },
-  { key: "services.support", logos: ["Linux / VPS", "Docker", "Nginx"] },
+  { key: "services.infra", logos: ["Docker", "Caddy", "Nginx", "Linux / VPS"] },
 ];
 
 export const ServicesSection = () => {
